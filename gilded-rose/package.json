@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "nyc mocha"
+    "test": "nyc --reporter=html --reporter=text mocha"
   },
   "author": "Codium",
   "license": "ISC",
