@@ -1,17 +1,18 @@
 {
-  "name": "drink-maker",
+  "name": "gilded-rose",
   "version": "1.0.0",
-  "description": "Drink maker",
+  "description": "Gilded rose kata",
   "main": " ",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "nyc mocha"
   },
-  "author": "Luis Rovirosa",
+  "author": "Codium",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^5.0.0"
+    "mocha": "^5.0.0",
+    "nyc": "^13.1.0"
   }
 }
