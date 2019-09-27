@@ -1,5 +1,5 @@
 # Installation
-1. Download the code using GIT or with the [downloading the zip](https://github.com/luisrovirosa/katas-php/archive/master.zip) link
+1. Download the code using GIT or with the [downloading the zip](https://github.com/CodiumTeam/tdd-training-js/archive/master.zip) link
 - Go into the folder of the kata you want to practice. Eg: cd fizz-buzz
 - Install the dependencies
 	- `npm install`
