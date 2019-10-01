@@ -1,7 +1,7 @@
 {
-  "name": "drink-maker",
+  "name": "coffee-machine",
   "version": "1.0.0",
-  "description": "Drink maker",
+  "description": "Kata to create your coffee machine",
   "main": " ",
   "directories": {
     "test": "test"
@@ -9,10 +9,10 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
-  "author": "Luis Rovirosa",
+  "author": "Codium",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^5.0.0",
-    "sinon": "^7.2.2"
+    "mocha": "^6.2.0",
+    "sinon": "^7.5.0"
   }
 }
