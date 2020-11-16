@@ -8,9 +8,13 @@ So now your maths teacher is pointing at all of your classmates in turn, and the
 So of course in order to avoid embarrassment in front of your whole class, you have to get the full list printed out so you know what to say. Your class has about 33 pupils and he might go round three times before the bell rings for break time. Next maths lesson is on Thursday. Get coding!
 
 # Goal
-Write a program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz?".
+- Write a program that returns the numbers from 1 to 100
+- But for multiples of three returns "Fizz" instead of the number
+- For the multiples of five returns "Buzz"
+- For the multiples of fifteen returns "FizzBuzz"
 
-#Sample output
+
+# Sample output
 
 	1
 	2
@@ -39,7 +43,7 @@ Write a program that prints the numbers from 1 to 100. But for multiples of thre
 ---
 
 
-# New requirements
+# After the pause... New requirements
 
  - A number is Fizz if it has a 3 in it
  - A number is Buzz if it has a 5 in it
