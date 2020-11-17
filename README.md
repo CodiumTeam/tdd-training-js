@@ -9,8 +9,6 @@
 # Katas
 ## Fizz Buzz
 Good kata to start doing TDD
-## Gilded Rose
-Refactoring kata
 ## Password validator
 Easy kata to practice some test smells.
 ## Print date
