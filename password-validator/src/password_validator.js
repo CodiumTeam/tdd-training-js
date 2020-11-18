@@ -4,4 +4,4 @@ class PasswordValidator {
   }
 }
 
-module.exports.PasswordValidator = PasswordValidator;
+module.exports = PasswordValidator;
