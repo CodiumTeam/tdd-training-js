@@ -33,6 +33,7 @@ function validateDocker() {
     if [ $? -ne 0 ]; then
       echo "Error"
       echo "Do you have internet connection?"
+      echo "You can try: docker pull codiumteam/tdd-training-js"
       exit 1
     else
       echo "Ok"
