@@ -1,18 +1,17 @@
 {
-  "name": "fizz-buzz",
-  "version": "1.0.0",
-  "description": "FizzBuzz",
-  "main": " ",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
-    "testOnWindowsUseThis": "node .\\node_modules\\mocha\\bin\\mocha"
-  },
-  "author": "Codium",
-  "license": "ISC",
-  "devDependencies": {
-    "mocha": "^6.2.0"
-  }
+    "name": "fizz-buzz",
+    "version": "1.0.0",
+    "description": "FizzBuzz",
+    "directories": {
+        "lib": "src",
+        "test": "test"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/jest --watch",
+        "test:win": "node .\\node_modules\\.bin\\jest --watch"
+    },
+    "author": "Codium",
+    "devDependencies": {
+        "jest": "^26.6.3"
+    }
 }
