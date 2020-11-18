@@ -2,4 +2,4 @@ class UserRegistration {
 
 }
 
-module.exports.UserRegistration = UserRegistration;
+module.exports = UserRegistration;
