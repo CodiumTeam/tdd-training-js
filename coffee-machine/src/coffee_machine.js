@@ -2,4 +2,4 @@ class CoffeeMachine {
 
 }
 
-module.exports.CoffeeMachine = CoffeeMachine;
+module.exports = CoffeeMachine;

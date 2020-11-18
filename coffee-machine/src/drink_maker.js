@@ -5,4 +5,4 @@ class DrinkMaker {
   }
 }
 
-module.exports.DrinkMaker = DrinkMaker;
+module.exports = DrinkMaker;
