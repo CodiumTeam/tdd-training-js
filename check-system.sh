@@ -23,7 +23,7 @@ function validateDocker() {
       echo "Error"
       echo "Are you sure that you have docker running?"
       echo "If you don't want to install docker, you can open tennis-refactoring-kata and run the tests using your IDE."
-      exit -1
+      exit 1
     else
       echo "Ok"
     fi
@@ -33,7 +33,7 @@ function validateDocker() {
     if [ $? -ne 0 ]; then
       echo "Error"
       echo "Do you have internet connection?"
-      exit -1
+      exit 1
     else
       echo "Ok"
     fi
@@ -43,7 +43,7 @@ function validateDocker() {
     if [ $? -ne 0 ]; then
       echo "Error"
       echo "Are you sure that you have permissions to mount your volumes?"
-      exit -1
+      exit 1
     else
       echo "Ok"
     fi
@@ -56,7 +56,7 @@ function validateMake() {
       echo "Error"
       echo "Do you have make installed?"
       echo "If you don't want to install make, you can run read how to run the tests opening the Makefile."
-      exit -1
+      exit 1
     else
       echo "Ok"
     fi
@@ -64,11 +64,11 @@ function validateMake() {
 
 validateDocker
 validateMake
-validateKata fizz-buzz "cd fizz-buzz" "make coverage"
-validateKata roman-numerals "cd roman-numerals" "make coverage"
-validateKata password-validator "cd password-validator" "make coverage"
-validateKata user-registration "cd user-registration" "make coverage"
-validateKata coffee-machine "cd coffee-machine" "make coverage"
+validateKata fizz-buzz "cd fizz-buzz" "make docker-coverage"
+validateKata roman-numerals "cd roman-numerals" "make docker-coverage"
+validateKata password-validator "cd password-validator" "make docker-coverage"
+validateKata user-registration "cd user-registration" "make docker-coverage"
+validateKata coffee-machine "cd coffee-machine" "make docker-coverage"
 
 if [ -z "$ERROR" ]; then
   echo "Congratulations! You are ready for the training!"
