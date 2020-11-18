@@ -1,17 +1,22 @@
 # Installation
 1. Download the code using GIT or with the [downloading the zip](https://github.com/CodiumTeam/tdd-training-js/archive/master.zip) link
 - Go into the folder of the kata you want to practice. Eg: cd fizz-buzz
-- Install the dependencies
-	- `npm install`
-- Execute the tests
-	- `npm test`
-
+- Without docker:
+  - Install the dependencies
+    	- `npm install`
+  - Execute the tests
+    	- Linux and Mac: `npm test`
+	    - Windows: `npm run test:win`
+- With docker
+    - make docker-test
 # Katas
 ## Fizz Buzz
-Good kata to start doing TDD
+Kata to start doing TDD
+## Roman numerals
+Kata to keep practicing TDD
 ## Password validator
-Easy kata to practice some test smells.
-## Print date
-Kata to start practicing with mocks and stubs.
+Kata to practice some test smells.
+## User registration
+Kata to start practising TDD with test doubles.
 ## Coffee Machine
-Good kata to practice outside-in TDD.
+Kata to practice outside-in TDD.

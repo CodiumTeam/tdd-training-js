@@ -7,7 +7,7 @@
         "test": "test"
     },
     "scripts": {
-        "test": "./node_modules/.bin/jest --watch",
+        "test": "./node_modules/.bin/jest --watchAll",
         "test:win": "node .\\node_modules\\.bin\\jest --watch"
     },
     "author": "Codium",
