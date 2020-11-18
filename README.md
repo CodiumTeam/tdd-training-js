@@ -3,12 +3,14 @@
 - Go into the folder of the kata you want to practice. Eg: cd fizz-buzz
 - Without docker:
   - Install the dependencies
-    	- `npm install`
+    `npm install`
   - Execute the tests
-    	- Linux and Mac: `npm test`
-	    - Windows: `npm run test:win`
+   	- Linux and Mac: `npm test`
+    - Windows: `npm run test:win`
 - With docker
-    - make docker-test
+
+    `make`
+
 # Katas
 ## Fizz Buzz
 Kata to start doing TDD

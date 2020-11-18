@@ -8,7 +8,9 @@
     },
     "scripts": {
         "test": "./node_modules/.bin/jest --watchAll",
-        "test:win": "node .\\node_modules\\.bin\\jest --watch"
+        "coverage": "./node_modules/.bin/jest --coverage",
+        "test:win": "node .\\node_modules\\.bin\\jest --watch",
+        "coverage:win": "node .\\node_modules\\.bin\\jest --coverage"
     },
     "author": "Codium",
     "devDependencies": {
