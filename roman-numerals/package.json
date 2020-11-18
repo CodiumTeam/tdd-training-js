@@ -1,0 +1,20 @@
+{
+  "name": "roman-numerals",
+  "version": "1.0.0",
+  "description": "Roman Numerals",
+  "main": " ",
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jest --watchAll",
+    "coverage": "./node_modules/.bin/jest --coverage",
+    "test:win": "node .\\node_modules\\.bin\\jest --watch",
+    "coverage:win": "node .\\node_modules\\.bin\\jest --coverage"
+  },
+  "author": "Codium",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
