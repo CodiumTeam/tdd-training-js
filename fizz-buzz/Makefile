@@ -1,4 +1,4 @@
-.PHONY: default test coverage docker-build docker-test docker-coverage
+.PHONY: default test coverage docker-test docker-coverage
 default: docker-test
 
 test:
@@ -7,9 +7,6 @@ test:
 coverage:
 	npm run coverage
 	@printf "To visualize the lines open the report at coverage/lcov-report/index.html\n"
-
-docker-build:
-	@docker build .. -t codiumteam/tdd-training-js
 
 docker-test:
 	docker run -it --rm -v ${PWD}:/opt/project -v /opt/project/node_modules codiumteam/tdd-training-js make test
