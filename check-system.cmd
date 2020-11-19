@@ -27,6 +27,16 @@ goto :eof
       echo "Ok"
     )
 
+    echo Downloading docker image...
+    docker pull codiumteam/tdd-training-js >NUL: 2>NUL:
+    IF ERRORLEVEL 1 (
+      echo Error
+      echo There is a problem downloading the docker image
+      goto :eof
+    ) else (
+      echo Ok
+    )
+
     echo Validating docker mount permissions...
     docker run --rm -v "%CD%":/kata -w /kata codiumteam/tdd-training-js ls >NUL: 2>NUL:
     IF ERRORLEVEL 1 (

@@ -28,6 +28,16 @@ function validateDocker() {
       echo "Ok"
     fi
 
+    echo -n "Downloading the docker image..."
+    (docker pull codiumteam/tdd-training-js) > /dev/null
+    if [ $? -ne 0 ]; then
+      echo "Error"
+      echo "There is a problem downloading the docker image"
+      exit 1
+    else
+      echo "Ok"
+    fi
+
     echo -n "Validating docker mount permissions..."
     (docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js ls) > /dev/null
     if [ $? -ne 0 ]; then
