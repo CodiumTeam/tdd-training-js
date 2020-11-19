@@ -10,7 +10,7 @@
          `make`
     - Option 2: With docker without make
 
-        `docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js make run test:watch`
+        `docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js make test-watch`
     - Option 3: Without docker:
         - Install the dependencies: `npm install`
         - Execute the tests: `npm run test:watch`
