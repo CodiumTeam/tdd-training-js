@@ -28,19 +28,8 @@ function validateDocker() {
       echo "Ok"
     fi
 
-    echo -n "Creating the docker image..."
-    (docker build . -t codiumteam/tdd-training-js) > /dev/null
-    if [ $? -ne 0 ]; then
-      echo "Error"
-      echo "Do you have internet connection?"
-      echo "You can try: docker pull codiumteam/tdd-training-js"
-      exit 1
-    else
-      echo "Ok"
-    fi
-
     echo -n "Validating docker mount permissions..."
-    (docker run --rm -v ${PWD}:/opt/project -w /opt/project codiumteam/tdd-training-js ls) > /dev/null
+    (docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js ls) > /dev/null
     if [ $? -ne 0 ]; then
       echo "Error"
       echo "Are you sure that you have permissions to mount your volumes?"
