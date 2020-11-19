@@ -8,10 +8,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jest --watchAll",
-    "coverage": "./node_modules/.bin/jest --coverage",
-    "test:win": "node .\\node_modules\\.bin\\jest --watch",
-    "coverage:win": "node .\\node_modules\\.bin\\jest --coverage"
+    "test": "npx jest",
+    "test:watch": "npx jest --watchAll",
+    "coverage": "npx jest --coverage"
   },
   "author": "Codium",
   "devDependencies": {

@@ -10,12 +10,10 @@
          `make`
     - Option 2: With docker without make
 
-        `docker run -it --rm -v ${PWD}:/opt/project -v /opt/project/node_modules codiumteam/tdd-training-js make test`
+        `docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js make run test:watch`
     - Option 3: Without docker:
         - Install the dependencies: `npm install`
-        - Execute the tests
-   	        - Linux / Mac: `npm test`
-            - Windows: `npm run test:win`
+        - Execute the tests: `npm run test:watch`
 5. Solve the kata.
 
 # Katas
@@ -29,3 +27,4 @@ Kata to practice some test smells.
 Kata to start practising TDD with test doubles.
 ## Coffee Machine
 Kata to practice outside-in TDD.
+

@@ -65,11 +65,11 @@ function validateMake() {
 
 validateDocker
 validateMake
-validateKata fizz-buzz "cd fizz-buzz" "make docker-coverage"
-validateKata roman-numerals "cd roman-numerals" "make docker-coverage"
-validateKata password-validator "cd password-validator" "make docker-coverage"
-validateKata user-registration "cd user-registration" "make docker-coverage"
-validateKata coffee-machine "cd coffee-machine" "make docker-coverage"
+validateKata fizz-buzz "cd fizz-buzz" "make docker-test"
+validateKata roman-numerals "cd roman-numerals" "make docker-test"
+validateKata password-validator "cd password-validator" "make docker-test"
+validateKata user-registration "cd user-registration" "make docker-test"
+validateKata coffee-machine "cd coffee-machine" "make docker-test"
 
 if [ -z "$ERROR" ]; then
   echo "Congratulations! You are ready for the training!"
