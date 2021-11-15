@@ -23,4 +23,11 @@ describe('FizzBuzz', () => {
 
     expect(values[1]).toBe(2);
   });
+  it('returns the number 4', () => {
+    let fizzBuzz = new FizzBuzz();
+
+    let values = fizzBuzz.getValues();
+
+    expect(values[3]).toBe(4);
+  });
 });
