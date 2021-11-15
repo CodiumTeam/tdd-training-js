@@ -1,10 +1,11 @@
 const FizzBuzz = require('../src/fizz_buzz');
 
 describe('FizzBuzz', () => {
-  it('change_this_name', () => {
+  it('returns 100 elements', () => {
+    let fizzBuzz = new FizzBuzz();
 
-    new FizzBuzz();
+    let values = fizzBuzz.getValues();
 
-    expect(true).toBe(true);
+    expect(values.length).toBe(100);
   });
 });
