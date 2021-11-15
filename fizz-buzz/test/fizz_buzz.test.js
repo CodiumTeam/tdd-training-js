@@ -16,4 +16,11 @@ describe('FizzBuzz', () => {
 
     expect(values[0]).toBe(1);
   });
+  it('returns the number 2', () => {
+    let fizzBuzz = new FizzBuzz();
+
+    let values = fizzBuzz.getValues();
+
+    expect(values[1]).toBe(2);
+  });
 });
