@@ -3,7 +3,7 @@ class FizzBuzz {
     getValues() {
         let values = [];
         for (let i = 0; i < 100; i++) {
-            values.push(null);
+            values.push(1);
         }
         return values;
     }
