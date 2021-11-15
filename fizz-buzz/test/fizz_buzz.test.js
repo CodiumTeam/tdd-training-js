@@ -18,4 +18,15 @@ describe('FizzBuzz', () => {
     expect(values[1]).toBe(2);
     expect(values[3]).toBe(4);
   });
+
+  it('returns fizz when is multiple of 3', () => {
+    let fizzBuzz = new FizzBuzz();
+
+    let values = fizzBuzz.getValues();
+
+    expect(values[2]).toBe('Fizz');
+    expect(values[5]).toBe('Fizz');
+    expect(values[8]).toBe('Fizz');
+  });
+
 });
