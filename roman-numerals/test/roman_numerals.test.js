@@ -5,6 +5,7 @@ describe('Roman Numerals', () => {
       [1, 'I'],
       [2, 'II'],
       [3, 'III'],
+      [5, 'V'],
   ])('translate roman numerals (%s)', (decimal, romanNumber) => {
     let converter = new RomanNumerals();
 
