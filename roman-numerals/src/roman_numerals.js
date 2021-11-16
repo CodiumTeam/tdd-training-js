@@ -1,6 +1,6 @@
 class RomanNumerals {
-  changeThisName() {
-    return true;
+  toRoman(decimal) {
+    return 'I';
   }
 }
 
