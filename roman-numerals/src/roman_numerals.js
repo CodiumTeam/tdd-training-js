@@ -1,6 +1,12 @@
 class RomanNumerals {
   toRoman(decimal) {
-    return 'I';
+    if (decimal === 1) {
+      return 'I';
+    } else if (decimal ===2){
+      return 'II';
+    } else if (decimal === 3) {
+      return 'III';
+    }
   }
 }
 
