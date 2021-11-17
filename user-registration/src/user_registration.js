@@ -15,12 +15,16 @@ class UserRegistration {
         if (this.invalidPassword(password)) {
             return;
         }
-        if (this.userDatabase.findByEmail(email)) {
+        if (this.userAlreadyExists(email)) {
             return;
         }
         let id = this.userIdGenerator.generateId();
         this.userDatabase.save(new User(id, email, password));
         this.emailSender.sendConfirmationEmail(email);
+    }
+
+    userAlreadyExists(email) {
+        return this.userDatabase.findByEmail(email);
     }
 
     invalidPassword(password) {
