@@ -36,7 +36,6 @@ test('add new todo into the list when pressing <enter>', () => {
   expect(items[2]).toHaveTextContent("my new todo");
 });
 
-
 test('once the element has been added to the list, input text should be empty.', () => {
   render(<App />);
 
@@ -44,4 +43,25 @@ test('once the element has been added to the list, input text should be empty.',
 
   const input = screen.getByRole('textbox');
   expect(input.value).toBe("");
+});
+
+test('add css style class when completing a TODO item', () => {
+  render(<App />);
+
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+
+  const todoItems = screen.getAllByRole('listitem');
+  const firstItem = todoItems[0];
+  expect(firstItem).toHaveClass("completed");
+});
+
+test('removes css style class when toggling a completed TODO item', () => {
+  render(<App />);
+
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+
+  const todoItems = screen.getAllByRole('listitem');
+  const firstItem = todoItems[0];
+  expect(firstItem).not.toHaveClass("completed");
 });

@@ -3,7 +3,10 @@ import { useState } from 'react';
 function App() {
   function handleOnKeyPress(event) {
     if (event.key === 'Enter') {
-      const newItem = event.target.value;
+      const newItem = {
+        title: event.target.value,
+        checked: false
+      };
       setItems([...items, newItem]);
       setInputText('');
     }
@@ -13,7 +16,24 @@ function App() {
     setInputText(event.target.value);
   }
 
-  const [items, setItems] = useState([]);
+  function handleOnCheckboxChange(index, checkboxState) {
+    const item = items[index];
+    const updatedItem = {...item, checked: checkboxState}
+    const newListItems = [...items];
+    newListItems[index] = updatedItem;
+    setItems(newListItems)
+  }
+
+  const firstDefaultItem = {
+    title: 'Learn TDD',
+    checked: false
+  }
+  const secondDefaultItem = {
+    title: 'Start writing a test',
+    checked: false
+  }
+  const defaultItems = [firstDefaultItem, secondDefaultItem];
+  const [items, setItems] = useState(defaultItems);
   const [inputText, setInputText] = useState("");
 
   return (
@@ -29,19 +49,13 @@ function App() {
         onChange={handleOnChange}
       />
       <ul className="todo-list">
-        <li>
-          <input type="checkbox" />
-          <p>Learn TDD</p>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <p>Start writing a test</p>
-        </li>
         {items.map((item, index) => {
           return (
-            <li key={index}>
-              <input type="checkbox" />
-              <p>{item}</p>
+            <li key={index} className={item.checked ? 'completed' : ''}>
+              <input type="checkbox" onChange={(event) => {
+                handleOnCheckboxChange(index, event.target.checked);
+              }}/>
+              <p>{item.title}</p>
             </li>
           );
         })}

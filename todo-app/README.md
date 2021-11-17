@@ -10,14 +10,17 @@ To develop the App we will use the Double loop technique:
 
 To simplify the exercise, Cypress tests are provided.
 
+
 ## Initial setup
     npm install
     npm start  (or yarn start)
+
 
 ## To execute Cypress E2E tests
     npm run cypress:open
 
 Click on todo.spec.js file. This will open a browser and execute the tests.
+
 
 ## To execute React Unit tests
 Execute them inside your IDE or running:
@@ -46,4 +49,4 @@ Once the element has been added to the list, input text should be empty.
 
 ## Iteration 3: Can check and uncheck a TODO item
 We repeat the process of the previous iterations again: execute all Cypress tests.
-When a TODO item is checked then  
+You should implement now the behaviour: when click on a checkbox a css style is added the item (and removed if clicked again).
