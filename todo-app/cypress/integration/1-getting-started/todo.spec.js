@@ -17,7 +17,8 @@ describe('example to-do app', () => {
     // so we must tell it to visit our website with the `cy.visit()` command.
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
-    cy.visit('https://example.cypress.io/todo')
+    //cy.visit('https://example.cypress.io/todo')
+    cy.visit('http://localhost:3000/todo')
   })
 
   it('displays two todo items by default', () => {
@@ -34,7 +35,7 @@ describe('example to-do app', () => {
     cy.get('.todo-list li').last().should('have.text', 'Walk the dog')
   })
 
-  it('can add new todo items', () => {
+  it.skip('can add new todo items', () => {
     // We'll store our item text in a variable so we can reuse it
     const newItem = 'Feed the cat'
 
@@ -57,7 +58,7 @@ describe('example to-do app', () => {
       .should('have.text', newItem)
   })
 
-  it('can check off an item as completed', () => {
+  it.skip('can check off an item as completed', () => {
     // In addition to using the `get` command to get an element by selector,
     // we can also use the `contains` command to get an element by its contents.
     // However, this will yield the <label>, which is lowest-level element that contains the text.
@@ -91,7 +92,7 @@ describe('example to-do app', () => {
         .check()
     })
 
-    it('can filter for uncompleted tasks', () => {
+    it.skip('can filter for uncompleted tasks', () => {
       // We'll click on the "active" button in order to
       // display only incomplete items
       cy.contains('Active').click()
@@ -108,7 +109,7 @@ describe('example to-do app', () => {
       cy.contains('Pay electric bill').should('not.exist')
     })
 
-    it('can filter for completed tasks', () => {
+    it.skip('can filter for completed tasks', () => {
       // We can perform similar steps as the test above to ensure
       // that only completed tasks are shown
       cy.contains('Completed').click()
@@ -121,7 +122,7 @@ describe('example to-do app', () => {
       cy.contains('Walk the dog').should('not.exist')
     })
 
-    it('can delete all completed tasks', () => {
+    it.skip('can delete all completed tasks', () => {
       // First, let's click the "Clear completed" button
       // `contains` is actually serving two purposes here.
       // First, it's ensuring that the button exists within the dom.
