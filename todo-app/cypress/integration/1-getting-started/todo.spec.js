@@ -31,8 +31,8 @@ describe('example to-do app', () => {
     // the correct text. We use the `first` and `last` functions
     // to get just the first and last matched elements individually,
     // and then perform an assertion with `should`.
-    cy.get('.todo-list li').first().should('have.text', 'Pay electric bill')
-    cy.get('.todo-list li').last().should('have.text', 'Walk the dog')
+    cy.get('.todo-list li').first().should('have.text', 'Learn TDD')
+    cy.get('.todo-list li').last().should('have.text', 'Start writing a test')
   })
 
   it.skip('can add new todo items', () => {

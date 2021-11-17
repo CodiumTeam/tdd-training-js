@@ -8,7 +8,7 @@ function App() {
         <h1>TODO App</h1>
       </header>
       <input type="text" placeholder="What needs to be done?"/>
-      <ul>
+      <ul className="todo-list">
         <li>Learn TDD</li>
         <li>Start writing a test</li>
       </ul>
