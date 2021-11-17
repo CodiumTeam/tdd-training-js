@@ -6,7 +6,7 @@ describe('example to-do app', () => {
 
   it('displays two todo items by default', () => {
     cy.get('.todo-list li').should('have.length', 2)
-    
+
     cy.get('.todo-list li').first().should('have.text', 'Learn TDD')
     cy.get('.todo-list li').last().should('have.text', 'Start writing a test')
   })
@@ -22,13 +22,13 @@ describe('example to-do app', () => {
       .should('have.text', newItem)
   })
 
-  it.skip('can check off an item as completed', () => {
-    cy.contains('Pay electric bill')
+  it('can check off an item as completed', () => {
+    cy.contains('Learn TDD')
       .parent()
       .find('input[type=checkbox]')
       .check()
 
-    cy.contains('Pay electric bill')
+    cy.contains('Learn TDD')
       .parents('li')
       .should('have.class', 'completed')
   })
