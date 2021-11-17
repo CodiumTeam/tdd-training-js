@@ -12,13 +12,18 @@ class UserRegistration {
     }
 
     execute(email, password) {
-        if (this.invalidPassword(password)) {
-            throw new Error('Invalid password');
-        }
+        this.ensureValidPassword(password);
         this.ensureEmailIsNotUsed(email);
         let user = this.createUser(email, password);
         this.userDatabase.save(user);
         this.emailSender.sendConfirmationEmail(email);
+    }
+
+    ensureValidPassword(password) {
+        if (password.length <= 8
+            || !password.includes('_')) {
+            throw new Error('Invalid password');
+        }
     }
 
     ensureEmailIsNotUsed(email) {
@@ -30,10 +35,6 @@ class UserRegistration {
     createUser(email, password) {
         let id = this.userIdGenerator.generateId();
         return new User(id, email, password);
-    }
-    invalidPassword(password) {
-        return password.length <= 8
-            || !password.includes('_');
     }
 }
 
