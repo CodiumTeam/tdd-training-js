@@ -35,3 +35,13 @@ test('add new todo into the list when pressing <enter>', () => {
   expect(items).toHaveLength(3);
   expect(items[2]).toHaveTextContent("my new todo");
 });
+
+
+test('once the element has been added to the list, input text should be empty.', () => {
+  render(<App />);
+
+  userEvent.type(screen.getByRole('textbox'), 'my new todo{enter}')
+
+  const input = screen.getByRole('textbox');
+  expect(input.value).toBe("");
+});

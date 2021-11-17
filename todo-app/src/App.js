@@ -1,14 +1,20 @@
 import { useState } from 'react';
 
 function App() {
-  function handleChange(event) {
+  function handleOnKeyPress(event) {
     if (event.key === 'Enter') {
       const newItem = event.target.value;
       setItems([...items, newItem]);
+      setInputText('');
     }
   }
 
+  function handleOnChange(event) {
+    setInputText(event.target.value);
+  }
+
   const [items, setItems] = useState([]);
+  const [inputText, setInputText] = useState("");
 
   return (
     <div className="App">
@@ -18,7 +24,9 @@ function App() {
       <input
         type="text"
         placeholder="What needs to be done?"
-        onKeyPress={handleChange}
+        onKeyPress={handleOnKeyPress}
+        value={inputText}
+        onChange={handleOnChange}
       />
       <ul className="todo-list">
         <li>Learn TDD</li>
