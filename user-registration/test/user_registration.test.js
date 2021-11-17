@@ -4,6 +4,7 @@ const UserDatabase = require('../src/user_database');
 const User = require('../src/user');
 
 describe('UserRegistration', () => {
+  const VALID_PASSWORD = 'valid_password';
 
   let userIdGenerator;
   let userDatabase;
@@ -19,9 +20,9 @@ describe('UserRegistration', () => {
     userIdGenerator.generateId = jest.fn().mockReturnValue('anId');
     jest.spyOn(userDatabase, 'save').mockName('save');
 
-    userRegistration.execute('any@email.com', 'validPassword');
+    userRegistration.execute('any@email.com', VALID_PASSWORD);
 
-    let expectedUser = new User('anId', 'any@email.com', 'validPassword');
+    let expectedUser = new User('anId', 'any@email.com', VALID_PASSWORD);
     expect(userDatabase.save).toHaveBeenCalledWith(expectedUser);
   });
 
@@ -29,7 +30,7 @@ describe('UserRegistration', () => {
     userDatabase.findByEmail = jest.fn().mockReturnValue(true);
     jest.spyOn(userDatabase, 'save').mockName('save');
 
-    userRegistration.execute('any@email.com', 'validPassword');
+    userRegistration.execute('any@email.com', VALID_PASSWORD);
 
     expect(userDatabase.save).not.toHaveBeenCalled();
   });
