@@ -12,10 +12,10 @@ class UserRegistration {
     }
 
     execute(email, password) {
-        this.emailSender.sendConfirmationEmail(email);
         if (this.invalidPassword(password)) {
             return;
         }
+        this.emailSender.sendConfirmationEmail(email);
         if (this.userDatabase.findByEmail(email)) {
             return;
         }

@@ -30,7 +30,6 @@ describe('UserRegistration', () => {
     });
 
     it('sends the confirmation email', () => {
-        userIdGenerator.generateId = jest.fn().mockReturnValue('anId');
         jest.spyOn(emailSender, 'sendConfirmationEmail').mockName('sendConfirmationEmail');
 
         userRegistration.execute('any@email.com', VALID_PASSWORD);
@@ -64,6 +63,14 @@ describe('UserRegistration', () => {
             userRegistration.execute('any@email.com', passwordWithoutUnderscore);
 
             expect(userDatabase.save).not.toHaveBeenCalled();
+        });
+
+        it('should not send the confirmation email' , () => {
+            jest.spyOn(emailSender, 'sendConfirmationEmail').mockName('sendConfirmationEmail');
+
+            userRegistration.execute('any@email.com', 'invalidPassword');
+
+            expect(emailSender.sendConfirmationEmail).not.toHaveBeenCalled();
         });
     });
 });
