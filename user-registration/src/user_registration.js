@@ -13,7 +13,7 @@ class UserRegistration {
 
     execute(email, password) {
         if (this.invalidPassword(password)) {
-            return;
+            throw new Error('Invalid password');
         }
         this.ensureEmailIsNotUsed(email);
         let user = this.createUser(email, password);

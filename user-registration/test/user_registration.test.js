@@ -6,6 +6,7 @@ const EmailSender = require('../src/email_sender');
 
 describe('UserRegistration', () => {
     const VALID_PASSWORD = 'valid_password';
+    const INVALID_PASSWORD = 'xxx';
 
     let userIdGenerator;
     let userDatabase;
@@ -64,11 +65,15 @@ describe('UserRegistration', () => {
     });
 
     describe('with invalid passwords', () => {
+        it('should fail', () => {
+            expect(() => userRegistration.execute('any@email.com', INVALID_PASSWORD)).toThrow(Error('Invalid password'));
+        });
+
         it('cannot register a user with a password shorter than 9 characters', () => {
             jest.spyOn(userDatabase, 'save').mockName('save');
             let shortPassword = 'asdf_123';
 
-            userRegistration.execute('any@email.com', shortPassword);
+            expect(() => userRegistration.execute('any@email.com', shortPassword)).toThrow(Error);
 
             expect(userDatabase.save).not.toHaveBeenCalled();
         });
@@ -77,7 +82,7 @@ describe('UserRegistration', () => {
             jest.spyOn(userDatabase, 'save').mockName('save');
             let passwordWithoutUnderscore = 'asdf56789';
 
-            userRegistration.execute('any@email.com', passwordWithoutUnderscore);
+            expect(() => userRegistration.execute('any@email.com', passwordWithoutUnderscore)).toThrow(Error);
 
             expect(userDatabase.save).not.toHaveBeenCalled();
         });
@@ -85,7 +90,7 @@ describe('UserRegistration', () => {
         it('should not send the confirmation email' , () => {
             jest.spyOn(emailSender, 'sendConfirmationEmail').mockName('sendConfirmationEmail');
 
-            userRegistration.execute('any@email.com', 'invalidPassword');
+            expect(() => userRegistration.execute('any@email.com', 'invalidPassword')).toThrow(Error);
 
             expect(emailSender.sendConfirmationEmail).not.toHaveBeenCalled();
         });
