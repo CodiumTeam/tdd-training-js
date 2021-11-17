@@ -43,4 +43,13 @@ describe('UserRegistration', () => {
 
     expect(userDatabase.save).not.toHaveBeenCalled();
   });
+
+  it('cannot register a user with a password has not an underscore', () => {
+    jest.spyOn(userDatabase, 'save').mockName('save');
+    let passwordWithoutUnderscore = 'asdf56789';
+
+    userRegistration.execute('any@email.com', passwordWithoutUnderscore);
+
+    expect(userDatabase.save).not.toHaveBeenCalled();
+  });
 });
