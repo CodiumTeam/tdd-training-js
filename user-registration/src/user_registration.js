@@ -9,7 +9,7 @@ class UserRegistration {
   }
 
   execute(email, password) {
-    if (password.length <= 8 || !password.includes('_')) {
+    if (this.invalidPassword(password)) {
       return;
     }
     if (this.userDatabase.findByEmail(email)) {
@@ -17,6 +17,11 @@ class UserRegistration {
     }
     let id = this.userIdGenerator.generateId();
     this.userDatabase.save(new User(id, email, password));
+  }
+
+  invalidPassword(password) {
+    return password.length <= 8
+        || !password.includes('_');
   }
 }
 
