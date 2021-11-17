@@ -24,4 +24,13 @@ describe('UserRegistration', () => {
     let expectedUser = new User('anId', 'any@email.com', 'validPassword');
     expect(userDatabase.save).toHaveBeenCalledWith(expectedUser);
   });
+
+  it('cannot exist two users with the same email', () => {
+    userDatabase.findByEmail = jest.fn().mockReturnValue(true);
+    jest.spyOn(userDatabase, 'save').mockName('save');
+
+    userRegistration.execute('any@email.com', 'validPassword');
+
+    expect(userDatabase.save).not.toHaveBeenCalled();
+  });
 });
