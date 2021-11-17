@@ -16,7 +16,7 @@ class UserRegistration {
             return;
         }
         if (this.userAlreadyExists(email)) {
-            return;
+            throw new Error('User already exists');
         }
         let user = this.createUser(email, password);
         this.userDatabase.save(user);

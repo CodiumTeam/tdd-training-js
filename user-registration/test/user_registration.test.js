@@ -38,20 +38,26 @@ describe('UserRegistration', () => {
     });
 
     describe('when email already exists', function() {
+        it('should fail', () => {
+            userDatabase.findByEmail = jest.fn().mockReturnValue(true);
+
+            expect(() => userRegistration.execute('any@email.com', VALID_PASSWORD)).toThrow(Error('User already exists'));
+        });
+
         it('do not save the user', () => {
             userDatabase.findByEmail = jest.fn().mockReturnValue(true);
             jest.spyOn(userDatabase, 'save').mockName('save');
 
-            userRegistration.execute('any@email.com', VALID_PASSWORD);
+            expect(() => userRegistration.execute('any@email.com', VALID_PASSWORD)).toThrow(Error);
 
             expect(userDatabase.save).not.toHaveBeenCalled();
         });
 
-        it('should not send the confirmation email' , () => {
+        it('do not send the confirmation email' , () => {
             userDatabase.findByEmail = jest.fn().mockReturnValue(true);
             jest.spyOn(emailSender, 'sendConfirmationEmail').mockName('sendConfirmationEmail');
 
-            userRegistration.execute('any@email.com', VALID_PASSWORD);
+            expect(() => userRegistration.execute('any@email.com', VALID_PASSWORD)).toThrow(Error);
 
             expect(emailSender.sendConfirmationEmail).not.toHaveBeenCalled();
         });
