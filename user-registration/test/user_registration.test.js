@@ -37,13 +37,15 @@ describe('UserRegistration', () => {
         expect(emailSender.sendConfirmationEmail).toHaveBeenCalledWith('any@email.com');
     });
 
-    it('cannot exist two users with the same email', () => {
-        userDatabase.findByEmail = jest.fn().mockReturnValue(true);
-        jest.spyOn(userDatabase, 'save').mockName('save');
+    describe('when email already exists', function() {
+        it('do not save the user', () => {
+            userDatabase.findByEmail = jest.fn().mockReturnValue(true);
+            jest.spyOn(userDatabase, 'save').mockName('save');
 
-        userRegistration.execute('any@email.com', VALID_PASSWORD);
+            userRegistration.execute('any@email.com', VALID_PASSWORD);
 
-        expect(userDatabase.save).not.toHaveBeenCalled();
+            expect(userDatabase.save).not.toHaveBeenCalled();
+        });
     });
 
     describe('with invalid passwords', () => {
