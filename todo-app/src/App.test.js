@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import App from './App';
 
 test('displays TODO App title', () => {
@@ -23,4 +24,14 @@ test('displays a list with 2 items by default', () => {
   expect(items).toHaveLength(2);
   expect(items[0]).toHaveTextContent("Learn TDD");
   expect(items[1]).toHaveTextContent("Start writing a test");
+});
+
+test('add new todo into the list when pressing <enter>', () => {
+  render(<App />);
+
+  userEvent.type(screen.getByRole('textbox'), 'my new todo{enter}')
+
+  const items = screen.getAllByRole('listitem');
+  expect(items).toHaveLength(3);
+  expect(items[2]).toHaveTextContent("my new todo");
 });
