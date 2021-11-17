@@ -15,23 +15,22 @@ class UserRegistration {
         if (this.invalidPassword(password)) {
             return;
         }
-        if (this.userAlreadyExists(email)) {
-            throw new Error('User already exists');
-        }
+        this.ensureEmailIsNotUsed(email);
         let user = this.createUser(email, password);
         this.userDatabase.save(user);
         this.emailSender.sendConfirmationEmail(email);
+    }
+
+    ensureEmailIsNotUsed(email) {
+        if (this.userDatabase.findByEmail(email)) {
+            throw new Error('User already exists');
+        }
     }
 
     createUser(email, password) {
         let id = this.userIdGenerator.generateId();
         return new User(id, email, password);
     }
-
-    userAlreadyExists(email) {
-        return this.userDatabase.findByEmail(email);
-    }
-
     invalidPassword(password) {
         return password.length <= 8
             || !password.includes('_');
