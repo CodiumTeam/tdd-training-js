@@ -35,21 +35,23 @@ describe('UserRegistration', () => {
         expect(userDatabase.save).not.toHaveBeenCalled();
     });
 
-    it('cannot register a user with a password shorter than 9 characters', () => {
-        jest.spyOn(userDatabase, 'save').mockName('save');
-        let shortPassword = 'asdf_123';
+    describe('with invalid passwords', () => {
+        it('cannot register a user with a password shorter than 9 characters', () => {
+            jest.spyOn(userDatabase, 'save').mockName('save');
+            let shortPassword = 'asdf_123';
 
-        userRegistration.execute('any@email.com', shortPassword);
+            userRegistration.execute('any@email.com', shortPassword);
 
-        expect(userDatabase.save).not.toHaveBeenCalled();
-    });
+            expect(userDatabase.save).not.toHaveBeenCalled();
+        });
 
-    it('cannot register a user with a password has not an underscore', () => {
-        jest.spyOn(userDatabase, 'save').mockName('save');
-        let passwordWithoutUnderscore = 'asdf56789';
+        it('cannot register a user with a password has not an underscore', () => {
+            jest.spyOn(userDatabase, 'save').mockName('save');
+            let passwordWithoutUnderscore = 'asdf56789';
 
-        userRegistration.execute('any@email.com', passwordWithoutUnderscore);
+            userRegistration.execute('any@email.com', passwordWithoutUnderscore);
 
-        expect(userDatabase.save).not.toHaveBeenCalled();
+            expect(userDatabase.save).not.toHaveBeenCalled();
+        });
     });
 });
