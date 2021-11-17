@@ -9,6 +9,9 @@ class UserRegistration {
   }
 
   execute(email, password) {
+    if (password.length <= 8) {
+      return;
+    }
     if (this.userDatabase.findByEmail(email)) {
       return;
     }
