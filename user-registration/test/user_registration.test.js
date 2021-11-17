@@ -46,6 +46,15 @@ describe('UserRegistration', () => {
 
             expect(userDatabase.save).not.toHaveBeenCalled();
         });
+
+        it('should not send the confirmation email' , () => {
+            userDatabase.findByEmail = jest.fn().mockReturnValue(true);
+            jest.spyOn(emailSender, 'sendConfirmationEmail').mockName('sendConfirmationEmail');
+
+            userRegistration.execute('any@email.com', VALID_PASSWORD);
+
+            expect(emailSender.sendConfirmationEmail).not.toHaveBeenCalled();
+        });
     });
 
     describe('with invalid passwords', () => {
