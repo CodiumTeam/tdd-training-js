@@ -18,9 +18,14 @@ class UserRegistration {
         if (this.userAlreadyExists(email)) {
             return;
         }
-        let id = this.userIdGenerator.generateId();
-        this.userDatabase.save(new User(id, email, password));
+        let user = this.createUser(email, password);
+        this.userDatabase.save(user);
         this.emailSender.sendConfirmationEmail(email);
+    }
+
+    createUser(email, password) {
+        let id = this.userIdGenerator.generateId();
+        return new User(id, email, password);
     }
 
     userAlreadyExists(email) {
