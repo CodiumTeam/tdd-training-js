@@ -9,7 +9,7 @@ class UserRegistration {
   }
 
   execute(email, password) {
-    if (password.length <= 8) {
+    if (password.length <= 8 || !password.includes('_')) {
       return;
     }
     if (this.userDatabase.findByEmail(email)) {
