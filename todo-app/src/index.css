@@ -71,3 +71,7 @@ ul li p {
   display: inline-block;
   margin-left: 0.5rem;
 }
+
+.completed p {
+  text-decoration: line-through;
+}
