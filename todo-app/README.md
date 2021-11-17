@@ -2,7 +2,7 @@
 ## Goal
 The objective of this kata is to practice TDD in the front-end creating a React TODO application.
 
-<poner una imagen de lo que queremos crear aquí>
+![TODO APP](./imgs/todo-app.png)
 
 To develop the App we will use the Double loop technique:
 - First write an E2E test with Cypress.
@@ -31,10 +31,10 @@ Execute them inside your IDE or running:
 For this first iteration we will execute the Cypress tests.
 The execution will fail because the App is empty. We need to create the app applying TDD.
 
-The todo app should look like:
-<imagen!!!>
+For this exercise let's image the default TODO App looks like this:
+![Initial state of the TODO App](./imgs/todo-app_first-iteration.png)
 
-As you can see we should display: a title, an input and two todo items inside a list.
+As you can see we should display: a title, an input and two TODO items inside a list.
 
 At the end of this iteration, the first Cypress tests should pass.
 
