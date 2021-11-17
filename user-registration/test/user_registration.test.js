@@ -2,6 +2,7 @@ let UserRegistration = require('../src/user_registration');
 const UserIdGenerator = require('../src/user_id_generator');
 const UserDatabase = require('../src/user_database');
 const User = require('../src/user');
+const EmailSender = require('../src/email_sender');
 
 describe('UserRegistration', () => {
     const VALID_PASSWORD = 'valid_password';
@@ -9,11 +10,13 @@ describe('UserRegistration', () => {
     let userIdGenerator;
     let userDatabase;
     let userRegistration;
+    let emailSender;
 
     beforeEach(() => {
         userIdGenerator = new UserIdGenerator();
         userDatabase = new UserDatabase();
-        userRegistration = new UserRegistration(userDatabase, userIdGenerator);
+        emailSender = new EmailSender();
+        userRegistration = new UserRegistration(userDatabase, userIdGenerator, emailSender);
     });
 
     it('persist the user with the id', () => {
@@ -24,6 +27,15 @@ describe('UserRegistration', () => {
 
         let expectedUser = new User('anId', 'any@email.com', VALID_PASSWORD);
         expect(userDatabase.save).toHaveBeenCalledWith(expectedUser);
+    });
+
+    it('sends the confirmation email', () => {
+        userIdGenerator.generateId = jest.fn().mockReturnValue('anId');
+        jest.spyOn(emailSender, 'sendConfirmationEmail').mockName('sendConfirmationEmail');
+
+        userRegistration.execute('any@email.com', VALID_PASSWORD);
+
+        expect(emailSender.sendConfirmationEmail).toHaveBeenCalledWith('any@email.com');
     });
 
     it('cannot exist two users with the same email', () => {

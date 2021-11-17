@@ -3,13 +3,16 @@ const User = require('./user');
 class UserRegistration {
     userDatabase;
     userIdGenerator;
+    emailSender;
 
-    constructor(userDatabase, userIdGenerator) {
+    constructor(userDatabase, userIdGenerator, emailSender) {
+        this.emailSender = emailSender;
         this.userDatabase = userDatabase;
         this.userIdGenerator = userIdGenerator;
     }
 
     execute(email, password) {
+        this.emailSender.sendConfirmationEmail(email);
         if (this.invalidPassword(password)) {
             return;
         }
