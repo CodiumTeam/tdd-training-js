@@ -9,6 +9,9 @@ class UserRegistration {
   }
 
   execute(email, password) {
+    if (this.userDatabase.findByEmail(email)) {
+      return;
+    }
     let id = this.userIdGenerator.generateId();
     this.userDatabase.save(new User(id, email, password));
   }

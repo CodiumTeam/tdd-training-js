@@ -1,5 +1,9 @@
 class UserDatabase {
-    save () {};
+    save() {
+    };
+
+    findByEmail(email) {
+    }
 }
 
 module.exports = UserDatabase;
