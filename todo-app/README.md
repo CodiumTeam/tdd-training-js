@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# TODO App kata
+## Goal
+The objective of this kata is to practice TDD in the front-end creating a React TODO application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<poner una imagen de lo que queremos crear aquí>
 
-## Available Scripts
+To develop the App we will use the Double loop technique:
+- First write an E2E test with Cypress.
+- Then do TDD in the inner parts of the React app using react-testing library.
 
-In the project directory, you can run:
+To simplify the exercise, Cypress tests are provided.
 
-### `yarn start`
+## Initial setup
+    npm install
+    npm start  (or yarn start)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## To execute Cypress E2E tests
+    npm run cypress:open
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Click on todo.spec.js file. This will open a browser and execute the tests.
 
-### `yarn test`
+## To execute React Unit tests
+Execute them inside your IDE or running:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    npm test
 
-### `yarn build`
+## Iteration 1: Display TODO list with some default items
+For this first iteration we will execute the Cypress tests.
+The execution will fail because the App is empty. We need to create the app applying TDD.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The todo app should look like:
+<imagen!!!>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+As you can see we should display: a title, an input and two todo items inside a list.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+At the end of this iteration, the first Cypress tests should pass.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Iteration 2: Create a new TODO item
+Now you need to implement the logic to create a new TODO item and add it to the list. 
+The expected behaviour is as defined in the E2E test: "can add new todo items". 
+We will apply again the Double-loop technique: first execute the second E2E Cypress test. Check that it fails. Now do TDD until the E2E test is green.
+When the user types something in the input and presses "Enter" key then the new TODO item is added to the list. 
+Once the element has been added to the list, input text should be empty.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Iteration 3: Can check and uncheck a TODO item
+We repeat the process of the previous iterations again: execute all Cypress tests.
+When a TODO item is checked then  
