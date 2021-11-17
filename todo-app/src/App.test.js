@@ -15,3 +15,12 @@ test('displays input to create a new todo', () => {
   expect(createNewElement).toBeInTheDocument();
   expect(createNewElement.placeholder).toBe('What needs to be done?');
 });
+
+test('displays a list with 2 items by default', () => {
+  render(<App />);
+
+  const items = screen.getAllByRole('listitem');
+  expect(items).toHaveLength(2);
+  expect(items[0]).toHaveTextContent("Learn TDD");
+  expect(items[1]).toHaveTextContent("Start writing a test");
+});
