@@ -29,10 +29,21 @@ function App() {
         onChange={handleOnChange}
       />
       <ul className="todo-list">
-        <li>Learn TDD</li>
-        <li>Start writing a test</li>
+        <li>
+          <input type="checkbox" />
+          <p>Learn TDD</p>
+        </li>
+        <li>
+          <input type="checkbox" />
+          <p>Start writing a test</p>
+        </li>
         {items.map((item, index) => {
-          return <li key={index}>{item}</li>;
+          return (
+            <li key={index}>
+              <input type="checkbox" />
+              <p>{item}</p>
+            </li>
+          );
         })}
       </ul>
     </div>

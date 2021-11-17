@@ -38,6 +38,13 @@ input[type='text']:focus {
   outline: none;
 }
 
+input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 3px;
+}
+
 ::placeholder {
   opacity: 0.4;
 }
@@ -58,4 +65,9 @@ ul li {
 
 ul li:first-child {
   border-top: 1px solid #ededed;
+}
+
+ul li p {
+  display: inline-block;
+  margin-left: 0.5rem;
 }
