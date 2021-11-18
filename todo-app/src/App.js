@@ -18,13 +18,14 @@ function App() {
 
   function handleOnCheckboxChange(item, checkboxState) {
     const newListItems = items.map((itemFromList) => {
-      if (itemFromList.name !== item.name) return itemFromList;
+      if (itemFromList.title !== item.title) return itemFromList;
 
       return {
         ...item,
         checked: checkboxState,
       };
     });
+
     setItems(newListItems);
   }
 
