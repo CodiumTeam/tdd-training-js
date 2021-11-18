@@ -23,7 +23,9 @@ test('displays a list with 2 items by default', () => {
   const items = screen.getAllByRole('listitem');
   expect(items).toHaveLength(2);
   expect(items[0]).toHaveTextContent("Learn TDD");
-  expect(items[1]).toHaveTextContent("Start writing a test");
+  expect(items[1]).toHaveTextContent("Start writing a test")
+  const checkboxes = screen.getAllByRole('checkbox');
+  expect(checkboxes[0].checked).toEqual(false);
 });
 
 test('add new todo into the list when pressing <enter>', () => {
