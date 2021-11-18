@@ -5,7 +5,7 @@ function App() {
     if (event.key === 'Enter') {
       const newItem = {
         title: event.target.value,
-        checked: false
+        checked: false,
       };
       setItems([...items, newItem]);
       setInputText('');
@@ -16,25 +16,29 @@ function App() {
     setInputText(event.target.value);
   }
 
-  function handleOnCheckboxChange(index, checkboxState) {
-    const item = items[index];
-    const updatedItem = {...item, checked: checkboxState}
-    const newListItems = [...items];
-    newListItems[index] = updatedItem;
-    setItems(newListItems)
+  function handleOnCheckboxChange(item, checkboxState) {
+    const newListItems = items.map((itemFromList) => {
+      if (itemFromList.name !== item.name) return itemFromList;
+
+      return {
+        ...item,
+        checked: checkboxState,
+      };
+    });
+    setItems(newListItems);
   }
 
   const firstDefaultItem = {
     title: 'Learn TDD',
-    checked: false
-  }
+    checked: false,
+  };
   const secondDefaultItem = {
     title: 'Start writing a test',
-    checked: false
-  }
+    checked: false,
+  };
   const defaultItems = [firstDefaultItem, secondDefaultItem];
   const [items, setItems] = useState(defaultItems);
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState('');
 
   return (
     <div className="App">
@@ -52,9 +56,12 @@ function App() {
         {items.map((item, index) => {
           return (
             <li key={index} className={item.checked ? 'completed' : ''}>
-              <input type="checkbox" onChange={(event) => {
-                handleOnCheckboxChange(index, event.target.checked);
-              }}/>
+              <input
+                type="checkbox"
+                onChange={(event) => {
+                  handleOnCheckboxChange(item, event.target.checked);
+                }}
+              />
               <p>{item.title}</p>
             </li>
           );
