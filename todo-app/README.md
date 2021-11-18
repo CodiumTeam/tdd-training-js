@@ -50,3 +50,17 @@ Once the element has been added to the list, input text should be empty.
 ## Iteration 3: Can check and uncheck a TODO item
 We repeat the process of the previous iterations again: execute all Cypress tests.
 You should implement now the behaviour: when click on a checkbox a css style is added the item (and removed if clicked again).
+
+
+## Help
+If you have any doubt about the HTML of an element use:
+
+    screen.debug(<element>) 
+
+Some React testing-library selectors that can be useful:
+
+    const htmlElement = screen.getByText(/MY TEXT/i);
+
+To simulate that the user types inside an Input use testing-library/user-event library:
+
+    userEvent.type(screen.getByRole('textbox'), 'my new todo{enter}')
