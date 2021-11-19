@@ -8,7 +8,7 @@ body {
 }
 
 .root {
-  max-width: 330px;
+  max-width: 550px;
   margin: 0 auto;
   text-align: center;
 }
@@ -72,7 +72,7 @@ button.small {
 }
 
 h2 {
-  color: #fff;
+  color: #ffe9e3;
   font-size: 1.2em;
 }
 
