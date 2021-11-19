@@ -2,6 +2,7 @@ import React from 'react';
 
 function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
+
   return (
     <div>
       <h1>Drink Maker v1</h1>
@@ -16,6 +17,7 @@ function DrinkMaker(props) {
           ))}
         </ul>
       </div>
+
       <div>
         <button>Add</button>
         <p>Total Sugar: 0</p>
