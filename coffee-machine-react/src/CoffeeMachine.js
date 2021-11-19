@@ -6,6 +6,7 @@ function DrinkMaker(props) {
   const drinksMapping = {
     Tea: 'T',
     Coffee: 'C',
+    Chocolate: 'H',
   };
 
   return (

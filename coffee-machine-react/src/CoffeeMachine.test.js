@@ -87,3 +87,15 @@ test('When user select "Coffee" as Drink and click on Start. Should see "C" on m
 
   expect(alert).toHaveTextContent('C');
 });
+
+test('When user select "Chocolate" as Drink and click on Start. Should see "H" on message', function () {
+  render(<CoffeeMachine />);
+  const teaButton = screen.getByRole('button', { name: 'Chocolate' });
+  userEvent.click(teaButton);
+  const startButton = screen.getByText('Start');
+  userEvent.click(startButton);
+
+  const alert = screen.getByRole('alert');
+
+  expect(alert).toHaveTextContent('H');
+});
