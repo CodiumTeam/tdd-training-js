@@ -63,3 +63,15 @@ test('When user select "Tea" as Drink. Could click on "Start" button', function 
 
   expect(startButton).not.toBeDisabled();
 });
+
+test('When user select "Tea" as Drink and click on Start. Should see "T" on message', function () {
+  render(<CoffeeMachine />);
+  const teaButton = screen.getByRole('button', { name: 'Tea' });
+  userEvent.click(teaButton);
+  const startButton = screen.getByText('Start');
+  userEvent.click(startButton);
+
+  const alert = screen.getByRole('alert');
+
+  expect(alert).toHaveTextContent('T');
+});
