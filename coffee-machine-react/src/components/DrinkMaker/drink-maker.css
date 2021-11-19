@@ -5,4 +5,38 @@
   border-radius: 4px;
   margin-top: 2em;
   font-size: 0.8em;
+  overflow: hidden;
+}
+
+.drink-maker-message p {
+  white-space: nowrap;
+  position: relative;
+}
+
+.drink-maker-message--empty {
+  animation: rightThenLeft 7s infinite;
+}
+
+@keyframes rightThenLeft {
+  0% {
+    left: 100%;
+    opacity: 1;
+  }
+
+  65% {
+    left: 0%;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
 }

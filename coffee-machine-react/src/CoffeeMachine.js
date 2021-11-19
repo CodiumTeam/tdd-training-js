@@ -36,7 +36,7 @@ function CoffeeMachine(props) {
 
           <SugarButtons />
 
-          <DrinkMaker message={drink || 'No drink selected'} />
+          <DrinkMaker drink={drink} />
 
           <StartButton disabled={drink === ''} />
         </div>
