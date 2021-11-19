@@ -30,3 +30,9 @@ test('Renders "Remove Sugar" button', function () {
 
   expect(screen.getByText('Remove')).toBeVisible();
 });
+
+test('Show the number of sugar put in a drink', function () {
+  render(<DrinkMaker />);
+
+  expect(screen.getByText('Total Sugar: 0')).toBeVisible();
+});

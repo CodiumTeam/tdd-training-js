@@ -18,6 +18,7 @@ function DrinkMaker(props) {
       </div>
       <div>
         <button>Add</button>
+        <p>Total Sugar: 0</p>
         <button>Remove</button>
       </div>
     </div>
