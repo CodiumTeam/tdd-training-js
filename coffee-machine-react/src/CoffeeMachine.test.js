@@ -36,3 +36,9 @@ test('Show the number of sugar put in a drink', function () {
 
   expect(screen.getByText('Total Sugar: 0')).toBeVisible();
 });
+
+test('Show render "Start" button', function () {
+  render(<CoffeeMachine />);
+
+  expect(screen.getByText('Start')).toBeVisible();
+});
