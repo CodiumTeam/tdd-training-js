@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import DrinksButtons from './components/DrinksButtons';
+import MachineMessage from './components/message/MachineMessage';
 import SugarButtons from './components/sugar/SugarButtons';
+import MachineWrapper from './components/Machine/Wrapper';
 
 function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
@@ -12,14 +14,10 @@ function DrinkMaker(props) {
   };
 
   return (
-    <div className="machine">
-      {/* Message Block */}
-      <div role="alert" className="alert">
-        <p>{drink || 'Message goes here'}</p>
-      </div>
+    <MachineWrapper>
+      <MachineMessage message={drink || 'Message goes here'} />
 
       <div className="drink-maker">
-        {/* Drinks Buttons  */}
         <div className="maker drinks">
           <h2>Select your drink</h2>
 
@@ -44,7 +42,7 @@ function DrinkMaker(props) {
           </div>
         </div>
       </div>
-    </div>
+    </MachineWrapper>
   );
 }
 

@@ -94,17 +94,6 @@ h2 {
   color: #fff;
 }
 
-.alert {
-  width: 100%;
-}
-
-.alert p {
-  background-color: #181818;
-  padding: 1rem;
-  margin: 0 auto;
-  color: #f7f7f7;
-}
-
 .maker {
   text-align: center;
 }
@@ -124,26 +113,4 @@ h2 {
 
 .start-wrapper {
   margin-top: 4em;
-}
-
-.machine {
-  position: relative;
-}
-
-.machine:after,
-.machine:before {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  width: 20px;
-  height: 20px;
-  background-color: black;
-}
-
-.machine:before {
-  left: 50px;
-}
-
-.machine:after {
-  right: 50px;
 }

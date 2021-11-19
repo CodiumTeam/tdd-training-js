@@ -1,0 +1,21 @@
+.machine {
+  position: relative;
+}
+
+.machine:after,
+.machine:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
+.machine:before {
+  left: 50px;
+}
+
+.machine:after {
+  right: 50px;
+}
