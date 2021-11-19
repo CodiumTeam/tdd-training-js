@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DrinksButtons from './components/DrinksButtons';
+import SugarButtons from './components/sugar/SugarButtons';
 
 function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
@@ -33,12 +34,7 @@ function DrinkMaker(props) {
         <div className="maker sugar">
           <h2>Sugar</h2>
 
-          {/* Sugar Buttons */}
-          <div className="sugar-buttons">
-            <button className="small">-</button>
-            <p>0</p>
-            <button className="small">+</button>
-          </div>
+          <SugarButtons />
 
           {/* Start */}
           <div className="maker start-wrapper">
