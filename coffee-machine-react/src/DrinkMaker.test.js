@@ -1,13 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import DrinkMaker from './DrinkMaker';
 
-test.each([['Tea'], ['Coffee'], ['Chocolate']])(
-  'Should render "%s" button',
-  (buttonText) => {
-    render(<DrinkMaker />);
+test('Should render availables drinks', () => {
+  render(<DrinkMaker />);
 
-    const drinkButton = screen.getByText(buttonText);
+  const list = screen.getByRole('list');
+  const drinkButton = within(list).getAllByRole('button');
 
-    expect(drinkButton).toBeVisible();
-  }
-);
+  expect(drinkButton).toHaveLength(3);
+});
