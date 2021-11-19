@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
-  background: #f5f5f5;
+  background: #f5d3a8;
 }
 
 .root {
@@ -33,7 +33,7 @@ ul {
 }
 
 button {
-  background-color: #df8d55;
+  background-color: #815856;
   border: none;
   color: white;
   padding: 1em 2.5em;
@@ -44,24 +44,8 @@ button {
   cursor: pointer;
 }
 
-button.drink-button {
-  position: relative;
-  padding: 3px 1em;
-  border-radius: 4px;
-}
-
-button.drink-button:hover {
+button:hover {
   background-color: #6a3625;
-}
-
-button.drink-button:after {
-  content: '';
-  width: 16px;
-  height: 16px;
-  background-color: #4c251d;
-  border-radius: 50%;
-  position: absolute;
-  right: -21px;
 }
 
 button.small {
@@ -72,33 +56,36 @@ button.small {
 }
 
 h2 {
-  color: #ffe9e3;
+  color: #805d52;
   font-size: 1.2em;
+  margin-top: 1.4em;
 }
 
 .drink-maker {
   display: flex;
-  border: 1px solid #efefef;
   background-color: #6a3625;
   justify-content: space-around;
   flex-wrap: wrap;
   min-height: 400px;
   color: #fff;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 .maker {
   text-align: center;
+  border: 1px solid #805d52;
 }
 
 .drinks {
   width: 55%;
-  background-color: #853c2e;
-  padding: 0 1em;
+  background-color: #f0c289;
+  padding: 0 0.5em;
   box-sizing: border-box;
 }
 
 .sugar {
-  background-color: #6a3625;
+  background-color: #f0c896;
   padding: 0 1em;
   width: 35%;
+  border-right: none;
 }
