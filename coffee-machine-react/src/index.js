@@ -11,6 +11,7 @@ ReactDOM.render(
         alt="Codium Team"
         title="Codium team"
       />
+      <h1>Coffee Machine Kata</h1>
       <CoffeeMachine />
     </div>
   </React.StrictMode>,
