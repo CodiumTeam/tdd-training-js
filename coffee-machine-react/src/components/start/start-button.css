@@ -2,11 +2,3 @@
   margin-top: 1em;
   margin-bottom: 9em;
 }
-
-button.start {
-  background-color: #42221c;
-}
-
-button.start:hover {
-  background-color: #4c2c26;
-}

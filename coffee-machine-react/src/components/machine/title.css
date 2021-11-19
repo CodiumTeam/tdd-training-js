@@ -2,12 +2,13 @@
   width: 100%;
   position: absolute;
   top: -50px;
+  font-size: 1.5em;
 }
 
 .title p {
-  background-color: #5d4138;
+  background-color: #805d52;
   padding: 1rem;
   margin: 0 auto;
-  color: #f7f7f7;
+  color: #f5d3a8;
   box-shadow: 1px 8px 11px -6px #000000;
 }

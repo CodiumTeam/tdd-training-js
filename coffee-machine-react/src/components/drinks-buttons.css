@@ -10,3 +10,19 @@
 .drinks-list li > button {
   margin-top: 1em;
 }
+
+button.drink-button {
+  position: relative;
+  padding: 3px 1em;
+  border-radius: 4px;
+}
+
+button.drink-button:after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: #4c251d;
+  border-radius: 50%;
+  position: absolute;
+  right: -21px;
+}
