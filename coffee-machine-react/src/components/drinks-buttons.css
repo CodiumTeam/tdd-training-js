@@ -1,0 +1,12 @@
+.drinks-list {
+  position: absolute;
+  transform: translate(10%, 10px);
+}
+
+.drinks-list li {
+  text-align: right;
+}
+
+.drinks-list li > button {
+  margin-top: 1em;
+}

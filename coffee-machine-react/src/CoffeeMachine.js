@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DrinksButtons from './components/DrinksButtons';
 
 function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
@@ -21,20 +22,12 @@ function DrinkMaker(props) {
         <div className="maker drinks">
           <h2>Select your drink</h2>
 
-          <ul className="drinks-list">
-            {drinks.map((drink, index) => (
-              <li key={index}>
-                <button
-                  className="drink-button"
-                  onClick={() => {
-                    setDrink(drinksMapping[drink]);
-                  }}
-                >
-                  {drink}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <DrinksButtons
+            drinks={drinks}
+            onSelectDrink={(selectedDrink) => {
+              setDrink(drinksMapping[selectedDrink]);
+            }}
+          />
         </div>
 
         <div className="maker sugar">
