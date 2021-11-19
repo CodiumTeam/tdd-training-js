@@ -5,6 +5,7 @@ function DrinkMaker(props) {
   const [drink, setDrink] = useState('');
   const drinksMapping = {
     Tea: 'T',
+    Coffee: 'C',
   };
 
   return (
