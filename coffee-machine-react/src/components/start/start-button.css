@@ -1,0 +1,11 @@
+.start-wrapper {
+  margin-top: 4em;
+}
+
+button.start {
+  background-color: #42221c;
+}
+
+button.start:hover {
+  background-color: #4c2c26;
+}

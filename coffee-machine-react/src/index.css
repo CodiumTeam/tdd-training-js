@@ -20,7 +20,7 @@ img {
 
 h1 {
   text-align: center;
-  color: #0ba1f4;
+  color: #6a3625;
   font-size: 47px;
   font-weight: 600;
 }
@@ -71,14 +71,6 @@ button.small {
   padding: 2px;
 }
 
-button.start {
-  background-color: #42221c;
-}
-
-button.start:hover {
-  background-color: #4c2c26;
-}
-
 h2 {
   color: #fff;
   font-size: 1.2em;
@@ -109,8 +101,4 @@ h2 {
   background-color: #6a3625;
   padding: 0 1em;
   width: 35%;
-}
-
-.start-wrapper {
-  margin-top: 4em;
 }

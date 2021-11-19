@@ -3,6 +3,7 @@ import DrinksButtons from './components/DrinksButtons';
 import MachineMessage from './components/message/MachineMessage';
 import SugarButtons from './components/sugar/SugarButtons';
 import MachineWrapper from './components/machine/Wrapper';
+import StartButton from './components/start/StartButton';
 
 function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
@@ -34,12 +35,7 @@ function DrinkMaker(props) {
 
           <SugarButtons />
 
-          {/* Start */}
-          <div className="maker start-wrapper">
-            <button className="start" disabled={!drink}>
-              Start
-            </button>
-          </div>
+          <StartButton disabled={drink} />
         </div>
       </div>
     </MachineWrapper>
