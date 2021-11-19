@@ -3,25 +3,29 @@ import React, { useState } from 'react';
 function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
   const [drink, setDrink] = useState('');
+  const drinksMapping = {
+    Tea: 'T',
+  };
 
   return (
     <div className="machine">
       {/* Message Block */}
       <div role="alert" className="alert">
-        <p>Message goes here</p>
+        <p>{drink || 'Message goes here'}</p>
       </div>
 
       <div className="drink-maker">
         {/* Drinks Buttons  */}
         <div className="maker drinks">
           <h2>Select your drink</h2>
+
           <ul className="drinks-list">
             {drinks.map((drink, index) => (
               <li key={index}>
                 <button
                   className="drink-button"
                   onClick={() => {
-                    setDrink(drink);
+                    setDrink(drinksMapping[drink]);
                   }}
                 >
                   {drink}
