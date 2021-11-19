@@ -1,4 +1,5 @@
 import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import CoffeeMachine from './CoffeeMachine';
 
 test('Render a Message panel', () => {
@@ -44,8 +45,21 @@ test('Show the number of sugar put in a drink', function () {
   expect(screen.getByText('0')).toBeVisible();
 });
 
-test('Show render "Start" button', function () {
+test('Show render "Start" button as disabled state', function () {
   render(<CoffeeMachine />);
 
-  expect(screen.getByText('Start')).toBeVisible();
+  const startButton = screen.getByText('Start');
+
+  expect(startButton).toBeVisible();
+  expect(startButton).toBeDisabled();
+});
+
+test('When user select "Tea" as Drink. Could click on "Start" button', function () {
+  render(<CoffeeMachine />);
+
+  const teaButton = screen.getByRole('button', { name: 'Tea' });
+  userEvent.click(teaButton);
+  const startButton = screen.getByText('Start');
+
+  expect(startButton).not.toBeDisabled();
 });
