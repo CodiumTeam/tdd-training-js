@@ -22,19 +22,19 @@ test('There are a "Select your drink" text', function () {
 test('Renders "Add sugar" button', function () {
   render(<CoffeeMachine />);
 
-  expect(screen.getByText('Add')).toBeVisible();
+  expect(screen.getByText('+')).toBeVisible();
 });
 
 test('Renders "Remove Sugar" button', function () {
   render(<CoffeeMachine />);
 
-  expect(screen.getByText('Remove')).toBeVisible();
+  expect(screen.getByText('-')).toBeVisible();
 });
 
 test('Show the number of sugar put in a drink', function () {
   render(<CoffeeMachine />);
 
-  expect(screen.getByText('Total Sugar: 0')).toBeVisible();
+  expect(screen.getByText('0')).toBeVisible();
 });
 
 test('Show render "Start" button', function () {

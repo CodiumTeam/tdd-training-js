@@ -4,10 +4,8 @@ function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
 
   return (
-    <div>
-      <h1>Drink Maker v1</h1>
-
-      <div>
+    <div className="drink-maker">
+      <div className="maker">
         <h2>Select your drink</h2>
         <ul>
           {drinks.map((drink, index) => (
@@ -18,14 +16,17 @@ function DrinkMaker(props) {
         </ul>
       </div>
 
-      <div>
-        <button>Add</button>
-        <p>Total Sugar: 0</p>
-        <button>Remove</button>
+      <div className="maker">
+        <h2>Sugar</h2>
+        <div className="drink-sugar">
+          <button className="small">-</button>
+          <p>0</p>
+          <button className="small">+</button>
+        </div>
       </div>
 
-      <div>
-        <button>Start</button>
+      <div className="maker start-wrapper">
+        <button className="start">Start</button>
       </div>
     </div>
   );

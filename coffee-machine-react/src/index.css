@@ -8,7 +8,7 @@ body {
 }
 
 .root {
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
@@ -25,30 +25,6 @@ h1 {
   font-weight: 600;
 }
 
-input[type='text'] {
-  padding: 16px;
-  box-sizing: border-box;
-  border: 1px solid transparent;
-  background: #fff;
-  font-size: 20px;
-  width: 100%;
-}
-
-input[type='text']:focus {
-  outline: none;
-}
-
-input[type='checkbox'] {
-  width: 16px;
-  height: 16px;
-  position: relative;
-  top: 3px;
-}
-
-::placeholder {
-  opacity: 0.4;
-}
-
 ul {
   padding: 0;
   text-align: left;
@@ -56,22 +32,61 @@ ul {
   list-style: none;
 }
 
-ul li {
-  background-color: #fff;
-  padding: 1rem;
-  border: 1px solid transparent;
-  border-bottom: 1px solid #ededed;
-}
-
-ul li:first-child {
-  border-top: 1px solid #ededed;
-}
-
-ul li p {
+button {
+  background-color: #0ba1f4;
+  border: none;
+  color: white;
+  padding: 1em 2.5em;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  margin-left: 0.5rem;
+  font-size: 1em;
+  cursor: pointer;
 }
 
-.completed p {
-  text-decoration: line-through;
+button:hover {
+  background-color: #008cd9;
+}
+
+button.small {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0.5em;
+}
+
+button.start {
+  background-color: #71bf7b;
+}
+
+ul li {
+  text-align: center;
+}
+
+ul li > button {
+  margin-top: 1em;
+}
+
+.drink-maker {
+  display: flex;
+  border: 1px solid #efefef;
+  background-color: #fff;
+  justify-content: space-around;
+}
+
+.maker {
+  text-align: center;
+}
+
+.drink-sugar {
+  display: flex;
+}
+
+.drink-sugar p {
+  margin: 0 1em;
+  padding-top: 0.5em;
+}
+
+.start-wrapper {
+  align-self: center;
 }

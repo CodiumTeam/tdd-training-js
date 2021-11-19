@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import DrinkMaker from './DrinkMaker';
+import CoffeeMachine from './CoffeeMachine';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,7 +11,7 @@ ReactDOM.render(
         alt="Codium Team"
         title="Codium team"
       />
-      <DrinkMaker />
+      <CoffeeMachine />
     </div>
   </React.StrictMode>,
   document.getElementById('root')
