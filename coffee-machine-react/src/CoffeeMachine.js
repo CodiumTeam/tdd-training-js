@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
+  const [drink, setDrink] = useState('');
 
   return (
     <div className="machine">
@@ -17,7 +18,14 @@ function DrinkMaker(props) {
           <ul className="drinks-list">
             {drinks.map((drink, index) => (
               <li key={index}>
-                <button className="drink-button">{drink}</button>
+                <button
+                  className="drink-button"
+                  onClick={() => {
+                    setDrink(drink);
+                  }}
+                >
+                  {drink}
+                </button>
               </li>
             ))}
           </ul>
@@ -35,7 +43,9 @@ function DrinkMaker(props) {
 
           {/* Start */}
           <div className="maker start-wrapper">
-            <button className="start">Start</button>
+            <button className="start" disabled={!drink}>
+              Start
+            </button>
           </div>
         </div>
       </div>
