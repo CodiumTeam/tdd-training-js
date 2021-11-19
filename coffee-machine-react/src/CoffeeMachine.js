@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DrinksButtons from './components/DrinksButtons';
 import MachineMessage from './components/message/MachineMessage';
 import SugarButtons from './components/sugar/SugarButtons';
-import MachineWrapper from './components/Machine/Wrapper';
+import MachineWrapper from './components/machine/Wrapper';
 
 function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
