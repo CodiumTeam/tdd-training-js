@@ -1,6 +1,13 @@
 import { render, screen, within } from '@testing-library/react';
 import CoffeeMachine from './CoffeeMachine';
 
+test('Render a Message panel', () => {
+  render(<CoffeeMachine />);
+  const alert = screen.getByRole('alert');
+
+  expect(alert).toBeVisible();
+});
+
 test('Should render availables drinks', () => {
   render(<CoffeeMachine />);
 
