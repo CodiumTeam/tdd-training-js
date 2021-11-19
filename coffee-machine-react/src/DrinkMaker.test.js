@@ -18,3 +18,15 @@ test('There are a "Select your drink" text', function () {
 
   expect(screen.getByText('Select your drink')).toBeVisible();
 });
+
+test('Renders "Add sugar" button', function () {
+  render(<DrinkMaker />);
+
+  expect(screen.getByText('Add')).toBeVisible();
+});
+
+test('Renders "Remove Sugar" button', function () {
+  render(<DrinkMaker />);
+
+  expect(screen.getByText('Remove')).toBeVisible();
+});

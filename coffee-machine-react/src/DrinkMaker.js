@@ -16,6 +16,10 @@ function DrinkMaker(props) {
           ))}
         </ul>
       </div>
+      <div>
+        <button>Add</button>
+        <button>Remove</button>
+      </div>
     </div>
   );
 }
