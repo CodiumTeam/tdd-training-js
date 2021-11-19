@@ -1,0 +1,13 @@
+.title {
+  width: 100%;
+  position: absolute;
+  top: -50px;
+}
+
+.title p {
+  background-color: #5d4138;
+  padding: 1rem;
+  margin: 0 auto;
+  color: #f7f7f7;
+  box-shadow: 1px 8px 11px -6px #000000;
+}

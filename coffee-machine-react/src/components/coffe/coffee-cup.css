@@ -1,12 +1,3 @@
-.cup-wrapper {
-  position: absolute;
-  background: #42221c;
-  width: 70px;
-  height: 64px;
-  border: 4px solid #ffffff;
-  transform: translate(184%, -170%);
-}
-
 .cup {
   height: 32px;
   width: 40px;

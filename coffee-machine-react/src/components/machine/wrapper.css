@@ -1,5 +1,7 @@
 .machine {
   position: relative;
+  max-width: 350px;
+  margin: 4em auto;
 }
 
 .machine:after,
@@ -18,4 +20,15 @@
 
 .machine:after {
   right: 50px;
+}
+
+.cup-wrapper {
+  position: absolute;
+  background: #42221c;
+  width: 70px;
+  height: 64px;
+  border: 4px solid #ffffff;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-20%);
 }
