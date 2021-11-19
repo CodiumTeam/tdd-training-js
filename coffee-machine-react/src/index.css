@@ -8,7 +8,7 @@ body {
 }
 
 .root {
-  max-width: 390px;
+  max-width: 330px;
   margin: 0 auto;
   text-align: center;
 }
@@ -30,20 +30,6 @@ ul {
   text-align: left;
   margin-top: 0;
   list-style: none;
-  padding-right: 40px;
-}
-
-ul.drinks-list {
-  position: absolute;
-  transform: translate(10%, 10px);
-}
-
-ul li {
-  text-align: right;
-}
-
-ul li > button {
-  margin-top: 1em;
 }
 
 button {
@@ -124,7 +110,7 @@ h2 {
 }
 
 .drinks {
-  width: 61%;
+  width: 55%;
   background-color: #853c2e;
   padding: 0 1em;
   box-sizing: border-box;
@@ -133,7 +119,7 @@ h2 {
 .sugar {
   background-color: #6a3625;
   padding: 0 1em;
-  width: 30%;
+  width: 35%;
 }
 
 .sugar-buttons {
