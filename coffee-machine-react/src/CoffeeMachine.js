@@ -4,11 +4,14 @@ function DrinkMaker(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
 
   return (
-    <div>
+    <div className="machine">
+      {/* Message Block */}
       <div role="alert" className="alert">
         <p>Message goes here</p>
       </div>
+
       <div className="drink-maker">
+        {/* Drinks Buttons  */}
         <div className="maker drinks">
           <h2>Select your drink</h2>
           <ul className="drinks-list">
@@ -22,12 +25,15 @@ function DrinkMaker(props) {
 
         <div className="maker sugar">
           <h2>Sugar</h2>
+
+          {/* Sugar Buttons */}
           <div className="sugar-buttons">
             <button className="small">-</button>
             <p>0</p>
             <button className="small">+</button>
           </div>
 
+          {/* Start */}
           <div className="maker start-wrapper">
             <button className="start">Start</button>
           </div>
