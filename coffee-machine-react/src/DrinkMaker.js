@@ -6,13 +6,16 @@ function DrinkMaker(props) {
     <div>
       <h1>Drink Maker v1</h1>
 
-      <ul>
-        {drinks.map((drink, index) => (
-          <li key={index}>
-            <button>{drink}</button>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h2>Select your drink</h2>
+        <ul>
+          {drinks.map((drink, index) => (
+            <li key={index}>
+              <button>{drink}</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
