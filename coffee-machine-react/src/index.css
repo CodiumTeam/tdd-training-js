@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
-  background: #f5d3a8;
+  background: #fbfbfb;
 }
 
 .root {
@@ -14,7 +14,7 @@ body {
 }
 
 img {
-  max-width: 30px;
+  max-width: 70px;
   margin-top: 2rem;
 }
 
@@ -33,7 +33,7 @@ ul {
 }
 
 button {
-  background-color: #815856;
+  background-color: #68493a;
   border: none;
   color: white;
   padding: 1em 2.5em;
@@ -63,29 +63,26 @@ h2 {
 
 .drink-maker {
   display: flex;
-  background-color: #6a3625;
   justify-content: space-around;
   flex-wrap: wrap;
-  min-height: 400px;
+  min-height: 500px;
   color: #fff;
   box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  background-color: #51251c;
+  border-top: 1px solid black;
 }
 
 .maker {
   text-align: center;
-  border: 1px solid #805d52;
+  border-right: 1px solid #341c06;
 }
 
 .drinks {
-  width: 55%;
-  background-color: #f0c289;
+  width: 45%;
   padding: 0 0.5em;
   box-sizing: border-box;
 }
 
 .sugar {
-  background-color: #f0c896;
-  padding: 0 1em;
-  width: 35%;
   border-right: none;
 }

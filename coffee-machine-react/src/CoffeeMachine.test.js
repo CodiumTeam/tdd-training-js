@@ -21,12 +21,6 @@ test('Should render availables drinks', () => {
   expect(drinkButton[2]).toHaveTextContent('Chocolate');
 });
 
-test('There are a "Select your drink" text', function () {
-  render(<CoffeeMachine />);
-
-  expect(screen.getByText('Select your drink')).toBeVisible();
-});
-
 test('Renders "Add sugar" button', function () {
   render(<CoffeeMachine />);
 
