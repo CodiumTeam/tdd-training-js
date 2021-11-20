@@ -1,6 +1,8 @@
 .drinks-list {
-  position: absolute;
+  position: relative;
   transform: translate(10%, 10px);
+  top: 84px;
+  left: -34px;
 }
 
 .drinks-list li {
@@ -21,7 +23,7 @@ button.drink-button:after {
   content: '';
   width: 16px;
   height: 16px;
-  background-color: #4c251d;
+  background-color: #644342;
   border-radius: 50%;
   position: absolute;
   right: -21px;

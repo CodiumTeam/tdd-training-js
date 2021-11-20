@@ -4,7 +4,6 @@ import DrinkMaker from './components/DrinkMaker/DrinkMaker';
 import SugarButtons from './components/sugar/SugarButtons';
 import MachineWrapper from './components/machine/Wrapper';
 import StartButton from './components/start/StartButton';
-import Title from './components/machine/Title';
 
 function CoffeeMachine(props) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
@@ -17,12 +16,8 @@ function CoffeeMachine(props) {
 
   return (
     <MachineWrapper>
-      <Title />
-
       <div className="drink-maker">
         <div className="maker drinks">
-          <h2>Select your drink</h2>
-
           <DrinksButtons
             drinks={drinks}
             onSelectDrink={(selectedDrink) => {
@@ -32,8 +27,6 @@ function CoffeeMachine(props) {
         </div>
 
         <div className="maker sugar">
-          <h2>Sugar</h2>
-
           <SugarButtons />
 
           <DrinkMaker drink={drink} />

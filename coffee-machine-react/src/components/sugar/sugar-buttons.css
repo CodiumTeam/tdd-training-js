@@ -1,6 +1,6 @@
 .sugar-buttons {
   display: flex;
-  margin-top: 2.5em;
+  margin-top: 1.5em;
   margin-left: 0.7em;
 }
 
@@ -8,5 +8,10 @@
   margin: 0 1em;
   padding-top: 2px;
   font-size: 1.2em;
-  color: #815856;
+  color: #e6e6e6;
+}
+
+.sugar-image {
+  margin-top: 1em;
+  max-width: 80px;
 }
