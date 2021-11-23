@@ -16,7 +16,6 @@ function CoffeeMachine({ drinkMaker }) {
     Tea: 'T',
     Coffee: 'C',
     Chocolate: 'H',
-    Message: 'M',
   };
 
   return (
