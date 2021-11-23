@@ -6,10 +6,16 @@ function DrinkMakerPinter({ command, drinkMaker }) {
   if (!command) return null;
 
   const imgSrc = drinkMaker.execute(command);
+  const [drink] = command.split(':');
 
   return (
-    <div role="alert" className={`drink-maker-message`}>
-      <img src={imgSrc} alt="Selected drink" />
+    <div className="output">
+      <div
+        role="alert"
+        className={`drink-maker-image drink-maker-image--${drink}`}
+      >
+        <img src={imgSrc} alt="Selected drink" />
+      </div>
     </div>
   );
 }

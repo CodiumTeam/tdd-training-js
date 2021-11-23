@@ -14,9 +14,6 @@ export const drinkMaker = {
       console.log(rest);
     }
 
-    console.log(drinkType);
-    console.log(DRINKS_IMAGES[drinkType]);
-
     return DRINKS_IMAGES[drinkType];
   },
 };
