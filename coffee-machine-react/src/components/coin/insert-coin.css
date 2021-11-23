@@ -1,0 +1,21 @@
+.coin {
+  background: #dddddd;
+  width: 25px;
+  height: 35px;
+  font-size: 1em;
+  margin: 1.5em auto;
+  position: relative;
+  border-radius: 4px;
+}
+
+.coin:after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  background-color: black;
+  width: 5px;
+  right: 26%;
+  transform: translate(-50%);
+  border-radius: 4px;
+}

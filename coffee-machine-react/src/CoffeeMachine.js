@@ -4,6 +4,7 @@ import DrinkMakerPrinter from './components/DrinkMaker/DrinkMaker';
 import SugarButtons from './components/sugar/SugarButtons';
 import MachineWrapper from './components/machine/Wrapper';
 import StartButton from './components/start/StartButton';
+import InsertCoin from './components/coin/InsertCoin';
 
 function CoffeeMachine({ drinkMaker }) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
@@ -21,7 +22,7 @@ function CoffeeMachine({ drinkMaker }) {
   return (
     <MachineWrapper>
       <div className="drink-maker">
-        <div className="maker drinks">
+        <div className="drinks">
           <DrinksButtons
             drinks={drinks}
             onSelectDrink={(selectedDrink) => {
@@ -31,8 +32,10 @@ function CoffeeMachine({ drinkMaker }) {
           />
         </div>
 
-        <div className="maker sugar">
+        <div className="sugar">
           <SugarButtons />
+
+          <InsertCoin />
 
           <StartButton
             disabled={drink === ''}
