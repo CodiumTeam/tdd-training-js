@@ -36,8 +36,10 @@ function CoffeeMachine({ drinkMaker }) {
 
     if (levelOfSugar === 1) {
       command += `:${levelOfSugar}:0`;
+    } else if (levelOfSugar === 2) {
+      command += `:${levelOfSugar}:0`;
     } else if (levelOfSugar === 0) {
-      command += '::';
+      command += `::`;
     }
 
     return command;
