@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './insert-coin.css';
 
-function InsertCoin({ coins }) {
+function InsertCoin({ onInsertedCoin }) {
+  const [insertedCoins, setInsertedCoins] = useState('');
+
+  const handleOnChange = (ev) => {
+    const insertedCoin = ev.target.value;
+    setInsertedCoins(insertedCoin);
+    onInsertedCoin(insertedCoin);
+  };
+
   return (
     <div>
-      <div className="coin"></div>
-      <small>{coins || 'coins'}</small>
+      <input
+        type="number"
+        className="input"
+        min="0"
+        max="100"
+        value={insertedCoins}
+        onChange={handleOnChange}
+      />
+      <small>coins</small>
     </div>
   );
 }
