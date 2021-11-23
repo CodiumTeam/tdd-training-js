@@ -8,11 +8,13 @@
   height: 50px;
   border-radius: 50%;
   padding: 0;
-  background-color: #494a43;
+  background-color: #f2f1dd;
+  color: #4a4a4a;
+  font-weight: bold;
 }
 
 .start:hover {
-  background-color: #44453f;
+  background-color: #ebe9d1;
 }
 
 button[disabled] {
@@ -20,5 +22,5 @@ button[disabled] {
 }
 
 button[disabled]:hover {
-  background-color: #494a43;
+  background-color: #f2f1dd;
 }

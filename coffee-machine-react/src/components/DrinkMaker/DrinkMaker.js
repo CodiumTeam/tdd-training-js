@@ -3,7 +3,7 @@ import React from 'react';
 import './drink-maker.css';
 
 function DrinkMakerPinter({ command, drinkMaker }) {
-  if (!command) return null;
+  if (!command) return <div className="output"></div>;
 
   const imgSrc = drinkMaker.execute(command);
   const [drink] = command.split(':');
