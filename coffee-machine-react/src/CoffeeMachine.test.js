@@ -70,6 +70,7 @@ describe('Iterations', () => {
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:1:0');
+    expect(screen.getByText(1)).toBeVisible();
   });
 
   it('User is able to select "Chocolate" with one level of sugar', () => {
@@ -85,6 +86,7 @@ describe('Iterations', () => {
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('H:1:0');
+    expect(screen.getByText(1)).toBeVisible();
   });
 
   it('User is able to select "Tea" with two level of sugar', () => {
@@ -101,6 +103,7 @@ describe('Iterations', () => {
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T:2:0');
+    expect(screen.getByText(2)).toBeVisible();
   });
 
   it('User is able to select "Coffee" with two level of sugar', () => {
@@ -117,6 +120,7 @@ describe('Iterations', () => {
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:2:0');
+    expect(screen.getByText(2)).toBeVisible();
   });
 
   it('User is able to select "Chocolate" with two level of sugar', () => {
@@ -133,6 +137,7 @@ describe('Iterations', () => {
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:2:0');
+    expect(screen.getByText(2)).toBeVisible();
   });
 
   it('User is not able to add more than 2 of sugar into a drink', () => {
@@ -151,6 +156,7 @@ describe('Iterations', () => {
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:2:0');
+    expect(screen.getByText(2)).toBeVisible();
   });
 
   it('User is able to select "Tea" adding two level and then removing one level of sugar', () => {
@@ -184,5 +190,6 @@ describe('Iterations', () => {
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T::');
+    expect(screen.getByText(0)).toBeVisible();
   });
 });

@@ -63,6 +63,7 @@ function CoffeeMachine({ drinkMaker }) {
 
       <RightPanel>
         <SmallButton text="-" onClick={onRemoveSugar} />
+        <small>{levelOfSugar}</small>
         <SmallButton text="+" onClick={onAddSugar} />
         <StartButton onClick={onStart}>Start</StartButton>
       </RightPanel>
