@@ -16,6 +16,11 @@ const drinksMapping = {
   Message: 'M',
 };
 
+const createMessageCommand = (message) => `M:${message}`;
+const withSugar = (command, sugar) => `${command}:${sugar}`;
+const withStick = (command) => `${command}:0`;
+const withoutSugarAndStick = (command) => `${command}::`;
+
 function CoffeeMachine({ drinkMaker }) {
   const [selectedDrink, setSelectedDrink] = useState('');
   const [start, setStart] = useState(false);
@@ -27,9 +32,9 @@ function CoffeeMachine({ drinkMaker }) {
     let command = '';
     if (insertedCoins < 0.4) {
       const missingCoins = (0.4 - insertedCoins).toFixed(1);
-      command = createCommand('M', `You need ${missingCoins} to buy "Tea"`);
+      command = createMessageCommand(`You need ${missingCoins} to buy "Tea"`);
     } else {
-      command = createCommand();
+      command = createCommandFromSelectedDrink();
     }
 
     setCommand(command);
@@ -56,17 +61,14 @@ function CoffeeMachine({ drinkMaker }) {
     setInsertedCoins(coins);
   };
 
-  const createCommand = (givenCommand, message) => {
-    let command = givenCommand || selectedDrink;
-
-    if (command === 'M') {
-      return command + ':' + message;
-    }
+  const createCommandFromSelectedDrink = (message) => {
+    let command = selectedDrink;
 
     if (levelOfSugar > 0) {
-      command += `:${levelOfSugar}:0`;
+      command = withSugar(selectedDrink, levelOfSugar);
+      command = withStick(command);
     } else if (levelOfSugar === 0) {
-      command += `::`;
+      command = withoutSugarAndStick(command);
     }
 
     return command;
