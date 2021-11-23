@@ -6,6 +6,7 @@ import Button from './components/buttons/Button';
 import ColumnsButtonsGroup from './components/buttons/ColumnsButtonsGroup';
 import RightPanel from './components/machine/RightPanel';
 import StartButton from './components/start/StartButton';
+import SmallButton from './components/buttons/SmallButton';
 
 const drinksMapping = {
   Coffee: 'C',
@@ -16,6 +17,7 @@ const drinksMapping = {
 function CoffeeMachine({ drinkMaker }) {
   const [selectedDrink, setSelectedDrink] = useState('');
   const [start, setStart] = useState(false);
+  const [levelOfSugar, setLevelOfSugar] = useState(0);
 
   const onStart = () => {
     setStart(true);
@@ -23,6 +25,22 @@ function CoffeeMachine({ drinkMaker }) {
 
   const onSelectDrink = (drink) => {
     setSelectedDrink(drinksMapping[drink]);
+  };
+
+  const onAddSugar = () => {
+    setLevelOfSugar(levelOfSugar + 1);
+  };
+
+  const createCommand = () => {
+    let command = `${selectedDrink}`;
+
+    if (levelOfSugar === 1) {
+      command += `:${levelOfSugar}:0`;
+    } else if (levelOfSugar === 0) {
+      command += '::';
+    }
+
+    return command;
   };
 
   return (
@@ -36,11 +54,12 @@ function CoffeeMachine({ drinkMaker }) {
       </DrinksBlock>
 
       <RightPanel>
+        <SmallButton text="+" onClick={onAddSugar} />
         <StartButton onClick={onStart}>Start</StartButton>
       </RightPanel>
 
       <div className="output">
-        {start && <DrinkMakerOutput command={`${selectedDrink}::`} />}
+        {start && <DrinkMakerOutput command={createCommand()} />}
       </div>
     </MachineWrapper>
   );
