@@ -20,7 +20,7 @@ img {
 
 h1 {
   text-align: center;
-  color: #6a3625;
+  color: #44453f;
   font-size: 47px;
   font-weight: 600;
 }
@@ -33,7 +33,7 @@ ul {
 }
 
 button {
-  background-color: #68493a;
+  background-color: #4a4a4a;
   border: none;
   color: white;
   padding: 1em 2.5em;
@@ -45,18 +45,19 @@ button {
 }
 
 button:hover {
-  background-color: #6a3625;
+  background-color: #535353;
 }
 
 button.small {
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 23px;
+  height: 23px;
   padding: 2px;
+  background-color: #44453f;
 }
 
 h2 {
-  color: #805d52;
+  color: #606060;
   font-size: 1.2em;
   margin-top: 1.4em;
 }
@@ -68,21 +69,32 @@ h2 {
   min-height: 500px;
   color: #fff;
   box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-  background-color: #51251c;
-  border-top: 1px solid black;
+  background-color: #363636;
+  border: 4px solid black;
+  box-sizing: border-box;
 }
 
 .maker {
   text-align: center;
-  border-right: 1px solid #341c06;
 }
 
 .drinks {
-  width: 45%;
+  width: 65%;
   padding: 0 0.5em;
   box-sizing: border-box;
+  background-color: #44453f;
 }
 
 .sugar {
   border-right: none;
+  background-color: #f2f1dd;
+  width: 35%;
+}
+
+.output {
+  background-color: #1f1f1f;
+  width: 40%;
+  height: 120px;
+  box-shadow: inset 0px 0px 0px 8px #393a32, inset 0px 0px 0px 16px #4b4c4b,
+    inset 0px 0px 0px 24px #828482;
 }
