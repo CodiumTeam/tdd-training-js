@@ -33,6 +33,10 @@ function CoffeeMachine({ drinkMaker }) {
     }
   };
 
+  const onRemoveSugar = () => {
+    setLevelOfSugar(levelOfSugar - 1);
+  };
+
   const createCommand = () => {
     let command = `${selectedDrink}`;
 
@@ -58,6 +62,7 @@ function CoffeeMachine({ drinkMaker }) {
       </DrinksBlock>
 
       <RightPanel>
+        <SmallButton text="-" onClick={onRemoveSugar} />
         <SmallButton text="+" onClick={onAddSugar} />
         <StartButton onClick={onStart}>Start</StartButton>
       </RightPanel>
