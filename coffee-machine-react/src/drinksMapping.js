@@ -3,4 +3,5 @@ export const drinksMapping = {
   Coffee: 'C',
   Chocolate: 'H',
   Message: 'M',
+  Orange: 'O',
 };

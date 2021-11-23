@@ -268,4 +268,20 @@ describe('Iteration II', () => {
       'M:You need 0.1 to buy "Chocolate"'
     );
   });
+
+  describe('Iteration III', () => {
+    it('User is able to buy "Orange" juice', () => {
+      render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+      const orangeButton = screen.getByText('Orange');
+      const coinInput = screen.getByRole('spinbutton');
+      const startButton = screen.getByText('Start');
+
+      userEvent.click(orangeButton);
+      userEvent.type(coinInput, '1');
+      userEvent.click(startButton);
+
+      expect(drinkMaker.execute).toHaveBeenCalledWith('O::');
+    });
+  });
 });

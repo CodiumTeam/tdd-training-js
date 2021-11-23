@@ -39,7 +39,12 @@ function CoffeeMachine({ drinkMaker }) {
   const [command, setCommand] = useState('');
 
   const onSelectDrink = (drink) => {
-    setSelectedDrink(drinksMapping[drink]);
+    const selectedDrink = drinksMapping[drink];
+    if (!selectedDrink) {
+      throw new Error('Drink not found');
+    }
+
+    setSelectedDrink(selectedDrink);
   };
 
   const onAddSugar = () => {
@@ -95,6 +100,7 @@ function CoffeeMachine({ drinkMaker }) {
           <Button text="Coffee" onClick={onSelectDrink} />
           <Button text="Tea" onClick={onSelectDrink} />
           <Button text="Chocolate" onClick={onSelectDrink} />
+          <Button text="Orange" onClick={onSelectDrink} />
         </ColumnsButtonsGroup>
       </DrinksBlock>
 
