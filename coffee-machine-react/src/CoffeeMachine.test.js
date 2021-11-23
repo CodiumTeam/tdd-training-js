@@ -2,13 +2,6 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CoffeeMachine from './CoffeeMachine';
 
-test('Render a Message panel', () => {
-  render(<CoffeeMachine />);
-  const alert = screen.getByRole('alert');
-
-  expect(alert).toBeVisible();
-});
-
 test('Should render availables drinks', () => {
   render(<CoffeeMachine />);
 
@@ -48,48 +41,50 @@ test('Show render "Start" button as disabled state', function () {
   expect(startButton).toBeDisabled();
 });
 
-test('When user select "Tea" as Drink. Could click on "Start" button', function () {
-  render(<CoffeeMachine />);
+xdescribe('Iteration: When user selects a drink', () => {
+  test('When user select "Tea" as Drink. Could click on "Start" button', function () {
+    render(<CoffeeMachine />);
 
-  const teaButton = screen.getByRole('button', { name: 'Tea' });
-  userEvent.click(teaButton);
-  const startButton = screen.getByText('Start');
+    const teaButton = screen.getByRole('button', { name: 'Tea' });
+    userEvent.click(teaButton);
+    const startButton = screen.getByText('Start');
 
-  expect(startButton).not.toBeDisabled();
-});
+    expect(startButton).not.toBeDisabled();
+  });
 
-test('When user select "Tea" as Drink and click on Start. Should see "T" on message', function () {
-  render(<CoffeeMachine />);
-  const teaButton = screen.getByRole('button', { name: 'Tea' });
-  userEvent.click(teaButton);
-  const startButton = screen.getByText('Start');
-  userEvent.click(startButton);
+  test('When user select "Tea" as Drink and click on Start. Should see "T" on message', function () {
+    render(<CoffeeMachine />);
+    const teaButton = screen.getByRole('button', { name: 'Tea' });
+    userEvent.click(teaButton);
+    const startButton = screen.getByText('Start');
+    userEvent.click(startButton);
 
-  const alert = screen.getByRole('alert');
+    const alert = screen.getByRole('alert');
 
-  expect(alert).toHaveTextContent('T');
-});
+    expect(alert).toHaveTextContent('T');
+  });
 
-test('When user select "Coffee" as Drink and click on Start. Should see "C" on message', function () {
-  render(<CoffeeMachine />);
-  const teaButton = screen.getByRole('button', { name: 'Coffee' });
-  userEvent.click(teaButton);
-  const startButton = screen.getByText('Start');
-  userEvent.click(startButton);
+  test('When user select "Coffee" as Drink and click on Start. Should see "C" on message', function () {
+    render(<CoffeeMachine />);
+    const teaButton = screen.getByRole('button', { name: 'Coffee' });
+    userEvent.click(teaButton);
+    const startButton = screen.getByText('Start');
+    userEvent.click(startButton);
 
-  const alert = screen.getByRole('alert');
+    const alert = screen.getByRole('alert');
 
-  expect(alert).toHaveTextContent('C');
-});
+    expect(alert).toHaveTextContent('C');
+  });
 
-test('When user select "Chocolate" as Drink and click on Start. Should see "H" on message', function () {
-  render(<CoffeeMachine />);
-  const teaButton = screen.getByRole('button', { name: 'Chocolate' });
-  userEvent.click(teaButton);
-  const startButton = screen.getByText('Start');
-  userEvent.click(startButton);
+  test('When user select "Chocolate" as Drink and click on Start. Should see "H" on message', function () {
+    render(<CoffeeMachine />);
+    const teaButton = screen.getByRole('button', { name: 'Chocolate' });
+    userEvent.click(teaButton);
+    const startButton = screen.getByText('Start');
+    userEvent.click(startButton);
 
-  const alert = screen.getByRole('alert');
+    const alert = screen.getByRole('alert');
 
-  expect(alert).toHaveTextContent('H');
+    expect(alert).toHaveTextContent('H');
+  });
 });

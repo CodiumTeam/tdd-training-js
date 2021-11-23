@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import DrinksButtons from './components/DrinksButtons';
-import DrinkMaker from './components/DrinkMaker/DrinkMaker';
+import DrinkMakerPrinter from './components/DrinkMaker/DrinkMaker';
 import SugarButtons from './components/sugar/SugarButtons';
 import MachineWrapper from './components/machine/Wrapper';
 import StartButton from './components/start/StartButton';
 
-function CoffeeMachine(props) {
+function CoffeeMachine({ drinkMaker }) {
   const drinks = ['Tea', 'Coffee', 'Chocolate'];
   const [drink, setDrink] = useState('');
+  const [start, setStart] = useState('');
+  const [command, setCommand] = useState('');
+
   const drinksMapping = {
     Tea: 'T',
     Coffee: 'C',
     Chocolate: 'H',
+    Message: 'M',
   };
 
   return (
@@ -22,6 +26,7 @@ function CoffeeMachine(props) {
             drinks={drinks}
             onSelectDrink={(selectedDrink) => {
               setDrink(drinksMapping[selectedDrink]);
+              setCommand(drinksMapping[selectedDrink]);
             }}
           />
         </div>
@@ -29,9 +34,16 @@ function CoffeeMachine(props) {
         <div className="maker sugar">
           <SugarButtons />
 
-          <DrinkMaker drink={drink} />
+          <StartButton
+            disabled={drink === ''}
+            onClick={() => {
+              setStart(true);
+            }}
+          />
+        </div>
 
-          <StartButton disabled={drink === ''} />
+        <div className="output">
+          <DrinkMakerPrinter drinkMaker={drinkMaker} command={command} />
         </div>
       </div>
     </MachineWrapper>
