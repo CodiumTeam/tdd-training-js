@@ -283,5 +283,21 @@ describe('Iteration II', () => {
 
       expect(drinkMaker.execute).toHaveBeenCalledWith('O::');
     });
+
+    it('User is not able to buy "Orange" juice without enghout money', () => {
+      render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+      const orangeButton = screen.getByText('Orange');
+      const coinInput = screen.getByRole('spinbutton');
+      const startButton = screen.getByText('Start');
+
+      userEvent.click(orangeButton);
+      userEvent.type(coinInput, '0.5');
+      userEvent.click(startButton);
+
+      expect(drinkMaker.execute).toHaveBeenCalledWith(
+        'M:You need 0.1 to buy "Orange"'
+      );
+    });
   });
 });
