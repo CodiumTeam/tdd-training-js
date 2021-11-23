@@ -20,7 +20,7 @@ function DrinkMakerPinter({ command, drinkMaker }) {
   return (
     <div
       role="alert"
-      className={`drink-maker-image drink-maker-image--${executedCommand}`}
+      className={`drink-maker-image drink-maker-image--${executedCommand} ${command}`}
     >
       {!isSendingAMessage && <img src={result} alt="Selected drink" />}
       {isSendingAMessage && <MessageBox text={result} />}
