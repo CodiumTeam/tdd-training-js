@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { drinksPrices } from './drinks';
+import { drinksMapping } from './drinksMapping';
+
 import DrinkMakerOutput from './components/DrinkMaker/DrinkMakerOutput';
 import MachineWrapper from './components/machine/Wrapper';
 import DrinksBlock from './components/machine/DrinksBlock';
@@ -10,14 +12,10 @@ import StartButton from './components/start/StartButton';
 import SmallButton from './components/buttons/SmallButton';
 import InsertCoin from './components/coin/InsertCoin';
 
-const drinksMapping = {
-  Coffee: 'C',
-  Tea: 'T',
-  Chocolate: 'H',
-  Message: 'M',
+const createMessageCommand = (message) => {
+  const messageCommand = drinksMapping['Message'];
+  return `${messageCommand}:${message}`;
 };
-
-const createMessageCommand = (message) => `M:${message}`;
 const withSugar = (command, sugar) => `${command}:${sugar}`;
 const withStick = (command) => `${command}:0`;
 const withoutSugarAndStick = (command) => `${command}::`;
