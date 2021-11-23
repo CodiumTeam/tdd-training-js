@@ -2,14 +2,18 @@ import React from 'react';
 
 import './sugar-buttons.css';
 
-function SugarButtons() {
+function SugarButtons({ onAddSugar, onRemoveSugar }) {
   return (
     <>
       <p>Sugar</p>
       <div className="sugar-buttons">
-        <button className="small">-</button>
+        <button className="small" onClick={onRemoveSugar}>
+          -
+        </button>
         <p>0</p>
-        <button className="small">+</button>
+        <button className="small" onClick={onAddSugar}>
+          +
+        </button>
       </div>
     </>
   );

@@ -1,90 +1,38 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CoffeeMachine from './CoffeeMachine';
-
-test('Should render availables drinks', () => {
-  render(<CoffeeMachine />);
-
-  const list = screen.getByRole('list');
-  const drinkButton = within(list).getAllByRole('button');
-
-  expect(drinkButton).toHaveLength(3);
-  expect(drinkButton[0]).toHaveTextContent('Tea');
-  expect(drinkButton[1]).toHaveTextContent('Coffee');
-  expect(drinkButton[2]).toHaveTextContent('Chocolate');
-});
+import { drinkMaker } from './drinkMaker';
 
 test('Renders "Add sugar" button', function () {
-  render(<CoffeeMachine />);
+  render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
   expect(screen.getByText('+')).toBeVisible();
 });
 
 test('Renders "Remove Sugar" button', function () {
-  render(<CoffeeMachine />);
+  render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
   expect(screen.getByText('-')).toBeVisible();
 });
 
 test('Show the number of sugar put in a drink', function () {
-  render(<CoffeeMachine />);
+  render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
   expect(screen.getByText('0')).toBeVisible();
 });
 
-test('Show render "Start" button as disabled state', function () {
-  render(<CoffeeMachine />);
+test('Render "Start" button as disabled state', function () {
+  render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
   const startButton = screen.getByText('Start');
 
   expect(startButton).toBeVisible();
-  expect(startButton).toBeDisabled();
 });
 
-xdescribe('Iteration: When user selects a drink', () => {
-  test('When user select "Tea" as Drink. Could click on "Start" button', function () {
-    render(<CoffeeMachine />);
+test('Render "coins" text', function () {
+  render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
-    const teaButton = screen.getByRole('button', { name: 'Tea' });
-    userEvent.click(teaButton);
-    const startButton = screen.getByText('Start');
+  const coinsText = screen.getByText('coins');
 
-    expect(startButton).not.toBeDisabled();
-  });
-
-  test('When user select "Tea" as Drink and click on Start. Should see "T" on message', function () {
-    render(<CoffeeMachine />);
-    const teaButton = screen.getByRole('button', { name: 'Tea' });
-    userEvent.click(teaButton);
-    const startButton = screen.getByText('Start');
-    userEvent.click(startButton);
-
-    const alert = screen.getByRole('alert');
-
-    expect(alert).toHaveTextContent('T');
-  });
-
-  test('When user select "Coffee" as Drink and click on Start. Should see "C" on message', function () {
-    render(<CoffeeMachine />);
-    const teaButton = screen.getByRole('button', { name: 'Coffee' });
-    userEvent.click(teaButton);
-    const startButton = screen.getByText('Start');
-    userEvent.click(startButton);
-
-    const alert = screen.getByRole('alert');
-
-    expect(alert).toHaveTextContent('C');
-  });
-
-  test('When user select "Chocolate" as Drink and click on Start. Should see "H" on message', function () {
-    render(<CoffeeMachine />);
-    const teaButton = screen.getByRole('button', { name: 'Chocolate' });
-    userEvent.click(teaButton);
-    const startButton = screen.getByText('Start');
-    userEvent.click(startButton);
-
-    const alert = screen.getByRole('alert');
-
-    expect(alert).toHaveTextContent('H');
-  });
+  expect(coinsText).toBeVisible();
 });

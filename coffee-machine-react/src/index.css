@@ -53,15 +53,6 @@ p {
   color: #4a4a4a;
 }
 
-button.small {
-  border-radius: 50%;
-  width: 23px;
-  height: 23px;
-  padding: 2px;
-  background-color: #f7f4ea;
-  color: #363636;
-}
-
 h2 {
   color: #606060;
   font-size: 1.2em;
@@ -85,10 +76,4 @@ h2 {
   padding: 0 0.5em;
   box-sizing: border-box;
   background-color: #f2f1dd;
-}
-
-.sugar {
-  border-right: none;
-  background-color: #f7f4ea;
-  width: 35%;
 }

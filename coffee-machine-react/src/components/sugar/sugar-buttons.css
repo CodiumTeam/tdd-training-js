@@ -15,3 +15,12 @@
   margin-top: 1em;
   max-width: 80px;
 }
+
+button.small {
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  padding: 2px;
+  background-color: #f7f4ea;
+  color: #363636;
+}
