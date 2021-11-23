@@ -26,7 +26,11 @@ function CoffeeMachine({ drinkMaker }) {
       </DrinksBlock>
 
       <RightPanel>
-        <SugarButtons onAddSugar={onAddSugar} onRemoveSugar={onRemoveSugar} />
+        <SugarButtons
+          onAddSugar={onAddSugar}
+          onRemoveSugar={onRemoveSugar}
+          levelOfSugar={0}
+        />
 
         <InsertCoin coins={0} />
 

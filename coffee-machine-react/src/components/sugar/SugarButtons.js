@@ -2,7 +2,7 @@ import React from 'react';
 
 import './sugar-buttons.css';
 
-function SugarButtons({ onAddSugar, onRemoveSugar }) {
+function SugarButtons({ onAddSugar, onRemoveSugar, levelOfSugar = 0 }) {
   return (
     <>
       <p>Sugar</p>
@@ -10,7 +10,7 @@ function SugarButtons({ onAddSugar, onRemoveSugar }) {
         <button className="small" onClick={onRemoveSugar}>
           -
         </button>
-        <p>0</p>
+        <p>{levelOfSugar}</p>
         <button className="small" onClick={onAddSugar}>
           +
         </button>
