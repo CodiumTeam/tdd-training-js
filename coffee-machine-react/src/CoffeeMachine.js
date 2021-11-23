@@ -5,47 +5,32 @@ import SugarButtons from './components/sugar/SugarButtons';
 import MachineWrapper from './components/machine/Wrapper';
 import StartButton from './components/start/StartButton';
 import InsertCoin from './components/coin/InsertCoin';
+import DrinksBlock from './components/machine/DrinksBlock';
+import RightPanel from './components/machine/RightPanel';
 
 function CoffeeMachine({ drinkMaker }) {
-  const drinks = ['Tea', 'Coffee', 'Chocolate'];
-  const [drink, setDrink] = useState('');
-  const [start, setStart] = useState('');
-  const [command, setCommand] = useState('');
+  const drinks = [];
 
-  const drinksMapping = {
-    Tea: 'T',
-    Coffee: 'C',
-    Chocolate: 'H',
-  };
+  const onSelectDrink = (drink) => {};
+  const onStart = () => {};
+  const onAddSugar = () => {};
+  const onRemoveSugar = () => {};
 
   return (
     <MachineWrapper>
-      <div className="drink-maker">
-        <div className="drinks">
-          <DrinksButtons
-            drinks={drinks}
-            onSelectDrink={(selectedDrink) => {
-              setDrink(drinksMapping[selectedDrink]);
-              setCommand(drinksMapping[selectedDrink]);
-            }}
-          />
-        </div>
+      <DrinksBlock>
+        <DrinksButtons drinks={drinks} onSelectDrink={onSelectDrink} />
+      </DrinksBlock>
 
-        <div className="sugar">
-          <SugarButtons />
+      <RightPanel>
+        <SugarButtons onAddSugar={onAddSugar} onRemoveSugar={onRemoveSugar} />
 
-          <InsertCoin />
+        <InsertCoin coins={0} />
 
-          <StartButton
-            disabled={drink === ''}
-            onClick={() => {
-              setStart(true);
-            }}
-          />
-        </div>
+        <StartButton onClick={onStart} />
+      </RightPanel>
 
-        <DrinkMakerPrinter drinkMaker={drinkMaker} command={command} />
-      </div>
+      <DrinkMakerPrinter drinkMaker={drinkMaker} command={''} />
     </MachineWrapper>
   );
 }

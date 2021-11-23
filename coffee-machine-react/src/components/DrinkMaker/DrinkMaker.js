@@ -5,11 +5,16 @@ import './drink-maker.css';
 function DrinkMakerPinter({ command, drinkMaker }) {
   if (!command) return <DrinkMakerWrapper />;
 
-  const imgSrc = drinkMaker.execute(command);
-
-  if (!imgSrc) return <DrinkMakerWrapper />;
-
+  const drinks = ['T', 'C', 'H', 'O', 'M'];
   const [drink] = command.split(':');
+
+  if (!drink) return <DrinkMakerWrapper />;
+
+  if (!drinks.includes(drink)) {
+    throw new Error(`Command "${drink}" is not a valid command`);
+  }
+
+  const imgSrc = drinkMaker.execute(command);
 
   return (
     <DrinkMakerWrapper>

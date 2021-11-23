@@ -3,7 +3,7 @@
   width: 25px;
   height: 35px;
   font-size: 1em;
-  margin: 1.5em auto;
+  margin: 1.5em auto 0 auto;
   position: relative;
   border-radius: 4px;
 }
@@ -18,4 +18,8 @@
   right: 26%;
   transform: translate(-50%);
   border-radius: 4px;
+}
+
+small {
+  color: #878787;
 }
