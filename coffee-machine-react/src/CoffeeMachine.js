@@ -31,6 +31,19 @@ const getDrinkName = (selectedDrink) => {
   return drinkName;
 };
 
+const createCommandFromSelectedDrink = (selectedDrink, levelOfSugar) => {
+  let command = selectedDrink;
+
+  if (levelOfSugar > 0) {
+    command = withSugar(selectedDrink, levelOfSugar);
+    command = withStick(command);
+  } else if (levelOfSugar === 0) {
+    command = withoutSugarAndStick(command);
+  }
+
+  return command;
+};
+
 function CoffeeMachine({ drinkMaker }) {
   const [selectedDrink, setSelectedDrink] = useState('');
   const [start, setStart] = useState(false);
@@ -64,7 +77,7 @@ function CoffeeMachine({ drinkMaker }) {
   };
 
   const onStart = () => {
-    let command = createCommandFromSelectedDrink();
+    let command = createCommandFromSelectedDrink(selectedDrink, levelOfSugar);
 
     const drinkName = getDrinkName(selectedDrink);
     const drinkPrice = drinksPrices[drinkName];
@@ -78,19 +91,6 @@ function CoffeeMachine({ drinkMaker }) {
 
     setCommand(command);
     setStart(true);
-  };
-
-  const createCommandFromSelectedDrink = () => {
-    let command = selectedDrink;
-
-    if (levelOfSugar > 0) {
-      command = withSugar(selectedDrink, levelOfSugar);
-      command = withStick(command);
-    } else if (levelOfSugar === 0) {
-      command = withoutSugarAndStick(command);
-    }
-
-    return command;
   };
 
   return (
