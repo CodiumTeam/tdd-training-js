@@ -14,7 +14,7 @@ function CoffeeMachine({ drinkMaker }) {
     setStart(true);
   };
 
-  const drinks = ['Tea'];
+  const drinks = [];
   const onSelectDrink = (drink) => {};
   const onAddSugar = () => {};
   const onRemoveSugar = () => {};
