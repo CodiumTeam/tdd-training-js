@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DrinksButtons from './components/DrinksButtons';
 import DrinkMakerPrinter from './components/DrinkMaker/DrinkMaker';
 import SugarButtons from './components/sugar/SugarButtons';
@@ -9,10 +9,13 @@ import DrinksBlock from './components/machine/DrinksBlock';
 import RightPanel from './components/machine/RightPanel';
 
 function CoffeeMachine({ drinkMaker }) {
-  const drinks = [];
+  const [start, setStart] = useState(false);
+  const onStart = () => {
+    setStart(true);
+  };
 
+  const drinks = [];
   const onSelectDrink = (drink) => {};
-  const onStart = () => {};
   const onAddSugar = () => {};
   const onRemoveSugar = () => {};
 
@@ -30,7 +33,7 @@ function CoffeeMachine({ drinkMaker }) {
         <StartButton onClick={onStart} />
       </RightPanel>
 
-      <DrinkMakerPrinter drinkMaker={drinkMaker} command={''} />
+      {start && <DrinkMakerPrinter drinkMaker={drinkMaker} command={''} />}
     </MachineWrapper>
   );
 }
