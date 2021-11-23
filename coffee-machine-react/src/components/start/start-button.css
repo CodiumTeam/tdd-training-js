@@ -8,5 +8,17 @@
   height: 50px;
   border-radius: 50%;
   padding: 0;
+  background-color: #494a43;
+}
+
+.start:hover {
   background-color: #44453f;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+button[disabled]:hover {
+  background-color: #494a43;
 }

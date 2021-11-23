@@ -26,10 +26,11 @@
   position: absolute;
   width: 81px;
   height: 72px;
-  left: 20%;
+  left: 25%;
   top: 13%;
   transform: translateX(-23%);
   border-radius: 23px;
+  background-color: wheat;
 }
 
 .machine-top-container {

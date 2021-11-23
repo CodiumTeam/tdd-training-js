@@ -1,13 +1,12 @@
 .sugar-buttons {
   display: flex;
-  margin-top: 1.5em;
   margin-left: 1em;
 }
 
 .sugar-buttons p {
   margin: 0 0.5em;
   font-size: 1.2em;
-  color: #44453f;
+  color: #797979;
   position: relative;
   top: -3px;
 }

@@ -5,7 +5,7 @@ import './sugar-buttons.css';
 function SugarButtons() {
   return (
     <>
-      <img src="/sugar-clipart-md.png" className="sugar-image" alt="Sugar" />
+      <p>Sugar</p>
       <div className="sugar-buttons">
         <button className="small">-</button>
         <p>0</p>

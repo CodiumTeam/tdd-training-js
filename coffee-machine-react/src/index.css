@@ -82,12 +82,12 @@ h2 {
   width: 65%;
   padding: 0 0.5em;
   box-sizing: border-box;
-  background-color: #44453f;
+  background-color: #f2f1dd;
 }
 
 .sugar {
   border-right: none;
-  background-color: #f2f1dd;
+  background-color: #44453f;
   width: 35%;
 }
 
