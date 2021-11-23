@@ -120,4 +120,42 @@ describe('Coffee Machine', () => {
     cy.findByText('Start').click();
     cy.findByText('You need 0.2 to buy "Chocolate"').should('be.visible');
   });
+
+  it('Can select "Orange" without Sugar', () => {
+    cy.findByText('Orange').click();
+    cy.findByRole('spinbutton').type(1);
+    cy.findByText('Start').click();
+    cy.get('.drink-maker-image img')
+      .should('have.attr', 'src')
+      .should('include', 'orange.png');
+  });
+
+  it('Can select "Orange" with 1 Sugar', () => {
+    cy.findByText('Orange').click();
+    cy.findByText('+').click();
+    cy.findByRole('spinbutton').type(1);
+    cy.findByText('Start').click();
+    cy.get('.drink-maker-image img')
+      .should('have.attr', 'src')
+      .should('include', 'orange-with-sugar-stick.png');
+  });
+
+  it('Can select "Orange" with 2 Sugar', () => {
+    cy.findByText('Orange').click();
+    cy.findByText('+').click();
+    cy.findByText('+').click();
+    cy.findByRole('spinbutton').type(1);
+    cy.findByText('Start').click();
+    cy.get('.drink-maker-image img')
+      .should('have.attr', 'src')
+      .should('include', 'orange-with-two-sugar-stick.png');
+  });
+
+  it('Can\'t select "Orange" without enougth money', () => {
+    cy.findByText('Orange').click();
+    cy.findByText('+').click();
+    cy.findByRole('spinbutton').type(0.5);
+    cy.findByText('Start').click();
+    cy.findByText('You need 0.1 to buy "Orange"').should('be.visible');
+  });
 });
