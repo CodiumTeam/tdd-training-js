@@ -33,7 +33,9 @@ function CoffeeMachine({ drinkMaker }) {
         <StartButton onClick={onStart} />
       </RightPanel>
 
-      {start && <DrinkMakerPrinter drinkMaker={drinkMaker} command={''} />}
+      <div className="output">
+        {start && <DrinkMakerPrinter drinkMaker={drinkMaker} command={''} />}
+      </div>
     </MachineWrapper>
   );
 }
