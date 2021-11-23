@@ -5,23 +5,39 @@ import './drink-maker.css';
 function DrinkMakerPinter({ command, drinkMaker }) {
   if (!command) return null;
 
-  const drinks = ['T', 'C', 'H', 'O', 'M'];
-  const [drink] = command.split(':');
+  const commands = ['T', 'C', 'H', 'O', 'M'];
+  const [executedCommand] = command.split(':');
 
-  if (!drink) return null;
+  if (!executedCommand) return null;
 
-  if (!drinks.includes(drink)) {
-    throw new Error(`Command "${drink}" is not a valid command`);
+  if (!commands.includes(executedCommand)) {
+    throw new Error(`Command "${executedCommand}" is not a valid command`);
   }
 
-  const imgSrc = drinkMaker.execute(command);
+  const isSendingAMessage = executedCommand === 'M';
+  const result = drinkMaker.execute(command);
 
   return (
     <div
       role="alert"
-      className={`drink-maker-image drink-maker-image--${drink}`}
+      className={`drink-maker-image drink-maker-image--${executedCommand}`}
     >
-      <img src={imgSrc} alt="Selected drink" />
+      {!isSendingAMessage && <img src={result} alt="Selected drink" />}
+      {isSendingAMessage && <MessageBox text={result} />}
+    </div>
+  );
+}
+
+function MessageBox({ text }) {
+  return (
+    <div className="container">
+      <div className="arrow">
+        <div className="outer"></div>
+        <div className="inner"></div>
+      </div>
+      <div className="message-body">
+        <p>{text}</p>
+      </div>
     </div>
   );
 }

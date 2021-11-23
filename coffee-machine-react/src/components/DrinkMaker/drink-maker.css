@@ -22,3 +22,57 @@
   margin-top: 1em;
   margin-left: 2px;
 }
+
+/* Message box starts here */
+.container {
+  position: absolute;
+  top: 0;
+  left: 103%;
+}
+
+.container .arrow {
+  width: 12px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+  top: 54px;
+  right: 11px;
+}
+
+.container .arrow .outer {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #000000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container .arrow .inner {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #ffffff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 2px;
+}
+
+.container .message-body {
+  float: left;
+  width: 300px;
+  height: auto;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 6px 8px;
+  border-radius: 5px;
+}
+
+.container .message-body p {
+  margin: 0;
+}

@@ -11,7 +11,7 @@ export const drinkMaker = {
     const [drinkType, ...rest] = commands;
 
     if (drinkType === 'M') {
-      console.log(rest);
+      return rest;
     }
 
     return DRINKS_IMAGES[drinkType];
