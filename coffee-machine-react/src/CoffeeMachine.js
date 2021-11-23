@@ -5,31 +5,38 @@ import DrinksBlock from './components/machine/DrinksBlock';
 import Button from './components/buttons/Button';
 import ColumnsButtonsGroup from './components/buttons/ColumnsButtonsGroup';
 import RightPanel from './components/machine/RightPanel';
-// import StartButton from './components/start/StartButton';
+import StartButton from './components/start/StartButton';
 
-function CoffeeMachine() {
+const drinksMapping = {
+  Coffee: 'C',
+};
+
+function CoffeeMachine({ drinkMaker }) {
   const [selectedDrink, setSelectedDrink] = useState('');
+  const [start, setStart] = useState(false);
 
-  const handleClick = (drink) => {
-    setSelectedDrink('C::');
+  const onStart = () => {
+    setStart(true);
+  };
+
+  const onSelectDrink = (drink) => {
+    setSelectedDrink(drinksMapping[drink]);
   };
 
   return (
     <MachineWrapper>
       <DrinksBlock>
         <ColumnsButtonsGroup>
-          <Button text="Coffee" onClick={handleClick} />
+          <Button text="Coffee" onClick={onSelectDrink} />
         </ColumnsButtonsGroup>
       </DrinksBlock>
 
       <RightPanel>
-        <p>This is the right panel</p>
-        {/* <StartButton onClick={() => {}}>Start</StartButton> */}
+        <StartButton onClick={onStart}>Start</StartButton>
       </RightPanel>
 
       <div className="output">
-        {/* {start && <DrinkMakerPrinter command={''} />} */}
-        <DrinkMakerOutput command={selectedDrink} />
+        {start && <DrinkMakerOutput command={`${selectedDrink}::`} />}
       </div>
     </MachineWrapper>
   );

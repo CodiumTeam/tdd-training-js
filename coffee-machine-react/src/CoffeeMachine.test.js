@@ -5,11 +5,16 @@ import { drinkMaker } from './drinkMaker';
 
 jest.mock('./drinkMaker.js');
 
-test('User is able to select "Coffee"', function () {
-  render(<CoffeeMachine drinkMaker={drinkMaker} />);
-  const coffeeButton = screen.getByText('Coffee');
+describe('Iterations', () => {
+  it('User is able to select "Coffee" without sugar', () => {
+    jest.spyOn(drinkMaker, 'execute');
+    render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
-  userEvent.click(coffeeButton);
+    const coffeeButton = screen.getByText('Coffee');
+    const startButton = screen.getByText('Start');
+    userEvent.click(coffeeButton);
+    userEvent.click(startButton);
 
-  expect(true).toBe(true);
+    expect(drinkMaker.execute).toHaveBeenCalledWith('T::');
+  });
 });
