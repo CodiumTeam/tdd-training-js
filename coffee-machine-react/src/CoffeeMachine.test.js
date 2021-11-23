@@ -234,4 +234,21 @@ describe('Iteration II', () => {
       'M:You need 0.1 to buy "Tea"'
     );
   });
+
+  it('User is not able to buy "Coffee" without enghout money', () => {
+    jest.spyOn(drinkMaker, 'execute');
+    render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+    const coffeeButton = screen.getByText('Coffee');
+    const coinInput = screen.getByRole('spinbutton');
+    const startButton = screen.getByText('Start');
+
+    userEvent.click(coffeeButton);
+    userEvent.type(coinInput, '0.4');
+    userEvent.click(startButton);
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith(
+      'M:You need 0.2 to buy "Coffee"'
+    );
+  });
 });

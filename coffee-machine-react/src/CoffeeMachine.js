@@ -33,6 +33,11 @@ function CoffeeMachine({ drinkMaker }) {
     if (insertedCoins < 0.4) {
       const missingCoins = (0.4 - insertedCoins).toFixed(1);
       command = createMessageCommand(`You need ${missingCoins} to buy "Tea"`);
+    } else if (insertedCoins < 0.6) {
+      const missingCoins = (0.6 - insertedCoins).toFixed(1);
+      command = createMessageCommand(
+        `You need ${missingCoins} to buy "Coffee"`
+      );
     } else {
       command = createCommandFromSelectedDrink();
     }
