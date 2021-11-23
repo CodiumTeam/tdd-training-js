@@ -42,9 +42,7 @@ function CoffeeMachine({ drinkMaker }) {
           />
         </div>
 
-        <div className="output">
-          <DrinkMakerPrinter drinkMaker={drinkMaker} command={command} />
-        </div>
+        <DrinkMakerPrinter drinkMaker={drinkMaker} command={command} />
       </div>
     </MachineWrapper>
   );

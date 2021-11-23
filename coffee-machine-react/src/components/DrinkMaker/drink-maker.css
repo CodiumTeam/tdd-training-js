@@ -1,0 +1,24 @@
+.output {
+  background-color: #1f1f1f;
+  width: 40%;
+  height: 120px;
+  box-shadow: inset 0px 0px 0px 8px #393a32, inset 0px 0px 0px 16px #4b4c4b,
+    inset 0px 0px 0px 24px #828482;
+}
+
+.drink-maker-image--T img {
+  width: 70px;
+  margin-top: 3em;
+}
+
+.drink-maker-image--C img {
+  max-width: 100px;
+  margin-top: -10px;
+  margin-left: 22px;
+}
+
+.drink-maker-image--H img {
+  max-width: 50px;
+  margin-top: 1em;
+  margin-left: 2px;
+}

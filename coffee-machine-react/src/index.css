@@ -90,11 +90,3 @@ h2 {
   background-color: #44453f;
   width: 35%;
 }
-
-.output {
-  background-color: #1f1f1f;
-  width: 40%;
-  height: 120px;
-  box-shadow: inset 0px 0px 0px 8px #393a32, inset 0px 0px 0px 16px #4b4c4b,
-    inset 0px 0px 0px 24px #828482;
-}

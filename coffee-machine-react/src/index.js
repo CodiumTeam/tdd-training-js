@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import CoffeeMachine from './CoffeeMachine';
-import { drinkMaker } from './dinkMaker';
+import { drinkMaker } from './drinkMaker';
 
 ReactDOM.render(
   <React.StrictMode>
