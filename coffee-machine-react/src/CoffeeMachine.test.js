@@ -11,8 +11,10 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const coffeeButton = screen.getByText('Coffee');
+    const coinInput = screen.getByRole('spinbutton');
     const startButton = screen.getByText('Start');
     userEvent.click(coffeeButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C::');
@@ -23,8 +25,10 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const teaButton = screen.getByText('Tea');
+    const coinInput = screen.getByRole('spinbutton');
     const startButton = screen.getByText('Start');
     userEvent.click(teaButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T::');
@@ -35,8 +39,10 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Chocolate');
+    const coinInput = screen.getByRole('spinbutton');
     const startButton = screen.getByText('Start');
     userEvent.click(chocolateButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('H::');
@@ -47,11 +53,13 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const teaButton = screen.getByText('Tea');
-    const startButton = screen.getByText('Start');
+    const coinInput = screen.getByRole('spinbutton');
     const addSugarButton = screen.getByText('+');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(teaButton);
     userEvent.click(addSugarButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T:1:0');
@@ -62,11 +70,13 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const coffeeButton = screen.getByText('Coffee');
-    const startButton = screen.getByText('Start');
+    const coinInput = screen.getByRole('spinbutton');
     const addSugarButton = screen.getByText('+');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(coffeeButton);
     userEvent.click(addSugarButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:1:0');
@@ -78,11 +88,13 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Chocolate');
-    const startButton = screen.getByText('Start');
+    const coinInput = screen.getByRole('spinbutton');
     const addSugarButton = screen.getByText('+');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(chocolateButton);
     userEvent.click(addSugarButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('H:1:0');
@@ -94,12 +106,14 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const teaButton = screen.getByText('Tea');
-    const startButton = screen.getByText('Start');
+    const coinInput = screen.getByRole('spinbutton');
     const addSugarButton = screen.getByText('+');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(teaButton);
     userEvent.click(addSugarButton);
     userEvent.click(addSugarButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T:2:0');
@@ -111,12 +125,14 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const coffeeButton = screen.getByText('Coffee');
-    const startButton = screen.getByText('Start');
     const addSugarButton = screen.getByText('+');
+    const coinInput = screen.getByRole('spinbutton');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(coffeeButton);
     userEvent.click(addSugarButton);
     userEvent.click(addSugarButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:2:0');
@@ -128,12 +144,14 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Coffee');
-    const startButton = screen.getByText('Start');
+    const coinInput = screen.getByRole('spinbutton');
     const addSugarButton = screen.getByText('+');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(chocolateButton);
     userEvent.click(addSugarButton);
     userEvent.click(addSugarButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:2:0');
@@ -145,14 +163,15 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Coffee');
-    const startButton = screen.getByText('Start');
+    const coinInput = screen.getByRole('spinbutton');
     const addSugarButton = screen.getByText('+');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(chocolateButton);
     userEvent.click(addSugarButton);
     userEvent.click(addSugarButton);
     userEvent.click(addSugarButton);
-
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:2:0');
@@ -164,14 +183,16 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Tea');
-    const startButton = screen.getByText('Start');
     const addSugarButton = screen.getByText('+');
     const removeSugarButton = screen.getByText('-');
+    const coinInput = screen.getByRole('spinbutton');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(chocolateButton);
     userEvent.click(addSugarButton);
     userEvent.click(addSugarButton);
     userEvent.click(removeSugarButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T:1:0');
@@ -182,14 +203,35 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Tea');
-    const startButton = screen.getByText('Start');
     const removeSugarButton = screen.getByText('-');
+    const coinInput = screen.getByRole('spinbutton');
+    const startButton = screen.getByText('Start');
 
     userEvent.click(chocolateButton);
     userEvent.click(removeSugarButton);
+    userEvent.type(coinInput, '1');
     userEvent.click(startButton);
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T::');
-    expect(screen.getByText(0)).toBeVisible();
+    expect(screen.getByText('0')).toBeVisible();
+  });
+});
+
+describe('Iteration II', () => {
+  it('User is not able to buy "Tea" without enghout money', () => {
+    jest.spyOn(drinkMaker, 'execute');
+    render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+    const teaButton = screen.getByText('Tea');
+    const coinInput = screen.getByRole('spinbutton');
+    const startButton = screen.getByText('Start');
+
+    userEvent.click(teaButton);
+    userEvent.type(coinInput, '0.3');
+    userEvent.click(startButton);
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith(
+      'M:You need 0.1 to buy "Tea"'
+    );
   });
 });
