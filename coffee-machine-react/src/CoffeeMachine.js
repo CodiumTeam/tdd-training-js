@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DrinksButtons from './components/DrinksButtons';
 import DrinkMakerPrinter from './components/DrinkMaker/DrinkMaker';
 import SugarButtons from './components/sugar/SugarButtons';
@@ -18,6 +18,7 @@ function CoffeeMachine({ drinkMaker }) {
   const onSelectDrink = (drink) => {};
   const onAddSugar = () => {};
   const onRemoveSugar = () => {};
+  const onInsertedCoin = (coins) => {};
 
   return (
     <MachineWrapper>
@@ -32,7 +33,7 @@ function CoffeeMachine({ drinkMaker }) {
           levelOfSugar={0}
         />
 
-        <InsertCoin coins={0} />
+        <InsertCoin onInsertedCoin={onInsertedCoin} />
 
         <StartButton onClick={onStart} />
       </RightPanel>

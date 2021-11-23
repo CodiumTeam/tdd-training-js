@@ -1,25 +1,26 @@
-.coin {
-  background: #dddddd;
-  width: 25px;
-  height: 35px;
-  font-size: 1em;
-  margin: 1.5em auto 0 auto;
-  position: relative;
-  border-radius: 4px;
-}
-
-.coin:after {
-  content: '';
-  position: absolute;
-  top: 10%;
-  bottom: 10%;
-  background-color: black;
-  width: 5px;
-  right: 26%;
-  transform: translate(-50%);
-  border-radius: 4px;
-}
-
 small {
   color: #878787;
+}
+
+.input {
+  background: #dddddd;
+  position: relative;
+  width: 39px;
+  padding: 0;
+  height: 29px;
+  width: 35px;
+  height: 35px;
+  color: black;
+  outline: none;
+  border: none;
+  text-align: center;
+  border-radius: 4px;
+  margin: 1.5em auto 0 auto;
+  display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

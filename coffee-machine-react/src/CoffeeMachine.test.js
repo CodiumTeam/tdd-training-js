@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CoffeeMachine from './CoffeeMachine';
 import { drinkMaker } from './drinkMaker';
@@ -35,4 +35,13 @@ test('Render "coins" text', function () {
   const coinsText = screen.getByText('coins');
 
   expect(coinsText).toBeVisible();
+});
+
+test('Allow to enter coin value', function () {
+  render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+  const coinsInput = screen.getByRole('spinbutton');
+  userEvent.type(coinsInput, '0.5');
+
+  expect(coinsInput.value).toBe('0.5');
 });
