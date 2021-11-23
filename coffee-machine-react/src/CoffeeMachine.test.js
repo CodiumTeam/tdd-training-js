@@ -29,4 +29,16 @@ describe('Iterations', () => {
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T::');
   });
+
+  it('User is able to select "Chocolate" without sugar', () => {
+    jest.spyOn(drinkMaker, 'execute');
+    render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+    const chocolateButton = screen.getByText('Chocolate');
+    const startButton = screen.getByText('Start');
+    userEvent.click(chocolateButton);
+    userEvent.click(startButton);
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith('H::');
+  });
 });

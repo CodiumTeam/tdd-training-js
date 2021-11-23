@@ -10,6 +10,7 @@ import StartButton from './components/start/StartButton';
 const drinksMapping = {
   Coffee: 'C',
   Tea: 'T',
+  Chocolate: 'H',
 };
 
 function CoffeeMachine({ drinkMaker }) {
@@ -30,6 +31,7 @@ function CoffeeMachine({ drinkMaker }) {
         <ColumnsButtonsGroup>
           <Button text="Coffee" onClick={onSelectDrink} />
           <Button text="Tea" onClick={onSelectDrink} />
+          <Button text="Chocolate" onClick={onSelectDrink} />
         </ColumnsButtonsGroup>
       </DrinksBlock>
 
