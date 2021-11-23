@@ -170,4 +170,19 @@ describe('Iterations', () => {
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T:1:0');
   });
+
+  it('User is not able to select lower than 0 level of sugar', () => {
+    jest.spyOn(drinkMaker, 'execute');
+    render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+    const chocolateButton = screen.getByText('Tea');
+    const startButton = screen.getByText('Start');
+    const removeSugarButton = screen.getByText('-');
+
+    userEvent.click(chocolateButton);
+    userEvent.click(removeSugarButton);
+    userEvent.click(startButton);
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith('T::');
+  });
 });

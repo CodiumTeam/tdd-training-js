@@ -34,7 +34,9 @@ function CoffeeMachine({ drinkMaker }) {
   };
 
   const onRemoveSugar = () => {
-    setLevelOfSugar(levelOfSugar - 1);
+    if (levelOfSugar > 0) {
+      setLevelOfSugar(levelOfSugar - 1);
+    }
   };
 
   const createCommand = () => {
