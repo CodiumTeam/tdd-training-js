@@ -38,23 +38,6 @@ function CoffeeMachine({ drinkMaker }) {
   const [insertedCoins, setInsertedCoins] = useState(0);
   const [command, setCommand] = useState('');
 
-  const onStart = () => {
-    let command = createCommandFromSelectedDrink();
-
-    const drinkName = getDrinkName(selectedDrink);
-    const drinkPrice = drinksPrices[drinkName];
-    const missingCoins = calculateMissingCoins(drinkPrice, insertedCoins);
-
-    if (missingCoins > 0) {
-      command = createMessageCommand(
-        `You need ${missingCoins.toFixed(1)} to buy "${drinkName}"`
-      );
-    }
-
-    setCommand(command);
-    setStart(true);
-  };
-
   const onSelectDrink = (drink) => {
     setSelectedDrink(drinksMapping[drink]);
   };
@@ -75,7 +58,24 @@ function CoffeeMachine({ drinkMaker }) {
     setInsertedCoins(coins);
   };
 
-  const createCommandFromSelectedDrink = (message) => {
+  const onStart = () => {
+    let command = createCommandFromSelectedDrink();
+
+    const drinkName = getDrinkName(selectedDrink);
+    const drinkPrice = drinksPrices[drinkName];
+    const missingCoins = calculateMissingCoins(drinkPrice, insertedCoins);
+
+    if (missingCoins > 0) {
+      command = createMessageCommand(
+        `You need ${missingCoins.toFixed(1)} to buy "${drinkName}"`
+      );
+    }
+
+    setCommand(command);
+    setStart(true);
+  };
+
+  const createCommandFromSelectedDrink = () => {
     let command = selectedDrink;
 
     if (levelOfSugar > 0) {
