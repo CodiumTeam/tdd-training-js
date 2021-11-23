@@ -5,6 +5,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   background: #fbfbfb;
+  color: #44453f;
 }
 
 .root {
@@ -48,12 +49,17 @@ button:hover {
   background-color: #535353;
 }
 
+p {
+  color: #4a4a4a;
+}
+
 button.small {
   border-radius: 50%;
   width: 23px;
   height: 23px;
   padding: 2px;
-  background-color: #44453f;
+  background-color: #f7f4ea;
+  color: #363636;
 }
 
 h2 {
@@ -74,10 +80,6 @@ h2 {
   box-sizing: border-box;
 }
 
-.maker {
-  text-align: center;
-}
-
 .drinks {
   width: 65%;
   padding: 0 0.5em;
@@ -87,6 +89,6 @@ h2 {
 
 .sugar {
   border-right: none;
-  background-color: #44453f;
+  background-color: #f7f4ea;
   width: 35%;
 }
