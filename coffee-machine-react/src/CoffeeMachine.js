@@ -40,9 +40,7 @@ function CoffeeMachine({ drinkMaker }) {
   const createCommand = () => {
     let command = `${selectedDrink}`;
 
-    if (levelOfSugar === 1) {
-      command += `:${levelOfSugar}:0`;
-    } else if (levelOfSugar === 2) {
+    if (levelOfSugar > 0) {
       command += `:${levelOfSugar}:0`;
     } else if (levelOfSugar === 0) {
       command += `::`;
