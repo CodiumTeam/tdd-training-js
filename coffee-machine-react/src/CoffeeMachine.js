@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { drinksPrices } from './drinks';
 import DrinkMakerOutput from './components/DrinkMaker/DrinkMakerOutput';
 import MachineWrapper from './components/machine/Wrapper';
 import DrinksBlock from './components/machine/DrinksBlock';
@@ -14,12 +15,6 @@ const drinksMapping = {
   Tea: 'T',
   Chocolate: 'H',
   Message: 'M',
-};
-
-const drinksPrices = {
-  Tea: 0.4,
-  Coffee: 0.6,
-  Chocolate: 0.5,
 };
 
 const createMessageCommand = (message) => `M:${message}`;
