@@ -134,4 +134,22 @@ describe('Iterations', () => {
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('C:2:0');
   });
+
+  it('User is not able to add more than 2 of sugar into a drink', () => {
+    jest.spyOn(drinkMaker, 'execute');
+    render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+    const chocolateButton = screen.getByText('Coffee');
+    const startButton = screen.getByText('Start');
+    const addSugarButton = screen.getByText('+');
+
+    userEvent.click(chocolateButton);
+    userEvent.click(addSugarButton);
+    userEvent.click(addSugarButton);
+    userEvent.click(addSugarButton);
+
+    userEvent.click(startButton);
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith('C:2:0');
+  });
 });
