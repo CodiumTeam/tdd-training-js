@@ -56,4 +56,34 @@ describe('Iterations', () => {
 
     expect(drinkMaker.execute).toHaveBeenCalledWith('T:1:0');
   });
+
+  it('User is able to select "Coffee" with one level of sugar', () => {
+    jest.spyOn(drinkMaker, 'execute');
+    render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+    const coffeeButton = screen.getByText('Coffee');
+    const startButton = screen.getByText('Start');
+    const addSugarButton = screen.getByText('+');
+
+    userEvent.click(coffeeButton);
+    userEvent.click(addSugarButton);
+    userEvent.click(startButton);
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith('C:1:0');
+  });
+
+  it('User is able to select "Chocolate" with one level of sugar', () => {
+    jest.spyOn(drinkMaker, 'execute');
+    render(<CoffeeMachine drinkMaker={drinkMaker} />);
+
+    const chocolateButton = screen.getByText('Chocolate');
+    const startButton = screen.getByText('Start');
+    const addSugarButton = screen.getByText('+');
+
+    userEvent.click(chocolateButton);
+    userEvent.click(addSugarButton);
+    userEvent.click(startButton);
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith('H:1:0');
+  });
 });
