@@ -16,10 +16,27 @@ const drinksMapping = {
   Message: 'M',
 };
 
+const drinksPrices = {
+  Tea: 0.4,
+  Coffee: 0.6,
+  Chocolate: 0.5,
+};
+
 const createMessageCommand = (message) => `M:${message}`;
 const withSugar = (command, sugar) => `${command}:${sugar}`;
 const withStick = (command) => `${command}:0`;
 const withoutSugarAndStick = (command) => `${command}::`;
+const calculateMissingCoins = (drinkPrice, insertedCoin) => {
+  return drinkPrice - insertedCoin;
+};
+
+const getDrinkName = (selectedDrink) => {
+  const entries = Object.entries(drinksMapping);
+  const selected = entries.find(([_, value]) => value === selectedDrink);
+  const drinkName = selected[0];
+
+  return drinkName;
+};
 
 function CoffeeMachine({ drinkMaker }) {
   const [selectedDrink, setSelectedDrink] = useState('');
@@ -29,22 +46,16 @@ function CoffeeMachine({ drinkMaker }) {
   const [command, setCommand] = useState('');
 
   const onStart = () => {
-    let command = '';
-    if (insertedCoins < 0.4) {
-      const missingCoins = (0.4 - insertedCoins).toFixed(1);
-      command = createMessageCommand(`You need ${missingCoins} to buy "Tea"`);
-    } else if (insertedCoins < 0.5) {
-      const missingCoins = (0.5 - insertedCoins).toFixed(1);
+    let command = createCommandFromSelectedDrink();
+
+    const drinkName = getDrinkName(selectedDrink);
+    const drinkPrice = drinksPrices[drinkName];
+    const missingCoins = calculateMissingCoins(drinkPrice, insertedCoins);
+
+    if (missingCoins > 0) {
       command = createMessageCommand(
-        `You need ${missingCoins} to buy "Chocolate"`
+        `You need ${missingCoins.toFixed(1)} to buy "${drinkName}"`
       );
-    } else if (insertedCoins < 0.6) {
-      const missingCoins = (0.6 - insertedCoins).toFixed(1);
-      command = createMessageCommand(
-        `You need ${missingCoins} to buy "Coffee"`
-      );
-    } else {
-      command = createCommandFromSelectedDrink();
     }
 
     setCommand(command);
