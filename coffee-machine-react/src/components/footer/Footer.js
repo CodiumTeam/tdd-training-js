@@ -18,7 +18,7 @@ function Footer() {
       <Button text="See available components" onClick={onOpenModal} />
       <Modal open={open} onClose={onCloseModal} center>
         <h2>List of components</h2>
-        <Tabs selected={1}>
+        <Tabs selected={0}>
           <Tabs.Tab title="Button">
             <ButtonsBlock />
           </Tabs.Tab>
