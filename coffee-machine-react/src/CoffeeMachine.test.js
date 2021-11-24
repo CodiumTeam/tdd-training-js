@@ -7,9 +7,9 @@ jest.mock('./drinkMaker.js');
 
 test('User is able to select "Coffee"', function () {
   render(<CoffeeMachine drinkMaker={drinkMaker} />);
-  const teaButton = screen.getByText('Coffee');
+  const coffeeButton = screen.getByText('Coffee');
 
-  userEvent.click(teaButton);
+  userEvent.click(coffeeButton);
 
   expect(true).toBe(true);
 });
