@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DrinkMakerPrinter from './components/DrinkMaker/DrinkMaker';
+import DrinkMakerOutput from './components/DrinkMaker/DrinkMakerOutput';
 import MachineWrapper from './components/machine/Wrapper';
 import DrinksBlock from './components/machine/DrinksBlock';
 import Button from './components/buttons/Button';
@@ -29,7 +29,7 @@ function CoffeeMachine() {
 
       <div className="output">
         {/* {start && <DrinkMakerPrinter command={''} />} */}
-        <DrinkMakerPrinter command={selectedDrink} />
+        <DrinkMakerOutput command={selectedDrink} />
       </div>
     </MachineWrapper>
   );
