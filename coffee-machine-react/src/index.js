@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import CoffeeMachine from './CoffeeMachine';
+import Footer from './components/footer/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,6 +14,7 @@ ReactDOM.render(
       />
       <h1>Coffee Machine Kata</h1>
       <CoffeeMachine />
+      <Footer />
     </div>
   </React.StrictMode>,
   document.getElementById('root')
