@@ -1,0 +1,63 @@
+footer > button {
+  background-color: transparent;
+  color: #393a32;
+}
+
+footer > button:hover {
+  background-color: #f7f4ea;
+}
+
+table {
+  width: 100%;
+}
+
+code {
+  background-color: #ffe9ed;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.react-responsive-modal-modal {
+  background-color: #fbfbfb !important;
+}
+
+.block {
+  padding: 1em;
+  background-color: #fff;
+  margin-bottom: 1em;
+}
+
+.block h3 {
+  padding: 0.5em 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  color: tomato;
+}
+
+.block h4 {
+  padding: 0 0 0 20px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.block h4:before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background-color: tomato;
+  left: 0;
+  border-radius: 50%;
+  top: 4px;
+}
+
+.example {
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 1em;
+}
+
+.block small {
+  font-style: italic;
+}
