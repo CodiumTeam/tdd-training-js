@@ -6,6 +6,14 @@
   text-align: right;
 }
 
+.button-group li.is-selected .button {
+  background-color: #dbbf8c;
+}
+
+.button-group li.is-selected .button:after {
+  background-color: #bfae91;
+}
+
 .button-group button {
   margin-top: 1em;
 }
@@ -14,10 +22,6 @@
   position: relative;
   padding: 3px 1em;
   border-radius: 4px;
-}
-
-.button--is-selected {
-  background-color: #dbbf8c;
 }
 
 .button-group .button:after {
