@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { drinksPrices } from './drinks';
+import { drinksPrices, drinks } from './drinks';
 import { drinksMapping } from './drinksMapping';
 
 import DrinkMakerOutput from './components/DrinkMaker/DrinkMakerOutput';
@@ -97,10 +97,9 @@ function CoffeeMachine({ drinkMaker }) {
     <MachineWrapper>
       <DrinksBlock>
         <ColumnsButtonsGroup>
-          <Button text="Coffee" onClick={onSelectDrink} />
-          <Button text="Tea" onClick={onSelectDrink} />
-          <Button text="Chocolate" onClick={onSelectDrink} />
-          <Button text="Orange" onClick={onSelectDrink} />
+          {drinks.map((drink, index) => (
+            <Button text={drink} onClick={onSelectDrink} key={index} />
+          ))}
         </ColumnsButtonsGroup>
       </DrinksBlock>
 
