@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import CoffeeMachine from './CoffeeMachine';
-import { drinkMaker } from './drinkMaker';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,7 +12,7 @@ ReactDOM.render(
         title="Codium team"
       />
       <h1>Coffee Machine Kata</h1>
-      <CoffeeMachine drinkMaker={drinkMaker} />
+      <CoffeeMachine />
     </div>
   </React.StrictMode>,
   document.getElementById('root')

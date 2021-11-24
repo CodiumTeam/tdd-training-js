@@ -1,29 +1,44 @@
 import React from 'react';
+import { drinkMaker } from '../../drinkMaker';
 
 import './drink-maker.css';
 
-function DrinkMakerPinter({ command, drinkMaker }) {
+const DRINKS_IMAGES = {
+  T: '/images/tea.png',
+  O: '/images/orange.png',
+  C: '/images/coffee.png',
+  H: '/images/chocolate.png',
+};
+
+const AVAILABLE_COMMANDS = ['T', 'C', 'H', 'O', 'M'];
+
+function DrinkMakerPinter({ command }) {
   if (!command) return null;
 
-  const commands = ['T', 'C', 'H', 'O', 'M'];
-  const [executedCommand] = command.split(':');
+  const [executedCommand, ...rest] = command.split(':');
 
   if (!executedCommand) return null;
 
-  if (!commands.includes(executedCommand)) {
+  if (!AVAILABLE_COMMANDS.includes(executedCommand)) {
     throw new Error(`Command "${executedCommand}" is not a valid command`);
   }
 
   const isSendingAMessage = executedCommand === 'M';
-  const result = drinkMaker.execute(command);
+  const imgSrc = DRINKS_IMAGES[executedCommand];
+  const message = rest.join('');
+
+  drinkMaker.execute(command);
 
   return (
     <div
       role="alert"
-      className={`drink-maker-image drink-maker-image--${executedCommand} ${command}`}
+      className={`drink-maker-image drink-maker-image--${executedCommand}`}
     >
-      {!isSendingAMessage && <img src={result} alt="Selected drink" />}
-      {isSendingAMessage && <MessageBox text={result} />}
+      {isSendingAMessage ? (
+        <MessageBox text={message} />
+      ) : (
+        <img src={imgSrc} alt="Selected drink" />
+      )}
     </div>
   );
 }

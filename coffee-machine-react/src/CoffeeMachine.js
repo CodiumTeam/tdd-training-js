@@ -1,45 +1,35 @@
 import React, { useState } from 'react';
-import DrinksButtons from './components/DrinksButtons';
 import DrinkMakerPrinter from './components/DrinkMaker/DrinkMaker';
-import SugarButtons from './components/sugar/SugarButtons';
 import MachineWrapper from './components/machine/Wrapper';
-import StartButton from './components/start/StartButton';
-import InsertCoin from './components/coin/InsertCoin';
 import DrinksBlock from './components/machine/DrinksBlock';
+import Button from './components/buttons/Button';
+import ColumnsButtonsGroup from './components/buttons/ColumnsButtonsGroup';
 import RightPanel from './components/machine/RightPanel';
+// import StartButton from './components/start/StartButton';
 
-function CoffeeMachine({ drinkMaker }) {
-  const [start, setStart] = useState(false);
-  const onStart = () => {
-    setStart(true);
+function CoffeeMachine() {
+  const [selectedDrink, setSelectedDrink] = useState('');
+
+  const handleClick = (drink) => {
+    setSelectedDrink('C::');
   };
-
-  const drinks = [];
-  const onSelectDrink = (drink) => {};
-  const onAddSugar = () => {};
-  const onRemoveSugar = () => {};
-  const onInsertedCoin = (coins) => {};
 
   return (
     <MachineWrapper>
       <DrinksBlock>
-        <DrinksButtons drinks={drinks} onSelectDrink={onSelectDrink} />
+        <ColumnsButtonsGroup>
+          <Button text="Coffee" onClick={handleClick} />
+        </ColumnsButtonsGroup>
       </DrinksBlock>
 
       <RightPanel>
-        <SugarButtons
-          onAddSugar={onAddSugar}
-          onRemoveSugar={onRemoveSugar}
-          levelOfSugar={0}
-        />
-
-        <InsertCoin onInsertedCoin={onInsertedCoin} />
-
-        <StartButton onClick={onStart} />
+        <p>This is the right panel</p>
+        {/* <StartButton onClick={() => {}}>Start</StartButton> */}
       </RightPanel>
 
       <div className="output">
-        {start && <DrinkMakerPrinter drinkMaker={drinkMaker} command={''} />}
+        {/* {start && <DrinkMakerPrinter command={''} />} */}
+        <DrinkMakerPrinter command={selectedDrink} />
       </div>
     </MachineWrapper>
   );
