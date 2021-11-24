@@ -91,13 +91,13 @@
 
 .container .message-body {
   float: left;
-  width: 300px;
   height: auto;
   border: 1px solid #ccc;
   background-color: #ffffff;
   border: 1px solid #000000;
   padding: 6px 8px;
   border-radius: 5px;
+  min-width: 90px;
 }
 
 .container .message-body p {
