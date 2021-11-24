@@ -37,19 +37,21 @@ code {
 
 .block h4 {
   padding: 0 0 0 20px;
-  margin: 10px 0;
+  margin: 1.5em 0 1em 0;
   position: relative;
 }
 
 .block h4:before {
   content: '';
-  width: 15px;
-  height: 15px;
+  width: 0;
+  height: 0;
   position: absolute;
-  background-color: tomato;
+  border: 9px solid tomato;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
   left: 0;
-  border-radius: 50%;
-  top: 4px;
+  top: 0px;
 }
 
 .example {

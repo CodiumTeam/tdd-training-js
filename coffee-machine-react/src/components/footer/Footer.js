@@ -3,6 +3,7 @@ import { Modal } from 'react-responsive-modal';
 import Button from '../buttons/Button';
 import SmallButton from '../buttons/SmallButton';
 import InsertCoin from '../coin/InsertCoin';
+import Tabs from './Tabs';
 
 import './footer.css';
 import 'react-responsive-modal/styles.css';
@@ -17,8 +18,14 @@ function Footer() {
       <Button text="See available components" onClick={onOpenModal} />
       <Modal open={open} onClose={onCloseModal} center>
         <h2>List of components</h2>
-        <ButtonsBlock />
-        <InsertCoinBlock />
+        <Tabs selected={1}>
+          <Tabs.Tab title="Button">
+            <ButtonsBlock />
+          </Tabs.Tab>
+          <Tabs.Tab title="Coin">
+            <InsertCoinBlock />
+          </Tabs.Tab>
+        </Tabs>
       </Modal>
     </footer>
   );
