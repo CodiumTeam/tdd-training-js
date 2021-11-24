@@ -105,6 +105,7 @@ function CoffeeMachine({ drinkMaker }) {
       </DrinksBlock>
 
       <RightPanel>
+        <p>Sugar</p>
         <SmallButton text="-" onClick={onRemoveSugar} />
         <small>{levelOfSugar}</small>
         <SmallButton text="+" onClick={onAddSugar} />
