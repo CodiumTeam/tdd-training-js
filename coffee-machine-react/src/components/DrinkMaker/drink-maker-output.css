@@ -6,21 +6,49 @@
     inset 0px 0px 0px 24px #828482;
 }
 
-.drink-maker-image--T img {
-  width: 70px;
-  margin-top: 3em;
-}
-
 .drink-maker-image--C img {
   max-width: 100px;
   margin-top: -10px;
   margin-left: 22px;
 }
 
+.drink-maker-image--T img {
+  width: 70px;
+  margin-top: 3em;
+}
+
 .drink-maker-image--H img {
   max-width: 50px;
   margin-top: 1em;
   margin-left: 2px;
+}
+
+.drink-maker-image.C-1-0 img,
+.drink-maker-image.C-2-0 img {
+  max-width: 85px;
+  margin-top: 2.7em;
+  margin-left: -5px;
+}
+
+.drink-maker-image.C-2-0 img {
+  max-width: 75px;
+  margin-top: 3em;
+}
+
+.drink-maker-image.T-2-0 img,
+.drink-maker-image.T-1-0 img {
+  margin-top: 2em;
+}
+
+.drink-maker-image.O-1-0 img {
+  max-width: 60px;
+  margin-top: 0.9em;
+  margin-left: -5px;
+}
+
+.drink-maker-image.H-2-0 img {
+  max-width: 110px;
+  margin-top: 0;
 }
 
 /* Message box starts here */
