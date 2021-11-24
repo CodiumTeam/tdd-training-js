@@ -1,4 +1,4 @@
-export const drinks = ['Tea', 'Coffee', 'Chocolate', 'Orange'];
+export const drinks = ['Coffee', 'Tea', 'Chocolate', 'Orange'];
 export const drinksPrices = {
   Tea: 0.4,
   Coffee: 0.6,
