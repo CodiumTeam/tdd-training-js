@@ -12,7 +12,7 @@ const DRINKS_IMAGES = {
 
 const AVAILABLE_COMMANDS = ['T', 'C', 'H', 'O', 'M'];
 
-function DrinkMakerPinter({ command }) {
+function DrinkMakerOutput({ command }) {
   if (!command) return null;
 
   const [executedCommand, ...rest] = command.split(':');
@@ -57,4 +57,4 @@ function MessageBox({ text }) {
   );
 }
 
-export default DrinkMakerPinter;
+export default DrinkMakerOutput;
