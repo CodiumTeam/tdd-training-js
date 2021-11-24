@@ -1,29 +1,26 @@
-.drinks-list {
+.button-group {
   position: relative;
   transform: translate(10%, 10px);
   top: 60px;
   left: -83px;
-}
-
-.drinks-list li {
   text-align: right;
 }
 
-.drinks-list li > button {
+.button-group button {
   margin-top: 1em;
 }
 
-button.drink-button {
+.button {
   position: relative;
   padding: 3px 1em;
   border-radius: 4px;
 }
 
-button.drink-button--is-selected {
+.button--is-selected {
   background-color: #dbbf8c;
 }
 
-button.drink-button:after {
+.button-group .button:after {
   content: '';
   width: 16px;
   height: 16px;
@@ -33,6 +30,6 @@ button.drink-button:after {
   right: -21px;
 }
 
-button.drink-button--is-selected:after {
+.button-group .button--is-selected:after {
   background-color: #dbbf8c;
 }

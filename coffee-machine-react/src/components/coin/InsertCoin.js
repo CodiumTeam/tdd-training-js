@@ -20,6 +20,7 @@ function InsertCoin({ onInsertedCoin }) {
         max="100"
         value={insertedCoins}
         onChange={handleOnChange}
+        placeholder="Insert Coin"
       />
       <small>coins</small>
     </div>

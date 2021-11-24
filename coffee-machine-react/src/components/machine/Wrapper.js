@@ -9,10 +9,10 @@ function MachineWrapper({ children }) {
       <div className="machine-top-container">
         <div className="machine-top"></div>
       </div>
-      <div className="drink-maker">{children}</div>
       <div className="cup-wrapper">
         <CoffeeCup />
       </div>
+      <div className="drink-maker">{children}</div>
     </div>
   );
 }
