@@ -5,7 +5,7 @@ describe('Coffee Machine', () => {
 
   it('Can select "Coffee" without Sugar', () => {
     cy.findByText('Coffee').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
 
     cy.get('.drink-maker-image img')
@@ -15,7 +15,7 @@ describe('Coffee Machine', () => {
 
   it('Can select "Tea" without Sugar', () => {
     cy.findByText('Tea').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -24,7 +24,7 @@ describe('Coffee Machine', () => {
 
   it('Can select "Chocolate" without Sugar', () => {
     cy.findByText('Chocolate').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -34,7 +34,7 @@ describe('Coffee Machine', () => {
   it('Can select "Tea" with 1 Sugar', () => {
     cy.findByText('Tea').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -44,7 +44,7 @@ describe('Coffee Machine', () => {
   it('Can select "Coffee" with 1 Sugar', () => {
     cy.findByText('Coffee').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -54,7 +54,7 @@ describe('Coffee Machine', () => {
   it('Can select "Chocolate" with 1 Sugar', () => {
     cy.findByText('Chocolate').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -65,7 +65,7 @@ describe('Coffee Machine', () => {
     cy.findByText('Tea').click();
     cy.findByText('+').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -76,7 +76,7 @@ describe('Coffee Machine', () => {
     cy.findByText('Coffee').click();
     cy.findByText('+').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -87,7 +87,7 @@ describe('Coffee Machine', () => {
     cy.findByText('Chocolate').click();
     cy.findByText('+').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -98,7 +98,7 @@ describe('Coffee Machine', () => {
     cy.findByText('Tea').click();
     cy.findByText('+').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(0.3);
+    cy.findByPlaceholderText('Insert Coin').type(0.3);
     cy.findByText('Start').click();
     cy.findByText('You need 0.1 to buy "Tea"').should('be.visible');
   });
@@ -107,7 +107,7 @@ describe('Coffee Machine', () => {
     cy.findByText('Coffee').click();
     cy.findByText('+').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(0.3);
+    cy.findByPlaceholderText('Insert Coin').type(0.3);
     cy.findByText('Start').click();
     cy.findByText('You need 0.3 to buy "Coffee"').should('be.visible');
   });
@@ -116,14 +116,14 @@ describe('Coffee Machine', () => {
     cy.findByText('Chocolate').click();
     cy.findByText('+').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(0.3);
+    cy.findByPlaceholderText('Insert Coin').type(0.3);
     cy.findByText('Start').click();
     cy.findByText('You need 0.2 to buy "Chocolate"').should('be.visible');
   });
 
   it('Can select "Orange" without Sugar', () => {
     cy.findByText('Orange').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -133,7 +133,7 @@ describe('Coffee Machine', () => {
   it('Can select "Orange" with 1 Sugar', () => {
     cy.findByText('Orange').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -144,7 +144,7 @@ describe('Coffee Machine', () => {
     cy.findByText('Orange').click();
     cy.findByText('+').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(1);
+    cy.findByPlaceholderText('Insert Coin').type(1);
     cy.findByText('Start').click();
     cy.get('.drink-maker-image img')
       .should('have.attr', 'src')
@@ -154,7 +154,7 @@ describe('Coffee Machine', () => {
   it('Can\'t select "Orange" without enougth money', () => {
     cy.findByText('Orange').click();
     cy.findByText('+').click();
-    cy.findByRole('spinbutton').type(0.5);
+    cy.findByPlaceholderText('Insert Coin').type(0.5);
     cy.findByText('Start').click();
     cy.findByText('You need 0.1 to buy "Orange"').should('be.visible');
   });

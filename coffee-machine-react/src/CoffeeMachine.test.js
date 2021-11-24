@@ -11,7 +11,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const coffeeButton = screen.getByText('Coffee');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
     userEvent.click(coffeeButton);
     userEvent.type(coinInput, '1');
@@ -25,7 +25,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const teaButton = screen.getByText('Tea');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
     userEvent.click(teaButton);
     userEvent.type(coinInput, '1');
@@ -39,7 +39,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Chocolate');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
     userEvent.click(chocolateButton);
     userEvent.type(coinInput, '1');
@@ -53,7 +53,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const teaButton = screen.getByText('Tea');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const addSugarButton = screen.getByText('+');
     const startButton = screen.getByText('Start');
 
@@ -70,7 +70,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const coffeeButton = screen.getByText('Coffee');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const addSugarButton = screen.getByText('+');
     const startButton = screen.getByText('Start');
 
@@ -88,7 +88,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Chocolate');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const addSugarButton = screen.getByText('+');
     const startButton = screen.getByText('Start');
 
@@ -106,7 +106,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const teaButton = screen.getByText('Tea');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const addSugarButton = screen.getByText('+');
     const startButton = screen.getByText('Start');
 
@@ -126,7 +126,7 @@ describe('Iterations', () => {
 
     const coffeeButton = screen.getByText('Coffee');
     const addSugarButton = screen.getByText('+');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
 
     userEvent.click(coffeeButton);
@@ -144,7 +144,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Coffee');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const addSugarButton = screen.getByText('+');
     const startButton = screen.getByText('Start');
 
@@ -163,7 +163,7 @@ describe('Iterations', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Coffee');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const addSugarButton = screen.getByText('+');
     const startButton = screen.getByText('Start');
 
@@ -185,7 +185,7 @@ describe('Iterations', () => {
     const chocolateButton = screen.getByText('Tea');
     const addSugarButton = screen.getByText('+');
     const removeSugarButton = screen.getByText('-');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
 
     userEvent.click(chocolateButton);
@@ -204,7 +204,7 @@ describe('Iterations', () => {
 
     const chocolateButton = screen.getByText('Tea');
     const removeSugarButton = screen.getByText('-');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
 
     userEvent.click(chocolateButton);
@@ -223,7 +223,7 @@ describe('Iteration II', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const teaButton = screen.getByText('Tea');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
 
     userEvent.click(teaButton);
@@ -240,7 +240,7 @@ describe('Iteration II', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const coffeeButton = screen.getByText('Coffee');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
 
     userEvent.click(coffeeButton);
@@ -257,7 +257,7 @@ describe('Iteration II', () => {
     render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
     const chocolateButton = screen.getByText('Chocolate');
-    const coinInput = screen.getByRole('spinbutton');
+    const coinInput = screen.getByPlaceholderText('Insert Coin');
     const startButton = screen.getByText('Start');
 
     userEvent.click(chocolateButton);
@@ -274,7 +274,7 @@ describe('Iteration II', () => {
       render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
       const orangeButton = screen.getByText('Orange');
-      const coinInput = screen.getByRole('spinbutton');
+      const coinInput = screen.getByPlaceholderText('Insert Coin');
       const startButton = screen.getByText('Start');
 
       userEvent.click(orangeButton);
@@ -288,7 +288,7 @@ describe('Iteration II', () => {
       render(<CoffeeMachine drinkMaker={drinkMaker} />);
 
       const orangeButton = screen.getByText('Orange');
-      const coinInput = screen.getByRole('spinbutton');
+      const coinInput = screen.getByPlaceholderText('Insert Coin');
       const startButton = screen.getByText('Start');
 
       userEvent.click(orangeButton);
