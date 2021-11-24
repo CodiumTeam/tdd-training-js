@@ -84,24 +84,62 @@ describe('DrinkMakerPinter', () => {
       expect(image.src).toContain(expected);
     }
   );
-});
 
-test('When a Message command is given to it. Should not render image', () => {
-  render(
-    <DrinkMakerOutput drinkMaker={drinkMaker} command={'M:This is a message'} />
+  test.each([
+    ['T:1:0', '/images/tea-with-sugar-stick.png'],
+    ['H:1:0', '/images/chocolate-with-sugar-stick'],
+    ['C:1:0', '/images/coffee-with-sugar-stick.png'],
+    ['O:1:0', '/images/orange-with-sugar-stick.png'],
+  ])(
+    'When a "%s" command is given. Should render a Tea image',
+    (input, expected) => {
+      render(<DrinkMakerOutput drinkMaker={drinkMaker} command={input} />);
+
+      const image = screen.getByRole('img');
+
+      expect(image.src).toContain(expected);
+    }
   );
 
-  const image = screen.queryByRole('img');
+  test.each([
+    ['T:2:0', '/images/tea-with-two-sugar-stick.png'],
+    ['H:2:0', '/images/chocolate-with-two-sugar-stick.png'],
+    ['C:2:0', '/images/coffee-with-two-sugar-stick.png'],
+    ['O:2:0', '/images/orange-with-two-sugar-stick.png'],
+  ])(
+    'When a "%s" command is given. Should render a Tea image',
+    (input, expected) => {
+      render(<DrinkMakerOutput drinkMaker={drinkMaker} command={input} />);
 
-  expect(image).not.toBeInTheDocument();
-});
+      const image = screen.getByRole('img');
 
-test('When a Message command is given to it. Should show message to the user', () => {
-  render(
-    <DrinkMakerOutput drinkMaker={drinkMaker} command={'M:This is a message'} />
+      expect(image.src).toContain(expected);
+    }
   );
 
-  const message = screen.getByText('This is a message');
+  test('When a Message command is given to it. Should not render image', () => {
+    render(
+      <DrinkMakerOutput
+        drinkMaker={drinkMaker}
+        command={'M:This is a message'}
+      />
+    );
 
-  expect(message).toBeVisible();
+    const image = screen.queryByRole('img');
+
+    expect(image).not.toBeInTheDocument();
+  });
+
+  test('When a Message command is given to it. Should show message to the user', () => {
+    render(
+      <DrinkMakerOutput
+        drinkMaker={drinkMaker}
+        command={'M:This is a message'}
+      />
+    );
+
+    const message = screen.getByText('This is a message');
+
+    expect(message).toBeVisible();
+  });
 });
