@@ -22,7 +22,6 @@ function InsertCoin({ onInsertedCoin }) {
         onChange={handleOnChange}
         placeholder="Insert Coin"
       />
-      <small>coins</small>
     </div>
   );
 }
