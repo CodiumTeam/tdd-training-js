@@ -27,7 +27,7 @@ Some examples of the roman numerals are:
 
 [More information about Roman numerals](https://en.wikipedia.org/wiki/Roman_numerals)
 
-There is no need to be able to convert numbers larger than about 3000.
+There is no need to be able to convert numbers larger than about 3999.
 
 # Acceptance test
 
