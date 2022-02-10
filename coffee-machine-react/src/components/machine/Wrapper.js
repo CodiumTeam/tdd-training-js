@@ -1,5 +1,5 @@
 import React from 'react';
-import CoffeeCup from '../coffe/CoffeeCup';
+import CoffeeCup from '../coffee/CoffeeCup';
 
 import './wrapper.css';
 

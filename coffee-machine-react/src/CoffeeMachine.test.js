@@ -3,10 +3,12 @@ import userEvent from '@testing-library/user-event';
 import CoffeeMachine from './CoffeeMachine';
 import { drinkMaker } from './drinkMaker';
 
-jest.mock('./drinkMaker.js');
+// Uncommenting this line we will change the behaviour of the drinkMaker file
+// jest.mock('./drinkMaker.js');
 
 test('User is able to select "Coffee"', function () {
-  render(<CoffeeMachine drinkMaker={drinkMaker} />);
+  //   jest.spyOn(drinkMaker, 'execute').mockName('drinkMaker.execute')
+  render(<CoffeeMachine />);
   const coffeeButton = screen.getByText('Coffee');
 
   userEvent.click(coffeeButton);

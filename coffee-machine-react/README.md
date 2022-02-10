@@ -25,6 +25,19 @@ The drink maker receives string commands from your code to make the drinks. It c
     "C:2:0" (Drink maker makes 1 coffee with 2 sugars and a stick)
     "M:message-content" (Drink maker forwards any message received onto the coffee machine interface for the customer to see)
 
+## React version
+Do we have some [components](src/components) to simplify the UI.
+
+To send the message we use:
+
+    <DrinkMakerOutput command={command} />
+
+To add buttons to the user interface (use the ones you decide):
+
+    <Button text="" onClick={} />
+    <SmallButton text="" onClick={} />
+    <StartButton disabled={} onClick={} />
+
 # Second iteration - Going into business
 
 The coffee machine is not free anymore! One tea is 0,4 euro, a coffee is 0,6 euro, a chocolate is 0,5 euro.
@@ -43,6 +56,11 @@ Remember that the drink maker forwards any message received onto the coffee mach
 If too much money is given, the drink maker will still make the drink according to the instructions. The machine will handle the return of the correct change. So do not worry about that.
 
 You don't need to worry if there is too much money inserted. Just make sure, the minimum amount of money is set.
+
+## React version 
+We can use the component
+
+    <InsertCoin onInsertedCoin={} />
 
 # Third iteration - Extra hot
 
