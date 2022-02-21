@@ -30,13 +30,12 @@ Do we have some [components](src/ui) to simplify the UI.
 
 To send the message we use:
 
-    <DrinkMakerOutput command={command} />
+    <DrinkMakerBox command={command} />
 
 To add buttons to the user interface (use the ones you decide):
 
     <Button text="" onClick={} />
     <SmallButton text="" onClick={} />
-    <StartButton disabled={} onClick={} />
 
 # Second iteration - Going into business
 
