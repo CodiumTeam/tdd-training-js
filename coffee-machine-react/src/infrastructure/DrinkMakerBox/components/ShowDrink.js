@@ -1,4 +1,24 @@
-export const drinksImages = {
+import MessageBox from "./MessageBox";
+
+function ShowDrink({command}) {
+    const [primaryCommand, ...restOfCommand] = command.split(':');
+    const isSendingAMessage = primaryCommand === 'M';
+    const imgSrc = getImagePathFromCommand(primaryCommand, restOfCommand);
+    const imageClassName = command.replace(/:/g, '-');
+
+    return <div
+        role="alert"
+        className={`drink-maker-image drink-maker-image--${primaryCommand} ${imageClassName}`}
+    >
+        {isSendingAMessage ? (
+            <MessageBox text={restOfCommand.join('')}/>
+        ) : (
+            <img src={imgSrc} alt="Selected drink"/>
+        )}
+    </div>;
+}
+
+const drinksImages = {
     T: '/images/tea.png',
     'T-1-0': '/images/tea-with-sugar-stick.png',
     'T-2-0': '/images/tea-with-two-sugar-stick.png',
@@ -13,7 +33,7 @@ export const drinksImages = {
     'O-2-0': '/images/orange-with-two-sugar-stick.png',
 };
 
-export const getImagePathFromCommand = (primaryCommand, restOfCommand) => {
+function getImagePathFromCommand(primaryCommand, restOfCommand) {
     const cleanedRestOfCommand = restOfCommand.filter(Boolean);
     const hasMoreCommand = cleanedRestOfCommand.length > 0;
     const imageKey =
@@ -23,3 +43,5 @@ export const getImagePathFromCommand = (primaryCommand, restOfCommand) => {
 
     return imgSrc;
 };
+
+export default ShowDrink;

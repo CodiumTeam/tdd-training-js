@@ -22,18 +22,6 @@ describe('DrinkMakerPinter', () => {
       drinkMaker.execute.mockRestore();
     });
 
-    it('Should throw an error if a invalid command is given to it', () => {
-      const oldConsoleError = console.error;
-      console.error = jest.fn();
-      jest.spyOn(drinkMaker, 'execute');
-
-      expect(() => {
-        render(<DrinkMakerBox command={'T1'} />);
-      }).toThrowError(`Command "T1" is not a valid command`);
-      console.error = oldConsoleError;
-      drinkMaker.execute.mockRestore();
-    });
-
     test.each([
       ['Tea', 'T:1:0'],
       ['Chocolate', 'H:1:0'],
