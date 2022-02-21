@@ -26,7 +26,7 @@ The drink maker receives string commands from your code to make the drinks. It c
     "M:message-content" (Drink maker forwards any message received onto the coffee machine interface for the customer to see)
 
 ## React version
-Do we have some [components](src/components) to simplify the UI.
+Do we have some [components](src/ui) to simplify the UI.
 
 To send the message we use:
 

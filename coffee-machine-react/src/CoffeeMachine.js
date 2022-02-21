@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import DrinkMakerOutput from './components/DrinkMaker/DrinkMakerOutput';
-import MachineWrapper from './components/machine/Wrapper';
-import DrinksBlock from './components/machine/DrinksBlock';
-import ColumnsButtonsGroup from './components/buttons/ColumnsButtonsGroup';
-import RightPanel from './components/machine/RightPanel';
+import DrinkMakerOutput from './infrastructure/DrinkMakerOutput';
+import MachineWrapper from './ui/machine/Wrapper';
+import DrinksBlock from './ui/machine/DrinksBlock';
+import ColumnsButtonsGroup from './ui/buttons/ColumnsButtonsGroup';
+import RightPanel from './ui/machine/RightPanel';
 
 function CoffeeMachine() {
   const [command, setCommand] = useState('');
@@ -12,7 +12,7 @@ function CoffeeMachine() {
     <MachineWrapper>
       <DrinksBlock>
         <ColumnsButtonsGroup>
-          {/*Please read the README to see the available React components.  */}
+          {/*Please read the README to see the available React ui.  */}
         </ColumnsButtonsGroup>
       </DrinksBlock>
 

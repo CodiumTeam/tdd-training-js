@@ -1,5 +1,5 @@
 import React from 'react';
-import { drinkMaker } from '../../drinkMaker';
+import { drinkMaker } from './drinkMaker';
 
 import './drink-maker-output.css';
 
