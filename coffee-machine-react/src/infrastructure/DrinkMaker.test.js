@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { drinkMaker } from '../drinkMaker';
+import { drinkMaker } from './drinkMaker';
 import DrinkMakerBox from './DrinkMakerBox';
 
 describe('DrinkMakerPinter', () => {
