@@ -7,7 +7,7 @@ ReactDOM.render(
   <React.StrictMode>
     <div className="root">
       <img
-        src="http://www.codium.team/img/resources/codium-icon-black.svg"
+        src="https://www.codium.team/img/codium-black-200x46.png"
         alt="Codium Team"
         title="Codium team"
       />
