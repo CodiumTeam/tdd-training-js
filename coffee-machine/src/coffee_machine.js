@@ -14,7 +14,9 @@ class Order {
       return 60 - this.money;
     } else if (this.product === 'Hot chocolate' && this.money < 50) {
       return 50 - this.money;
-    } else if (this.product === 'Coffee' || this.product === 'Tea' || this.product === 'Hot chocolate') {
+    } else if (this.product === 'Orange juice' && this.money < 60) {
+      return 60 - this.money;
+    } else if (this.product === 'Coffee' || this.product === 'Tea' || this.product === 'Hot chocolate' || this.product === 'Orange juice') {
       return 0;
     } else {
       throw new Error('Product price not defined yet: ' + this.product);
@@ -57,6 +59,8 @@ class MyDrinkMaker extends IMyDrinkMaker {
       return 'T';
     } else if (product === "Hot chocolate") {
       return 'H';
+    } else if (product === "Orange juice") {
+      return 'O';
     } else {
       throw new Error('Product not supported: ' + product);
     }
@@ -93,6 +97,10 @@ class CoffeeMachine {
 
   selectHotChocolate() {
     this._prepareDrink('Hot chocolate');
+  }
+
+  selectOrange() {
+    this._prepareDrink('Orange juice');
   }
 
   addMoney(money) {

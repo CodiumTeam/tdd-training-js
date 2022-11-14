@@ -42,6 +42,14 @@ describe('CoffeeMachine', function () {
     expect(maker.execute).toHaveBeenCalledWith('H::');
   });
 
+  it('User is able to select "Orange" without sugar', () => {
+    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+
+    coffeeMachine.selectOrange();
+
+    expect(maker.execute).toHaveBeenCalledWith('O::');
+  });
+
   it('User is able select a product with one sugar', () => {
     const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
 
@@ -125,4 +133,5 @@ describe('CoffeeMachine', function () {
     expect(maker.execute).toHaveBeenCalledWith('C::');
     expect(maker.execute).toHaveBeenCalledWith('M:Missing 40cents');
   });
+
 });
