@@ -53,4 +53,29 @@ describe('CoffeeMachine', function () {
 
     expect(maker.execute).toHaveBeenCalledWith('C:2:0');
   });
+
+  it('User is able select a product with 0 sugar', () => {
+    const maker = new DrinkMaker();
+    jest.spyOn(maker, 'execute');
+    const coffeeMachine = new CoffeeMachine(maker);
+
+    coffeeMachine.selectTwoSugar();
+    coffeeMachine.selectZeroSugar();
+    coffeeMachine.selectCoffee();
+
+    expect(maker.execute).toHaveBeenCalledWith('C::');
+  });
+
+  it('After ordering a product sugar level is reset to 0 (default value)', () => {
+    const maker = new DrinkMaker();
+    jest.spyOn(maker, 'execute');
+    const coffeeMachine = new CoffeeMachine(maker);
+
+    coffeeMachine.selectTwoSugar();
+    coffeeMachine.selectCoffee();
+    coffeeMachine.selectCoffee();
+
+    expect(maker.execute).toHaveBeenCalledWith('C:2:0');
+    expect(maker.execute).toHaveBeenCalledWith('C::');
+  });
 });

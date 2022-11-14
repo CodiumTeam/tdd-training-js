@@ -5,6 +5,10 @@ class CoffeeMachine {
     this.drinkMaker = drinkMaker;
   }
 
+  selectZeroSugar() {
+    this.sugarLevel = 0;
+  }
+
   selectOneSugar() {
     this.sugarLevel = 1;
   }
@@ -31,6 +35,11 @@ class CoffeeMachine {
     } else {
       this.drinkMaker.execute(product + ':' + this.sugarLevel + ':0');
     }
+    this._resetMachineToDefaultValues();
+  }
+
+  _resetMachineToDefaultValues() {
+    this.sugarLevel = 0;
   }
 
 }
