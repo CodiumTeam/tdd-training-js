@@ -1,8 +1,50 @@
+const DrinkMaker = require("./drink_maker");
+
+class Order {
+  constructor(product, sugarLevel) {
+    this.product = product;
+    this.sugarLevel = sugarLevel;
+  }
+}
+
+class IMyDrinkMaker {
+  processOrder(order) {
+    throw new Error('Method not implemented')
+  }
+}
+
+class MyDrinkMaker extends IMyDrinkMaker {
+  constructor(drinkMaker) {
+    super();
+    this.drinkMaker = drinkMaker;
+  }
+
+  processOrder(order) {
+    if (order.sugarLevel === 0) {
+      this.drinkMaker.execute(this._getProduct(order.product) + '::');
+    } else {
+      this.drinkMaker.execute(this._getProduct(order.product) + ':' + order.sugarLevel + ':0');
+    }
+  }
+
+  _getProduct(product) {
+    if (product === "Coffee") {
+      return 'C';
+    } else if (product === "Tea") {
+      return 'T';
+    } else if (product === "Hot chocolate") {
+      return 'H';
+    } else {
+      throw new Error('Product not supported: ' + product);
+    }
+  }
+}
+
 class CoffeeMachine {
   sugarLevel = 0;
 
-  constructor(drinkMaker) {
-    this.drinkMaker = drinkMaker;
+  constructor(myDrinkMaker) {
+    this.myDrinkMaker = myDrinkMaker;
   }
 
   selectZeroSugar() {
@@ -18,23 +60,20 @@ class CoffeeMachine {
   }
 
   selectCoffee() {
-    this._prepareDrink('C');
+    this._prepareDrink('Coffee');
   }
 
   selectTea() {
-    this._prepareDrink('T');
+    this._prepareDrink('Tea');
   }
 
   selectHotChocolate() {
-    this._prepareDrink('H');
+    this._prepareDrink('Hot chocolate');
   }
 
   _prepareDrink(product) {
-    if (this.sugarLevel === 0) {
-      this.drinkMaker.execute(product + '::');
-    } else {
-      this.drinkMaker.execute(product + ':' + this.sugarLevel + ':0');
-    }
+    const order = new Order(product, this.sugarLevel);
+    this.myDrinkMaker.processOrder(order);
     this._resetMachineToDefaultValues();
   }
 
@@ -44,4 +83,4 @@ class CoffeeMachine {
 
 }
 
-module.exports = CoffeeMachine;
+module.exports = { CoffeeMachine, MyDrinkMaker};
