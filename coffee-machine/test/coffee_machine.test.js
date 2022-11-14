@@ -154,4 +154,14 @@ describe('CoffeeMachine', function () {
     expect(maker.execute).toHaveBeenCalledWith('Ch::');
     expect(maker.execute).toHaveBeenCalledWith('C::');
   });
+
+  it('After ordering an extra hot product extraHot level is reset false', () => {
+    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+
+    coffeeMachine.selectExtraHot();
+    coffeeMachine.selectOrange();
+
+    expect(maker.execute).toHaveBeenCalledWith('M:Cannot prepare extra hot Orange juice');
+    // expect(maker.execute).toHaveBeenCalledWith('O::'); // another possible implementation
+  });
 });

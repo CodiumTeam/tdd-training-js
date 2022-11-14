@@ -121,6 +121,11 @@ class CoffeeMachine {
 
   _prepareDrink(product) {
     const order = new Order(product, this.sugarLevel, this.money, this.extraHot);
+
+    if (order.product === 'Orange juice' && order.extraHot) {
+      this.myDrinkMaker.showMessage("Cannot prepare extra hot Orange juice");
+    }
+
     const missingMoney = order.getMissingMoney();
     if (missingMoney === 0) {
       this.myDrinkMaker.processOrder(order);
