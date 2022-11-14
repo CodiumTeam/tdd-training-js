@@ -2,11 +2,16 @@ let DrinkMaker = require('../src/drink_maker');
 const {MyDrinkMaker, CoffeeMachine} = require("../src/coffee_machine");
 
 describe('CoffeeMachine', function () {
-  it('User is able to select "Coffee" without sugar', () => {
+  function createCoffeeMachine() {
     const maker = new DrinkMaker();
     jest.spyOn(maker, 'execute');
     const myMaker = new MyDrinkMaker(maker);
     const coffeeMachine = new CoffeeMachine(myMaker);
+    return {maker, coffeeMachine};
+  }
+
+  it('User is able to select "Coffee" without sugar', () => {
+    const {maker, coffeeMachine} = createCoffeeMachine();
 
     coffeeMachine.selectCoffee();
 
@@ -14,10 +19,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able to select "Tea" without sugar', () => {
-    const maker = new DrinkMaker();
-    jest.spyOn(maker, 'execute');
-    const myMaker = new MyDrinkMaker(maker);
-    const coffeeMachine = new CoffeeMachine(myMaker);
+    const {maker, coffeeMachine} = createCoffeeMachine();
 
     coffeeMachine.selectTea();
 
@@ -25,10 +27,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able to select "Hot chocolate" without sugar', () => {
-    const maker = new DrinkMaker();
-    jest.spyOn(maker, 'execute');
-    const myMaker = new MyDrinkMaker(maker);
-    const coffeeMachine = new CoffeeMachine(myMaker);
+    const {maker, coffeeMachine} = createCoffeeMachine();
 
     coffeeMachine.selectHotChocolate();
 
@@ -36,10 +35,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able select a product with one sugar', () => {
-    const maker = new DrinkMaker();
-    jest.spyOn(maker, 'execute');
-    const myMaker = new MyDrinkMaker(maker);
-    const coffeeMachine = new CoffeeMachine(myMaker);
+    const {maker, coffeeMachine} = createCoffeeMachine();
 
     coffeeMachine.selectOneSugar();
     coffeeMachine.selectCoffee();
@@ -48,10 +44,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able select a product with two sugar', () => {
-    const maker = new DrinkMaker();
-    jest.spyOn(maker, 'execute');
-    const myMaker = new MyDrinkMaker(maker);
-    const coffeeMachine = new CoffeeMachine(myMaker);
+    const {maker, coffeeMachine} = createCoffeeMachine();
 
     coffeeMachine.selectTwoSugar();
     coffeeMachine.selectCoffee();
@@ -60,10 +53,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able select a product with 0 sugar', () => {
-    const maker = new DrinkMaker();
-    jest.spyOn(maker, 'execute');
-    const myMaker = new MyDrinkMaker(maker);
-    const coffeeMachine = new CoffeeMachine(myMaker);
+    const {maker, coffeeMachine} = createCoffeeMachine();
 
     coffeeMachine.selectTwoSugar();
     coffeeMachine.selectZeroSugar();
@@ -73,10 +63,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('After ordering a product sugar level is reset to 0 (default value)', () => {
-    const maker = new DrinkMaker();
-    jest.spyOn(maker, 'execute');
-    const myMaker = new MyDrinkMaker(maker);
-    const coffeeMachine = new CoffeeMachine(myMaker);
+    const {maker, coffeeMachine} = createCoffeeMachine();
 
     coffeeMachine.selectTwoSugar();
     coffeeMachine.selectCoffee();
