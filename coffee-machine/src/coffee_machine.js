@@ -112,6 +112,7 @@ class CoffeeMachine {
 
   _resetMachineToDefaultValues() {
     this.sugarLevel = 0;
+    this.money = 0;
   }
 
 }

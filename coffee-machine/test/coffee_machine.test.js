@@ -75,6 +75,7 @@ describe('CoffeeMachine', function () {
 
     coffeeMachine.selectTwoSugar();
     coffeeMachine.selectCoffee();
+    coffeeMachine.addMoney(100);
     coffeeMachine.selectCoffee();
 
     expect(maker.execute).toHaveBeenCalledWith('C:2:0');
@@ -112,5 +113,16 @@ describe('CoffeeMachine', function () {
     coffeeMachine.selectCoffee();
 
     expect(maker.execute).toHaveBeenCalledWith('M:Missing 30cents');
+  });
+
+  it('Money resets after each valid order', () => {
+    const {maker, coffeeMachine} = createCoffeeMachine();
+
+    coffeeMachine.addMoney(200);
+    coffeeMachine.selectCoffee();
+    coffeeMachine.selectCoffee();
+
+    expect(maker.execute).toHaveBeenCalledWith('C::');
+    expect(maker.execute).toHaveBeenCalledWith('M:Missing 40cents');
   });
 });
