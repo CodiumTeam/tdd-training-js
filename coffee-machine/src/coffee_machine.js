@@ -11,6 +11,10 @@ class IMyDrinkMaker {
   processOrder(order) {
     throw new Error('Method not implemented')
   }
+
+  showMessage(message) {
+    throw new Error('Method not implemented')
+  }
 }
 
 class MyDrinkMaker extends IMyDrinkMaker {
@@ -25,6 +29,10 @@ class MyDrinkMaker extends IMyDrinkMaker {
     } else {
       this.drinkMaker.execute(this._getProduct(order.product) + ':' + order.sugarLevel + ':0');
     }
+  }
+
+  showMessage(message) {
+    this.drinkMaker.execute('M:' + message);
   }
 
   _getProduct(product) {
@@ -42,6 +50,7 @@ class MyDrinkMaker extends IMyDrinkMaker {
 
 class CoffeeMachine {
   sugarLevel = 0;
+  money = 0;
 
   constructor(myDrinkMaker) {
     this.myDrinkMaker = myDrinkMaker;
@@ -71,16 +80,25 @@ class CoffeeMachine {
     this._prepareDrink('Hot chocolate');
   }
 
+  addMoney(money) {
+    this.money = money;
+  }
+
   _prepareDrink(product) {
     const order = new Order(product, this.sugarLevel);
-    this.myDrinkMaker.processOrder(order);
-    this._resetMachineToDefaultValues();
+    if (order.product === 'Coffee' && this.money < 40) {
+      this.myDrinkMaker.showMessage("Missing 40cents");
+    } else {
+      this.myDrinkMaker.processOrder(order);
+      this._resetMachineToDefaultValues();
+    }
   }
 
   _resetMachineToDefaultValues() {
     this.sugarLevel = 0;
   }
 
+
 }
 
-module.exports = { CoffeeMachine, MyDrinkMaker};
+module.exports = {CoffeeMachine, MyDrinkMaker};
