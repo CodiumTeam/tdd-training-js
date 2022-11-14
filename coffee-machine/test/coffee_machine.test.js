@@ -134,4 +134,24 @@ describe('CoffeeMachine', function () {
     expect(maker.execute).toHaveBeenCalledWith('M:Missing 40cents');
   });
 
+  it('User is able to select extra hot "Coffee"', () => {
+    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+
+    coffeeMachine.selectExtraHot();
+    coffeeMachine.selectCoffee();
+
+    expect(maker.execute).toHaveBeenCalledWith('Ch::');
+  });
+
+  it('After ordering an extra hot product extraHot level is reset false', () => {
+    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+
+    coffeeMachine.selectExtraHot();
+    coffeeMachine.selectCoffee();
+    coffeeMachine.addMoney(100);
+    coffeeMachine.selectCoffee();
+
+    expect(maker.execute).toHaveBeenCalledWith('Ch::');
+    expect(maker.execute).toHaveBeenCalledWith('C::');
+  });
 });

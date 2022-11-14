@@ -1,10 +1,11 @@
 const DrinkMaker = require("./drink_maker");
 
 class Order {
-  constructor(product, sugarLevel, money) {
+  constructor(product, sugarLevel, money, extraHot) {
     this.product = product;
     this.sugarLevel = sugarLevel;
     this.money = money;
+    this.extraHot = extraHot;
   }
 
   getMissingMoney() {
@@ -41,10 +42,16 @@ class MyDrinkMaker extends IMyDrinkMaker {
   }
 
   processOrder(order) {
+    let product = this._getProduct(order.product);
+    let extraHot = '';
+    if (order.extraHot) {
+      extraHot = 'h'
+    }
+    product = product + extraHot;
     if (order.sugarLevel === 0) {
-      this.drinkMaker.execute(this._getProduct(order.product) + '::');
+      this.drinkMaker.execute(product + '::');
     } else {
-      this.drinkMaker.execute(this._getProduct(order.product) + ':' + order.sugarLevel + ':0');
+      this.drinkMaker.execute(product + ':' + order.sugarLevel + ':0');
     }
   }
 
@@ -70,6 +77,7 @@ class MyDrinkMaker extends IMyDrinkMaker {
 class CoffeeMachine {
   sugarLevel = 0;
   money = 0;
+  extraHot = false;
 
   constructor(myDrinkMaker) {
     this.myDrinkMaker = myDrinkMaker;
@@ -85,6 +93,10 @@ class CoffeeMachine {
 
   selectTwoSugar() {
     this.sugarLevel = 2;
+  }
+
+  selectExtraHot() {
+    this.extraHot = true;
   }
 
   selectCoffee() {
@@ -108,7 +120,7 @@ class CoffeeMachine {
   }
 
   _prepareDrink(product) {
-    const order = new Order(product, this.sugarLevel, this.money);
+    const order = new Order(product, this.sugarLevel, this.money, this.extraHot);
     const missingMoney = order.getMissingMoney();
     if (missingMoney === 0) {
       this.myDrinkMaker.processOrder(order);
@@ -121,6 +133,7 @@ class CoffeeMachine {
   _resetMachineToDefaultValues() {
     this.sugarLevel = 0;
     this.money = 0;
+    this.extraHot = false;
   }
 
 }
