@@ -104,4 +104,13 @@ describe('CoffeeMachine', function () {
 
     expect(maker.execute).toHaveBeenCalledWith('M:Missing 50cents');
   });
+
+  it('Not enough money for Coffee when some money has been added', () => {
+    const {maker, coffeeMachine} = createCoffeeMachine();
+
+    coffeeMachine.addMoney(10);
+    coffeeMachine.selectCoffee();
+
+    expect(maker.execute).toHaveBeenCalledWith('M:Missing 30cents');
+  });
 });

@@ -1,9 +1,24 @@
 const DrinkMaker = require("./drink_maker");
 
 class Order {
-  constructor(product, sugarLevel) {
+  constructor(product, sugarLevel, money) {
     this.product = product;
     this.sugarLevel = sugarLevel;
+    this.money = money;
+  }
+
+  getMissingMoney() {
+    if (this.product === 'Coffee' && this.money < 40) {
+      return 40 - this.money;
+    } else if (this.product === 'Tea' && this.money < 60) {
+      return 60 - this.money;
+    } else if (this.product === 'Hot chocolate' && this.money < 50) {
+      return 50 - this.money;
+    } else if (this.product === 'Coffee' || this.product === 'Tea' || this.product === 'Hot chocolate') {
+      return 0;
+    } else {
+      throw new Error('Product price not defined yet: ' + this.product);
+    }
   }
 }
 
@@ -85,23 +100,19 @@ class CoffeeMachine {
   }
 
   _prepareDrink(product) {
-    const order = new Order(product, this.sugarLevel);
-    if (order.product === 'Coffee' && this.money < 40) {
-      this.myDrinkMaker.showMessage("Missing 40cents");
-    } else if (order.product === 'Tea' && this.money < 60) {
-      this.myDrinkMaker.showMessage("Missing 60cents");
-    } else if (order.product === 'Hot chocolate' && this.money < 50) {
-      this.myDrinkMaker.showMessage("Missing 50cents");
-    } else {
+    const order = new Order(product, this.sugarLevel, this.money);
+    const missingMoney = order.getMissingMoney();
+    if (missingMoney === 0) {
       this.myDrinkMaker.processOrder(order);
       this._resetMachineToDefaultValues();
+    } else {
+      this.myDrinkMaker.showMessage("Missing " + missingMoney + "cents");
     }
   }
 
   _resetMachineToDefaultValues() {
     this.sugarLevel = 0;
   }
-
 
 }
 
