@@ -88,4 +88,20 @@ describe('CoffeeMachine', function () {
 
     expect(maker.execute).toHaveBeenCalledWith('M:Missing 40cents');
   });
+
+  it('Not enough money for Tea', () => {
+    const {maker, coffeeMachine} = createCoffeeMachine();
+
+    coffeeMachine.selectTea();
+
+    expect(maker.execute).toHaveBeenCalledWith('M:Missing 60cents');
+  });
+
+  it('Not enough money for Hot chocolate', () => {
+    const {maker, coffeeMachine} = createCoffeeMachine();
+
+    coffeeMachine.selectHotChocolate();
+
+    expect(maker.execute).toHaveBeenCalledWith('M:Missing 50cents');
+  });
 });
