@@ -12,8 +12,8 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able to select "Coffee" without sugar', () => {
-    const myMaker = new MyDrinkMaker(maker);
-    jest.spyOn(myMaker, 'processOrder');
+    const myMaker = new MyDrinkMaker();
+    jest.spyOn(myMaker, 'processOrder').mockImplementation();
     const coffeeMachine = new CoffeeMachine(myMaker);
 
     coffeeMachine.addMoney(200)
