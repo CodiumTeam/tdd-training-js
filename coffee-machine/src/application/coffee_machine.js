@@ -23,12 +23,12 @@ class CoffeeMachine {
     this._prepareDrink('Coffee');
   }
 
-  selectTea() {
-    this._prepareDrink('T');
+  prepareTea() {
+    this._prepareDrink('Tea');
   }
 
-  selectHotChocolate() {
-    this._prepareDrink('H');
+  prepareHotChocolate() {
+    this._prepareDrink('Hot chocolate');
   }
 
   _prepareDrink(product) {

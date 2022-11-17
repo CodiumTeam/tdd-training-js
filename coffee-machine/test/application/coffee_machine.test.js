@@ -20,58 +20,58 @@ describe('CoffeeMachine', function () {
     expect(myDrinkMaker.processOrder).toHaveBeenCalledWith(new Order('Coffee', 0));
   });
 
-  // it('User is able to select "Tea" without sugar', () => {
-  //   const coffeeMachine = new CoffeeMachine(myDrinkMaker);
-  //
-  //   coffeeMachine.selectTea();
-  //
-  //   expect(myDrinkMaker.processOrder).toHaveBeenCalledWith('T::');
-  // });
-  //
-  // it('User is able to select "Hot chocolate" without sugar', () => {
-  //   const coffeeMachine = new CoffeeMachine(myDrinkMaker);
-  //
-  //   coffeeMachine.selectHotChocolate();
-  //
-  //   expect(myDrinkMaker.processOrder).toHaveBeenCalledWith('H::');
-  // });
-  //
-  // it('User is able select a product with one sugar', () => {
-  //   const coffeeMachine = new CoffeeMachine(myDrinkMaker);
-  //
-  //   coffeeMachine.selectOneSugar();
-  //   coffeeMachine.selectCoffee();
-  //
-  //   expect(myDrinkMaker.processOrder).toHaveBeenCalledWith('C:1:0');
-  // });
-  //
-  // it('User is able select a product with two sugar', () => {
-  //   const coffeeMachine = new CoffeeMachine(myDrinkMaker);
-  //
-  //   coffeeMachine.selectTwoSugar();
-  //   coffeeMachine.selectCoffee();
-  //
-  //   expect(myDrinkMaker.processOrder).toHaveBeenCalledWith('C:2:0');
-  // });
-  //
-  // it('User is able select a product with 0 sugar', () => {
-  //   const coffeeMachine = new CoffeeMachine(myDrinkMaker);
-  //
-  //   coffeeMachine.selectTwoSugar();
-  //   coffeeMachine.selectZeroSugar();
-  //   coffeeMachine.selectCoffee();
-  //
-  //   expect(myDrinkMaker.processOrder).toHaveBeenCalledWith('C::');
-  // });
-  //
-  // it('After ordering a product sugar level is reset to 0 (default value)', () => {
-  //   const coffeeMachine = new CoffeeMachine(myDrinkMaker);
-  //
-  //   coffeeMachine.selectTwoSugar();
-  //   coffeeMachine.selectCoffee();
-  //   coffeeMachine.selectCoffee();
-  //
-  //   expect(myDrinkMaker.processOrder).toHaveBeenCalledWith('C:2:0');
-  //   expect(myDrinkMaker.processOrder).toHaveBeenCalledWith('C::');
-  // });
+  it('User is able to select "Tea" without sugar', () => {
+    const coffeeMachine = new CoffeeMachine(myDrinkMaker);
+
+    coffeeMachine.prepareTea();
+
+    expect(myDrinkMaker.processOrder).toHaveBeenCalledWith(new Order('Tea', 0));
+  });
+
+  it('User is able to select "Hot chocolate" without sugar', () => {
+    const coffeeMachine = new CoffeeMachine(myDrinkMaker);
+
+    coffeeMachine.prepareHotChocolate();
+
+    expect(myDrinkMaker.processOrder).toHaveBeenCalledWith(new Order('Hot chocolate', 0));
+  });
+
+  it('User is able select a product with one sugar', () => {
+    const coffeeMachine = new CoffeeMachine(myDrinkMaker);
+
+    coffeeMachine.selectOneSugar();
+    coffeeMachine.prepareCoffee();
+
+    expect(myDrinkMaker.processOrder).toHaveBeenCalledWith(new Order('Coffee', 1));
+  });
+
+  it('User is able select a product with two sugar', () => {
+    const coffeeMachine = new CoffeeMachine(myDrinkMaker);
+
+    coffeeMachine.selectTwoSugar();
+    coffeeMachine.prepareCoffee();
+
+    expect(myDrinkMaker.processOrder).toHaveBeenCalledWith(new Order('Coffee', 2));
+  });
+
+  it('User is able select a product with 0 sugar', () => {
+    const coffeeMachine = new CoffeeMachine(myDrinkMaker);
+
+    coffeeMachine.selectTwoSugar();
+    coffeeMachine.selectZeroSugar();
+    coffeeMachine.prepareCoffee();
+
+    expect(myDrinkMaker.processOrder).toHaveBeenCalledWith(new Order('Coffee', 0));
+  });
+
+  it('After ordering a product sugar level is reset to 0 (default value)', () => {
+    const coffeeMachine = new CoffeeMachine(myDrinkMaker);
+
+    coffeeMachine.selectTwoSugar();
+    coffeeMachine.prepareCoffee();
+    coffeeMachine.prepareCoffee();
+
+    expect(myDrinkMaker.processOrder).toHaveBeenCalledWith(new Order('Coffee', 2));
+    expect(myDrinkMaker.processOrder).toHaveBeenCalledWith(new Order('Coffee', 0));
+  });
 });
