@@ -10,8 +10,8 @@ class MyDrinkMaker extends IMyDrinkMaker {
     let product = 'C';
     if (order.sugarLevel === 0) {
       this.drinkMaker.execute(product + '::');
-    } else {
-      this.drinkMaker.execute(product + ':' + this.sugarLevel + ':0');
+      // } else {
+      //   this.drinkMaker.execute(product + ':' + this.sugarLevel + ':0');
     }
   }
 
