@@ -1,5 +1,6 @@
 let DrinkMaker = require('../src/drink_maker');
-const {MyDrinkMaker, CoffeeMachine} = require("../src/coffee_machine");
+const {CoffeeMachine} = require("../src/coffee_machine");
+const MyDrinkMaker = require('../src/my_drink_maker');
 
 describe('CoffeeMachine', function () {
   let maker;
