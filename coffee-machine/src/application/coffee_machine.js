@@ -1,4 +1,4 @@
-const Order = require("./Order");
+const Order = require("../domain/Order");
 
 class CoffeeMachine {
   sugarLevel = 0;

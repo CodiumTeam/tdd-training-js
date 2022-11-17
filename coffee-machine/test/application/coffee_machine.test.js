@@ -1,7 +1,7 @@
-let CoffeeMachine = require('../src/coffee_machine');
-let DrinkMaker = require('../src/drink_maker');
-const MyDrinkMaker = require("../src/MyDrinkMaker");
-const Order = require("../src/Order");
+let CoffeeMachine = require('../../src/application/coffee_machine');
+let DrinkMaker = require('../../src/infrastructure/drink_maker');
+const MyDrinkMaker = require("../../src/infrastructure/MyDrinkMaker");
+const Order = require("../../src/domain/Order");
 
 describe('CoffeeMachine', function () {
 

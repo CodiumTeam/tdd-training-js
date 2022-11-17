@@ -1,4 +1,4 @@
-const IMyDrinkMaker = require("./IMyDrinkMaker");
+const IMyDrinkMaker = require("../domain/IMyDrinkMaker");
 
 class MyDrinkMaker extends IMyDrinkMaker {
   constructor(drinkMaker) {
