@@ -12,4 +12,14 @@ describe('MyDrinkMaker', function () {
 
     expect(maker.execute).toHaveBeenCalledWith('C::');
   });
+
+  it('processes Order: Tea 0 sugar', () => {
+    const maker = new DrinkMaker();
+    const myDrinkMaker = new MyDrinkMaker(maker);
+    jest.spyOn(maker, 'execute');
+
+    myDrinkMaker.processOrder(new Order('Tea', 0))
+
+    expect(maker.execute).toHaveBeenCalledWith('T::');
+  });
 });
