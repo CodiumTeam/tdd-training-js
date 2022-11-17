@@ -9,14 +9,15 @@ class MyDrinkMaker extends IMyDrinkMaker {
     this.productList = [];
     this.productList['Coffee'] = 'C';
     this.productList['Tea'] = 'T';
+    this.productList['Hot chocolate'] = 'H';
   }
 
   processOrder(order) {
     let product = this.productList[order.product];
     if (order.sugarLevel === 0) {
       this.drinkMaker.execute(product + '::');
-      // } else {
-      //   this.drinkMaker.execute(product + ':' + this.sugarLevel + ':0');
+    } else {
+      this.drinkMaker.execute(product + ':' + order.sugarLevel + ':0');
     }
   }
 
