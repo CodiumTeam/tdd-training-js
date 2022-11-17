@@ -9,17 +9,6 @@ describe('CoffeeMachine', function () {
     jest.spyOn(maker, 'execute');
   });
 
-  function createCoffeeMachine() {
-    const myMaker = new MyDrinkMaker(maker);
-    return new CoffeeMachine(myMaker);
-  }
-
-  function createCoffeeMachineWithEnoughMoney() {
-    const coffeeMachine = createCoffeeMachine();
-    coffeeMachine.addMoney(200);
-    return coffeeMachine;
-  }
-
   it('User is able to select "Coffee" without sugar', () => {
     const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
@@ -166,4 +155,17 @@ describe('CoffeeMachine', function () {
     expect(maker.execute).toHaveBeenCalledWith('M:Cannot prepare extra hot Orange juice');
     // expect(maker.execute).toHaveBeenCalledWith('O::'); // another possible implementation
   });
+
+  function createCoffeeMachine() {
+    const myMaker = new MyDrinkMaker(maker);
+    return new CoffeeMachine(myMaker);
+  }
+
+  function createCoffeeMachineWithEnoughMoney() {
+    const coffeeMachine = createCoffeeMachine();
+    coffeeMachine.addMoney(200);
+    return coffeeMachine;
+  }
+
 });
+
