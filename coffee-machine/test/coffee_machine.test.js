@@ -1,6 +1,7 @@
 let DrinkMaker = require('../src/drink_maker');
 const {CoffeeMachine} = require("../src/coffee_machine");
 const MyDrinkMaker = require('../src/my_drink_maker');
+const Order = require('../src/order');
 
 describe('CoffeeMachine', function () {
   let maker;
@@ -11,11 +12,15 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able to select "Coffee" without sugar', () => {
-    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
+    const myMaker = new MyDrinkMaker(maker);
+    jest.spyOn(myMaker, 'processOrder');
+    const coffeeMachine = new CoffeeMachine(myMaker);
 
+    coffeeMachine.addMoney(200)
     coffeeMachine.selectCoffee();
 
-    expect(maker.execute).toHaveBeenCalledWith('C::');
+    let expectedOrder = new Order('Coffee', 0, 200, false);
+    expect(myMaker.processOrder).toHaveBeenCalledWith(expectedOrder);
   });
 
   it('User is able to select "Tea" without sugar', () => {
