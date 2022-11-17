@@ -2,24 +2,26 @@ let DrinkMaker = require('../src/drink_maker');
 const {MyDrinkMaker, CoffeeMachine} = require("../src/coffee_machine");
 
 describe('CoffeeMachine', function () {
-  function createCoffeeMachine() {
-    const maker = new DrinkMaker();
+  let maker;
+
+  beforeEach(() => {
+    maker = new DrinkMaker();
     jest.spyOn(maker, 'execute');
+  });
+
+  function createCoffeeMachine() {
     const myMaker = new MyDrinkMaker(maker);
-    const coffeeMachine = new CoffeeMachine(myMaker);
-    return {maker, coffeeMachine};
+    return new CoffeeMachine(myMaker);
   }
 
   function createCoffeeMachineWithEnoughMoney() {
-    const {maker, coffeeMachine} = createCoffeeMachine();
-
+    const coffeeMachine = createCoffeeMachine();
     coffeeMachine.addMoney(200);
-
-    return {maker, coffeeMachine};
+    return coffeeMachine;
   }
 
   it('User is able to select "Coffee" without sugar', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectCoffee();
 
@@ -27,7 +29,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able to select "Tea" without sugar', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectTea();
 
@@ -35,7 +37,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able to select "Hot chocolate" without sugar', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectHotChocolate();
 
@@ -43,7 +45,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able to select "Orange" without sugar', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectOrange();
 
@@ -51,7 +53,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able select a product with one sugar', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectOneSugar();
     coffeeMachine.selectCoffee();
@@ -60,7 +62,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able select a product with two sugar', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectTwoSugar();
     coffeeMachine.selectCoffee();
@@ -69,7 +71,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able select a product with 0 sugar', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectTwoSugar();
     coffeeMachine.selectZeroSugar();
@@ -79,7 +81,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('After ordering a product sugar level is reset to 0 (default value)', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectTwoSugar();
     coffeeMachine.selectCoffee();
@@ -91,7 +93,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('Not enough money for Coffee', () => {
-    const {maker, coffeeMachine} = createCoffeeMachine();
+    const coffeeMachine = createCoffeeMachine();
 
     coffeeMachine.selectCoffee();
 
@@ -99,7 +101,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('Not enough money for Tea', () => {
-    const {maker, coffeeMachine} = createCoffeeMachine();
+    const coffeeMachine = createCoffeeMachine();
 
     coffeeMachine.selectTea();
 
@@ -107,7 +109,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('Not enough money for Hot chocolate', () => {
-    const {maker, coffeeMachine} = createCoffeeMachine();
+    const coffeeMachine = createCoffeeMachine();
 
     coffeeMachine.selectHotChocolate();
 
@@ -115,7 +117,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('Not enough money for Coffee when some money has been added', () => {
-    const {maker, coffeeMachine} = createCoffeeMachine();
+    const coffeeMachine = createCoffeeMachine();
 
     coffeeMachine.addMoney(10);
     coffeeMachine.selectCoffee();
@@ -124,7 +126,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('Money resets after each valid order', () => {
-    const {maker, coffeeMachine} = createCoffeeMachine();
+    const coffeeMachine = createCoffeeMachine();
 
     coffeeMachine.addMoney(200);
     coffeeMachine.selectCoffee();
@@ -135,7 +137,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('User is able to select extra hot "Coffee"', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectExtraHot();
     coffeeMachine.selectCoffee();
@@ -144,7 +146,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('After ordering an extra hot product extraHot level is reset false', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectExtraHot();
     coffeeMachine.selectCoffee();
@@ -156,7 +158,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('After ordering an extra hot product extraHot level is reset false', () => {
-    const {maker, coffeeMachine} = createCoffeeMachineWithEnoughMoney();
+    const coffeeMachine = createCoffeeMachineWithEnoughMoney();
 
     coffeeMachine.selectExtraHot();
     coffeeMachine.selectOrange();
