@@ -1,8 +1,10 @@
+const Order = require("./Order");
+
 class CoffeeMachine {
   sugarLevel = 0;
 
-  constructor(drinkMaker) {
-    this.drinkMaker = drinkMaker;
+  constructor(myDrinkMaker) {
+    this.myDrinkMaker = myDrinkMaker;
   }
 
   selectZeroSugar() {
@@ -17,8 +19,8 @@ class CoffeeMachine {
     this.sugarLevel = 2;
   }
 
-  selectCoffee() {
-    this._prepareDrink('C');
+  prepareCoffee() {
+    this._prepareDrink('Coffee');
   }
 
   selectTea() {
@@ -30,11 +32,8 @@ class CoffeeMachine {
   }
 
   _prepareDrink(product) {
-    if (this.sugarLevel === 0) {
-      this.drinkMaker.execute(product + '::');
-    } else {
-      this.drinkMaker.execute(product + ':' + this.sugarLevel + ':0');
-    }
+    const order = new Order(product, this.sugarLevel);
+    this.myDrinkMaker.processOrder(order);
     this._resetMachineToDefaultValues();
   }
 
