@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  background: #fbfbfb;
+  color: #44453f;
+}
+
+.root {
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+img {
+  margin-top: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #44453f;
+  font-size: 47px;
+  font-weight: 600;
+}
+
+ul {
+  padding: 0;
+  text-align: left;
+  margin-top: 0;
+  list-style: none;
+}
+
+p {
+  color: #4a4a4a;
+}
+
+h2 {
+  color: #606060;
+  font-size: 1.2em;
+  margin-top: 1.4em;
+}
+
+.drink-maker {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-height: 500px;
+  color: #fff;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  background-color: #363636;
+  border: 4px solid black;
+  box-sizing: border-box;
+}
+
+.drinks {
+  width: 65%;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  background-color: #f2f1dd;
+}
+
+.output {
+  background-color: #1f1f1f;
+  width: 40%;
+  height: 120px;
+  box-shadow: inset 0px 0px 0px 8px #393a32, inset 0px 0px 0px 16px #4b4c4b,
+    inset 0px 0px 0px 24px #828482;
+}
+
+.drink-maker-image--C img {
+  max-width: 100px;
+  margin-top: -10px;
+  margin-left: 22px;
+}
+
+.drink-maker-image--T img {
+  width: 70px;
+  margin-top: 3em;
+}
+
+.drink-maker-image--H img {
+  max-width: 50px;
+  margin-top: 1em;
+  margin-left: 2px;
+}
+
+.drink-maker-image.C-1-0 img,
+.drink-maker-image.C-2-0 img {
+  max-width: 85px;
+  margin-top: 2.7em;
+  margin-left: -5px;
+}
+
+.drink-maker-image.C-2-0 img {
+  max-width: 75px;
+  margin-top: 3em;
+}
+
+.drink-maker-image.T-2-0 img,
+.drink-maker-image.T-1-0 img {
+  margin-top: 2em;
+}
+
+.drink-maker-image.O-1-0 img {
+  max-width: 60px;
+  margin-top: 0.9em;
+  margin-left: -5px;
+}
+
+.drink-maker-image.H-2-0 img {
+  max-width: 110px;
+  margin-top: 0;
+}
+
+/* Message box starts here */
+.container {
+  position: absolute;
+  top: 0;
+  left: 103%;
+}
+
+.container .arrow {
+  width: 12px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  top: 30px;
+  right: 11px;
+}
+
+.container .arrow .outer {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #000000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container .arrow .inner {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #ffffff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 2px;
+}
+
+.container .message-body {
+  float: left;
+  height: auto;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 6px 8px;
+  border-radius: 5px;
+  min-width: 90px;
+}
+
+.container .message-body p {
+  margin: 0;
+}
+
+button {
+  background-color: #4a4a4a;
+  border: none;
+  color: white;
+  padding: 1em 2.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #535353;
+}
+
+button.small {
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  padding: 2px;
+  background-color: #f7f4ea;
+  color: #363636;
+}
+
+.button-group {
+  position: relative;
+  transform: translate(10%, 10px);
+  top: 60px;
+  left: -83px;
+  text-align: right;
+}
+
+.button-group li.is-selected .button {
+  background-color: #dbbf8c;
+}
+
+.button-group li.is-selected .button:after {
+  background-color: #bfae91;
+}
+
+.button-group button {
+  margin-top: 1em;
+}
+
+.button {
+  position: relative;
+  padding: 3px 1em;
+  border-radius: 4px;
+}
+
+.button-group .button:after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: #1f1f1f;
+  border-radius: 50%;
+  position: absolute;
+  right: -21px;
+}
+
+.button-group .button--is-selected:after {
+  background-color: #dbbf8c;
+}
+
+.cup {
+  height: 32px;
+  width: 40px;
+  border-radius: 0 0 150px 150px;
+  position: relative;
+  background: #e6e6e6;
+  box-shadow: inset 17px -7px 0 0 rgb(51 51 51 / 20%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(51, 51, 51, 0.2);
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+  top: 31px;
+  left: 16px;
+}
+
+.cup::before,
+.cup::after {
+  content: '';
+  position: absolute;
+  display: block;
+}
+.cup::before {
+  width: 43px;
+  height: 31px;
+  border-radius: 50%;
+  top: -19px;
+  left: 0;
+  box-shadow: inset 3px 0 0 0 rgb(51 51 51 / 20%), inset 0 0 0 4px #e6e6e6,
+    inset 0 14px 0 0 #d6d6d6;
+  z-index: 1;
+}
+.cup::after {
+  width: 30px;
+  height: 30px;
+  border-radius: 0 50% 50%;
+  right: -19px;
+  top: 0;
+  border: 5px solid #e6e6e6;
+  box-shadow: inset 7px -7px 0 0 rgb(51 51 51 / 20%),
+    3px -3px 0 0 rgb(51 51 51 / 20%);
+  width: 10px;
+  height: 10px;
+  border-radius: 0 50% 50%;
+  right: -19px;
+  top: 0;
+  border: 5px solid #e6e6e6;
+  box-shadow: inset 7px -7px 0 0 rgb(51 51 51 / 20%),
+    3px -3px 0 0 rgb(51 51 51 / 20%);
+}
+.cup .coffee {
+  position: absolute;
+  width: 39px;
+  height: 29px;
+  top: -18px;
+  left: 0;
+  border-radius: 50%;
+  background: #532d09;
+}
+.cup .coffee::before,
+.cup .coffee::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background: rgba(51, 51, 51, 0.2);
+  border-radius: 100px 0;
+  width: 100px;
+  height: 30px;
+  z-index: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+small {
+  color: #878787;
+}
+
+.input {
+  background: #dddddd;
+  position: relative;
+  width: 39px;
+  padding: 0;
+  height: 29px;
+  width: 35px;
+  height: 35px;
+  color: black;
+  outline: none;
+  border: none;
+  text-align: center;
+  border-radius: 4px;
+  margin: 1.5em auto 0 auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.right-panel {
+  border-right: none;
+  background-color: #f7f4ea;
+  width: 35%;
+}
+
+.machine {
+  position: relative;
+  max-width: 300px;
+  margin: 2em auto;
+}
+
+.machine:after,
+.machine:before {
+  content: '';
+  position: absolute;
+  bottom: -19px;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
+.machine:before {
+  left: 50px;
+}
+
+.machine:after {
+  right: 50px;
+}
+
+.cup-wrapper {
+  position: absolute;
+  width: 81px;
+  height: 72px;
+  left: 25%;
+  top: 13%;
+  transform: translateX(-23%);
+  border-radius: 23px;
+  background-color: wheat;
+}
+
+.machine-top-container {
+  -ms-perspective: 600px;
+  perspective: 600px;
+}
+.machine-top {
+  height: 65px;
+  width: 89.5%;
+  background-color: #343434;
+  transform: rotateX(65deg) translateY(36px) translateX(5.8%);
+}

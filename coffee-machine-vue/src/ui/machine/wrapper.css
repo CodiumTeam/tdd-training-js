@@ -1,0 +1,45 @@
+.machine {
+  position: relative;
+  max-width: 300px;
+  margin: 2em auto;
+}
+
+.machine:after,
+.machine:before {
+  content: '';
+  position: absolute;
+  bottom: -19px;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
+.machine:before {
+  left: 50px;
+}
+
+.machine:after {
+  right: 50px;
+}
+
+.cup-wrapper {
+  position: absolute;
+  width: 81px;
+  height: 72px;
+  left: 25%;
+  top: 13%;
+  transform: translateX(-23%);
+  border-radius: 23px;
+  background-color: wheat;
+}
+
+.machine-top-container {
+  -ms-perspective: 600px;
+  perspective: 600px;
+}
+.machine-top {
+  height: 65px;
+  width: 89.5%;
+  background-color: #343434;
+  transform: rotateX(65deg) translateY(36px) translateX(5.8%);
+}
