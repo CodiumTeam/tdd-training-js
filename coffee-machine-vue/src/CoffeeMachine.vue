@@ -2,6 +2,7 @@
   <MachineWrapper>
     <DrinksBlock>
       <ColumnsButtonsGroup>
+        <Button text="Coffee" :onClick="handleClick" />
 <!--        Please read the README to see the available React components.-->
       </ColumnsButtonsGroup>
     </DrinksBlock>
@@ -11,6 +12,7 @@
     </RightPanel>
 
     <div class="output">
+      <DrinkMakerBox :command="command" />
     </div>
   </MachineWrapper>
 </template>
@@ -21,6 +23,8 @@ import ColumnsButtonsGroup from './ui/buttons/ColumnsButtonsGroup.vue';
 import RightPanel from './ui/machine/RightPanel.vue';
 import CoffeeCup from "./ui/coffee/CoffeeCup.vue";
 import MachineWrapper from "./ui/machine/Wrapper.vue";
+import Button from "./ui/buttons/Button.vue";
+import DrinkMakerBox from "./infrastructure/DrinkMakerBox.vue";
 
 export default {
   components: {
@@ -29,6 +33,8 @@ export default {
     DrinksBlock,
     ColumnsButtonsGroup,
     RightPanel,
+    Button,
+    DrinkMakerBox
   },
   data() {
     return {
@@ -36,9 +42,9 @@ export default {
     };
   },
   methods: {
-    onInsertedCoin(insertedCoin) {
-      // Handle inserted coin
-    }
+    handleClick() {
+      this.command = 'c'
+    },
   }
 }
 </script>

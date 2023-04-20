@@ -196,8 +196,9 @@ button.small {
   position: relative;
   transform: translate(10%, 10px);
   top: 60px;
-  left: -83px;
   text-align: right;
+  margin-top: 1rem;
+  max-width: 100px;
 }
 
 .button-group li.is-selected .button {
@@ -209,7 +210,7 @@ button.small {
 }
 
 .button-group button {
-  margin-top: 1em;
+  margin-top: 0.4em;
 }
 
 .button {
