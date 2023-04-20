@@ -2,7 +2,6 @@
   <MachineWrapper>
     <DrinksBlock>
       <ColumnsButtonsGroup>
-        <Button text="Coffee" :onClick="handleClick" />
 <!--        Please read the README to see the available React components.-->
       </ColumnsButtonsGroup>
     </DrinksBlock>
@@ -43,7 +42,6 @@ export default {
   },
   methods: {
     handleClick() {
-      this.command = 'c'
     },
   }
 }
