@@ -5,9 +5,7 @@ small {
 .input {
   background: #dddddd;
   position: relative;
-  width: 39px;
   padding: 0;
-  height: 29px;
   width: 35px;
   height: 35px;
   color: black;
@@ -15,9 +13,8 @@ small {
   border: none;
   text-align: center;
   border-radius: 4px;
-  margin: 1.5em auto 0 auto;
   display: block;
-  margin-bottom: 1rem;
+  margin: 1.5em auto 1rem;
 }
 
 input::-webkit-outer-spin-button,

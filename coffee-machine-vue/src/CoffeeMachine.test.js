@@ -6,11 +6,11 @@ import {drinkMaker} from "./infrastructure/drinkMaker";
 // Uncommenting this line we will change the behaviour of the drinkMaker file
 // jest.mock('./infrastructure/drinkMaker.js');
 
-test('User is able to select "Coffee"', function () {
+test('User is able to select "Coffee"', async function () {
   render(CoffeeMachine);
   const coffeeButton = screen.getByText('Coffee');
 
-  userEvent.click(coffeeButton);
+  await userEvent.click(coffeeButton);
 
   expect(true).toBe(true);
 });
