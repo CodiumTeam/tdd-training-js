@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/vue';
+import {render, screen} from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import CoffeeMachine from './CoffeeMachine.vue';
 import {drinkMaker} from "./infrastructure/drinkMaker";
@@ -8,8 +8,8 @@ import {drinkMaker} from "./infrastructure/drinkMaker";
 
 test('User is able to select "Coffee"', async function () {
   render(CoffeeMachine);
-  const coffeeButton = screen.getByText('Coffee');
 
+  const coffeeButton = screen.getByText('Coffee');
   await userEvent.click(coffeeButton);
 
   expect(true).toBe(true);

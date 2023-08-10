@@ -15,12 +15,6 @@
 <script>
 export default {
   name: 'InsertCoin',
-  props: {
-    onInsertedCoin: {
-      type: Function,
-      required: true,
-    },
-  },
   data() {
     return {
       insertedCoins: '',
@@ -30,7 +24,7 @@ export default {
     handleOnChange(event) {
       const insertedCoin = event.target.value;
       this.insertedCoins = insertedCoin;
-      this.onInsertedCoin(insertedCoin);
+      this.$emit('onInsertedCoin', insertedCoin);
     },
   },
 };

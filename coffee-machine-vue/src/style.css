@@ -86,6 +86,12 @@ h2 {
   margin-left: 2px;
 }
 
+.drink-maker-image--O img {
+  max-width: 75px;
+  margin-top: 1.5em;
+  margin-left: 2px;
+}
+
 .drink-maker-image.C-1-0 img,
 .drink-maker-image.C-2-0 img {
   max-width: 85px;

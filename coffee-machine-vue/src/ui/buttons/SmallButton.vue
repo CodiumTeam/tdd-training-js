@@ -1,5 +1,7 @@
 <template>
-  <Button :small="true" :text="text" :onClick="onClick" />
+  <Button :small="true">
+    <slot></slot>
+  </Button>
 </template>
 
 <script>
@@ -9,16 +11,6 @@ export default {
   name: 'SmallButton',
   components: {
     Button,
-  },
-  props: {
-    text: {
-      type: String,
-      required: true,
-    },
-    onClick: {
-      type: Function,
-      default: () => {},
-    },
   },
 };
 </script>

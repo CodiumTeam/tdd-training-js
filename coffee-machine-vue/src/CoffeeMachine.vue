@@ -2,7 +2,7 @@
   <MachineWrapper>
     <DrinksBlock>
       <ColumnsButtonsGroup>
-<!--        Please read the README to see the available React components.-->
+        <p>This is the left panel</p>
       </ColumnsButtonsGroup>
     </DrinksBlock>
 
@@ -41,8 +41,6 @@ export default {
     };
   },
   methods: {
-    handleClick() {
-    },
   }
 }
 </script>

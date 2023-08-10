@@ -1,6 +1,6 @@
 <template>
-  <button @click="onClick" :class="['button', { 'small': small }]">
-    {{ text }}
+  <button @click="$emit('onClick')" :class="['button', { 'small': small }]">
+    <slot></slot>
   </button>
 </template>
 
@@ -8,14 +8,6 @@
 export default {
   name: 'Button',
   props: {
-    text: {
-      type: String,
-      required: true,
-    },
-    onClick: {
-      type: Function,
-      default: () => {},
-    },
     small: {
       type: Boolean,
       default: false,

@@ -27,7 +27,7 @@ export default {
     isValidCommand: function() {
       if (!this.$props.command) return false;
 
-      if (isValidCommand(this.$props.command)) {
+      if (!isValidCommand(this.$props.command)) {
         return false
       }
 
