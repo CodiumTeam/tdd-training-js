@@ -11,4 +11,14 @@ describe('CoffeeMachine', function () {
 
     expect(drinkMaker.execute).toBeCalledWith("C::");
   });
+
+  it('prepare tea without sugar', function () {
+    const drinkMaker = new DrinkMaker();
+    drinkMaker.execute = jest.fn()
+    let coffeeMachine = new CoffeeMachine(drinkMaker);
+
+    coffeeMachine.prepareTea();
+
+    expect(drinkMaker.execute).toBeCalledWith("T::");
+  });
 });

@@ -7,6 +7,10 @@ class CoffeeMachine {
     prepareCoffee() {
         this._drinkMaker.execute("C::");
     }
+
+    prepareTea() {
+        this._drinkMaker.execute("T::");
+    }
 }
 
 module.exports = CoffeeMachine;
