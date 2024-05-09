@@ -58,4 +58,13 @@ describe('CoffeeMachine', function () {
     expect(drinkMaker.execute).toBeCalledWith("C:2:0");
   });
 
+  it('0 suggar is always the default value', function () {
+    coffeeMachine.selectTwoSugar();
+    coffeeMachine.prepareCoffee();
+
+    coffeeMachine.prepareCoffee();
+
+    expect(drinkMaker.execute).toBeCalledWith("C::");
+  });
+
 });

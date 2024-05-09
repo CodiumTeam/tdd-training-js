@@ -38,6 +38,7 @@ class CoffeeMachine {
         } else {
             this._drinkMaker.execute(this._drinkType + ":" + this._sugar + ":0");
         }
+        this._sugar = 0;
     }
 }
 
