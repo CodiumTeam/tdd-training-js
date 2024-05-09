@@ -5,27 +5,32 @@ class CoffeeMachine {
     }
 
 
+    _drinkType = "";
+
     prepareCoffee() {
+        this._drinkType = "C";
         if (this._sugar === 0) {
-            this._drinkMaker.execute("C::");
+            this._drinkMaker.execute(this._drinkType + "::");
         } else {
-            this._drinkMaker.execute("C:1:0");
+            this._drinkMaker.execute(this._drinkType + ":1:0");
         }
     }
 
     prepareTea() {
+        this._drinkType = "T"
         if (this._sugar === 0) {
-            this._drinkMaker.execute("T::");
+            this._drinkMaker.execute(this._drinkType + "::");
         } else {
-            this._drinkMaker.execute("T:1:0");
+            this._drinkMaker.execute(this._drinkType + ":1:0");
         }
     }
 
     prepareChocolate() {
+        this._drinkType = "H"
         if (this._sugar === 0) {
-            this._drinkMaker.execute("H::");
+            this._drinkMaker.execute(this._drinkType + "::");
         } else {
-            this._drinkMaker.execute("H:1:0");
+            this._drinkMaker.execute(this._drinkType + ":1:0");
         }
     }
 
