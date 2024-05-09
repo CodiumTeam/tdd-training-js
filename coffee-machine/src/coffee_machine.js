@@ -38,8 +38,12 @@ class CoffeeMachine {
     }
 
     _prepareDrink() {
-        if (this._amount < 60) {
+        if (this._amount < 60 && this._drinkType === 'C') {
             this._drinkMaker.execute("M: You need to add 60 cents");
+            return;
+        }
+        if (this._amount < 60 && this._drinkType === 'T') {
+            this._drinkMaker.execute("M: You need to add 40 cents");
             return;
         }
         if (this._sugar === 0) {
