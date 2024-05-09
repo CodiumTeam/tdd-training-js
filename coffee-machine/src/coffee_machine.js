@@ -9,33 +9,31 @@ class CoffeeMachine {
 
     prepareCoffee() {
         this._drinkType = "C";
-        if (this._sugar === 0) {
-            this._drinkMaker.execute(this._drinkType + "::");
-        } else {
-            this._drinkMaker.execute(this._drinkType + ":1:0");
-        }
+        this._prepareDrink();
     }
+
+
 
     prepareTea() {
         this._drinkType = "T"
-        if (this._sugar === 0) {
-            this._drinkMaker.execute(this._drinkType + "::");
-        } else {
-            this._drinkMaker.execute(this._drinkType + ":1:0");
-        }
+        this._prepareDrink();
     }
 
     prepareChocolate() {
         this._drinkType = "H"
+        this._prepareDrink();
+    }
+
+    selectOneSugar() {
+        this._sugar = 1;
+    }
+
+    _prepareDrink() {
         if (this._sugar === 0) {
             this._drinkMaker.execute(this._drinkType + "::");
         } else {
             this._drinkMaker.execute(this._drinkType + ":1:0");
         }
-    }
-
-    selectOneSugar() {
-        this._sugar = 1;
     }
 }
 
