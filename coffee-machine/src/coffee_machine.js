@@ -2,6 +2,7 @@ class CoffeeMachine {
     constructor(drinkMaker) {
         this._drinkMaker = drinkMaker;
         this._sugar = 0;
+        this._amount = 0;
     }
 
 
@@ -32,11 +33,15 @@ class CoffeeMachine {
         this._sugar = 2;
     }
 
-    insertMoney() {
-
+    insertMoney(amount) {
+        this._amount = amount;
     }
 
     _prepareDrink() {
+        if (this._amount < 60) {
+            this._drinkMaker.execute("M: You need to add 60 cents");
+            return;
+        }
         if (this._sugar === 0) {
             this._drinkMaker.execute(this._drinkType + "::");
         } else {
