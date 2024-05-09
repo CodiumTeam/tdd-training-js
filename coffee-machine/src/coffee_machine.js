@@ -28,11 +28,15 @@ class CoffeeMachine {
         this._sugar = 1;
     }
 
+    selectTwoSugar() {
+        this._sugar = 2;
+    }
+
     _prepareDrink() {
         if (this._sugar === 0) {
             this._drinkMaker.execute(this._drinkType + "::");
         } else {
-            this._drinkMaker.execute(this._drinkType + ":1:0");
+            this._drinkMaker.execute(this._drinkType + ":" + this._sugar + ":0");
         }
     }
 }
