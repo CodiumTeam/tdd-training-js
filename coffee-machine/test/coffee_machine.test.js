@@ -88,6 +88,13 @@ describe('CoffeeMachine', function () {
     expect(drinkMaker.execute).toHaveBeenCalledTimes(1);
   });
 
+  it('you need to pay for the chocolate', function () {
+    coffeeMachine.prepareChocolate();
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith("M: You need to add 50 cents");
+    expect(drinkMaker.execute).toHaveBeenCalledTimes(1);
+  });
+
   function addEnoughMoney() {
     coffeeMachine.insertMoney(100)
   }

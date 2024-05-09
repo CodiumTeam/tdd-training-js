@@ -46,6 +46,10 @@ class CoffeeMachine {
             this._drinkMaker.execute("M: You need to add 40 cents");
             return;
         }
+        if (this._amount < 50 && this._drinkType === 'H') {
+            this._drinkMaker.execute("M: You need to add 50 cents");
+            return;
+        }
         if (this._sugar === 0) {
             this._drinkMaker.execute(this._drinkType + "::");
         } else {
