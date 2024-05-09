@@ -37,4 +37,11 @@ describe('CoffeeMachine', function () {
     expect(drinkMaker.execute).toBeCalledWith("C:1:0");
   });
 
+  it('prepare tea with one sugar', function () {
+    coffeeMachine.selectOneSugar();
+    coffeeMachine.prepareTea();
+
+    expect(drinkMaker.execute).toBeCalledWith("T:1:0");
+  });
+
 });

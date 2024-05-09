@@ -14,7 +14,11 @@ class CoffeeMachine {
     }
 
     prepareTea() {
-        this._drinkMaker.execute("T::");
+        if (this._sugar === 0) {
+            this._drinkMaker.execute("T::");
+        } else {
+            this._drinkMaker.execute("T:1:0");
+        }
     }
 
     prepareChocolate() {
