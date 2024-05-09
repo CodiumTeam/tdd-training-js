@@ -22,7 +22,11 @@ class CoffeeMachine {
     }
 
     prepareChocolate() {
-        this._drinkMaker.execute("H::");
+        if (this._sugar === 0) {
+            this._drinkMaker.execute("H::");
+        } else {
+            this._drinkMaker.execute("H:1:0");
+        }
     }
 
     selectOneSugar() {
