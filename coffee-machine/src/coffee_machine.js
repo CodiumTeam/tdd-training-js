@@ -11,6 +11,10 @@ class CoffeeMachine {
     prepareTea() {
         this._drinkMaker.execute("T::");
     }
+
+    prepareChocolate() {
+        this._drinkMaker.execute("H::");
+    }
 }
 
 module.exports = CoffeeMachine;

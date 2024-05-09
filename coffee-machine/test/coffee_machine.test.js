@@ -22,4 +22,10 @@ describe('CoffeeMachine', function () {
 
     expect(drinkMaker.execute).toBeCalledWith("T::");
   });
+
+  it('prepare chocolate without sugar', function () {
+    coffeeMachine.prepareChocolate();
+
+    expect(drinkMaker.execute).toBeCalledWith("H::");
+  });
 });
