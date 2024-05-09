@@ -1,11 +1,16 @@
 class CoffeeMachine {
     constructor(drinkMaker) {
         this._drinkMaker = drinkMaker;
+        this._sugar = 0;
     }
 
 
     prepareCoffee() {
-        this._drinkMaker.execute("C::");
+        if (this._sugar === 0) {
+            this._drinkMaker.execute("C::");
+        } else {
+            this._drinkMaker.execute("C:1:0");
+        }
     }
 
     prepareTea() {
@@ -14,6 +19,10 @@ class CoffeeMachine {
 
     prepareChocolate() {
         this._drinkMaker.execute("H::");
+    }
+
+    selectOneSugar() {
+        this._sugar = 1;
     }
 }
 

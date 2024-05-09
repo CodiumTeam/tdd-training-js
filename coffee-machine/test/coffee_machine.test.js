@@ -28,4 +28,13 @@ describe('CoffeeMachine', function () {
 
     expect(drinkMaker.execute).toBeCalledWith("H::");
   });
+
+
+  it('prepare coffee with one sugar', function () {
+    coffeeMachine.selectOneSugar();
+    coffeeMachine.prepareCoffee();
+
+    expect(drinkMaker.execute).toBeCalledWith("C:1:0");
+  });
+
 });
