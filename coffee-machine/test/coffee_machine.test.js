@@ -12,25 +12,28 @@ describe('CoffeeMachine', function () {
   });
 
   it('prepare coffee without sugar', function () {
+    addEnoughMoney();
     coffeeMachine.prepareCoffee();
 
     expect(drinkMaker.execute).toBeCalledWith("C::");
   });
 
   it('prepare tea without sugar', function () {
+    addEnoughMoney();
     coffeeMachine.prepareTea();
 
     expect(drinkMaker.execute).toBeCalledWith("T::");
   });
 
   it('prepare chocolate without sugar', function () {
+    addEnoughMoney();
     coffeeMachine.prepareChocolate();
 
     expect(drinkMaker.execute).toBeCalledWith("H::");
   });
 
-
   it('prepare coffee with one sugar', function () {
+    addEnoughMoney();
     coffeeMachine.selectOneSugar();
     coffeeMachine.prepareCoffee();
 
@@ -38,6 +41,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('prepare tea with one sugar', function () {
+    addEnoughMoney();
     coffeeMachine.selectOneSugar();
     coffeeMachine.prepareTea();
 
@@ -45,6 +49,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('prepare chocolate with one sugar', function () {
+    addEnoughMoney();
     coffeeMachine.selectOneSugar();
     coffeeMachine.prepareChocolate();
 
@@ -52,6 +57,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('prepare drinks with two sugars', function () {
+    addEnoughMoney();
     coffeeMachine.selectTwoSugar();
     coffeeMachine.prepareCoffee();
 
@@ -59,6 +65,7 @@ describe('CoffeeMachine', function () {
   });
 
   it('0 suggar is always the default value', function () {
+    addEnoughMoney();
     coffeeMachine.selectTwoSugar();
     coffeeMachine.prepareCoffee();
 
@@ -67,4 +74,7 @@ describe('CoffeeMachine', function () {
     expect(drinkMaker.execute).toBeCalledWith("C::");
   });
 
+  function addEnoughMoney() {
+    coffeeMachine.insertMoney(100)
+  }
 });

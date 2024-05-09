@@ -32,6 +32,10 @@ class CoffeeMachine {
         this._sugar = 2;
     }
 
+    insertMoney() {
+
+    }
+
     _prepareDrink() {
         if (this._sugar === 0) {
             this._drinkMaker.execute(this._drinkType + "::");
