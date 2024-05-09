@@ -1,4 +1,10 @@
 class CoffeeMachine {
+    _prices = {
+        'C' : 60,
+        'H' : 50,
+        'T' : 40,
+
+    };
     constructor(drinkMaker) {
         this._drinkMaker = drinkMaker;
         this._sugar = 0;
@@ -38,16 +44,9 @@ class CoffeeMachine {
     }
 
     _prepareDrink() {
-        if (this._amount < 60 && this._drinkType === 'C') {
-            this._drinkMaker.execute("M: You need to add 60 cents");
-            return;
-        }
-        if (this._amount < 60 && this._drinkType === 'T') {
-            this._drinkMaker.execute("M: You need to add 40 cents");
-            return;
-        }
-        if (this._amount < 50 && this._drinkType === 'H') {
-            this._drinkMaker.execute("M: You need to add 50 cents");
+        const amountDifference =  this._prices[this._drinkType] - this._amount;
+        if (amountDifference > 0)   {
+            this._drinkMaker.execute("M: You need to add " + amountDifference + " cents");
             return;
         }
         if (this._sugar === 0) {
