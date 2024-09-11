@@ -1,7 +1,3 @@
-class RomanNumerals {
-  changeThisName() {
+export function  changeThisName() {
     return true;
-  }
 }
-
-module.exports = RomanNumerals;
